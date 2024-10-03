@@ -6,4 +6,5 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://astronaut.github.io',
   integrations: [react()],
+  output: 'static',
 });
