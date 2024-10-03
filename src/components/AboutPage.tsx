@@ -1,4 +1,4 @@
-import Image from '../images/RB-photo.png'
+import Image from '../Images/RB-photo.png'
 import './AboutPage.css'
 
 const About = () => {
