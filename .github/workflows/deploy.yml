@@ -22,8 +22,11 @@ jobs:
         with:
           node-version: '20'  # Specify Node.js version
 
+      - name: Upgrade NPM
+        run: npm install -g npm@latest
+
       - name: Install dependencies
-        run: npm ci  # Clean install dependencies
+        run: npm install --include=optional
 
       - name: Build site
         run: npm run build
