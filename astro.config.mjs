@@ -7,13 +7,4 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://astronaut.github.io',
   integrations: [react()],
-  vite: {
-    plugins: [
-      reactPlugin({
-        babel: {
-          plugins: ['babel-plugin-styled-components'],
-        },
-      }),
-    ],
-  },
 });
