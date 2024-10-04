@@ -1,9 +1,18 @@
 ---
+import AboutMeComponent from "../components/elements/AboutMe/index.tsx"
+import CardsList from "../components/elements/Cardslist";
+import ContactMe from "../components/elements/ContactMe";
+import NavBarContainer from "../components/elements/NavBarContainer";
+import TopSection from "../components/elements/TopSection";
 import Layout from "../layouts/Layout.astro";
-import AboutPage from "../components/AboutPage";
+
 ---
 
 <Layout title="About Me" />
-<AboutPage />
+<NavBarContainer />
+<TopSection />
+<AboutMeComponent />
+<CardsList/>
+<ContactMe />
 
 <style></style>

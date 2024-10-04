@@ -1,0 +1,94 @@
+.container {
+  top: 0;
+  left: 0;
+  background-color: #0a1128;
+  display: flex;
+  flex-direction: column;
+  z-index: 9;
+  padding: 50px 150px;
+
+  @media screen and (max-width: 460px) {
+    padding: 50px 20px;
+  }
+}
+
+.greetings {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-family: 'EB Garamond', sans-serif;
+  line-height: 1;
+  color: #ff5c39;
+}
+
+.name {
+  margin: 0;
+  color: #ced4da;
+  font-weight: 700;
+  font-size: 4rem;
+  font-family: 'Cairo', sans-serif;
+
+  @media screen and (max-width: 460px) {
+    font-size: 3rem;
+    margin-top: 40px;
+  }
+}
+
+.description {
+  margin: 0;
+  color: #d9d9d9;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-right: 20%;
+  padding-top: 5px;
+  line-height: 1.3;
+  font-family: 'Cairo', sans-serif;
+}
+
+.goal {
+  color: #d9d9d9;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-right: 15%;
+  font-family: 'Mukta', sans-serif;
+  line-height: 1.3;
+  padding-top: 9px;
+}
+
+.showMe {
+  color: #ff5c39;
+  border: 1px solid #ff5c39;
+  background-color: #0a1128;
+  width: 250px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  font-family: 'Mukta', sans-serif;
+  font-size: 1.1rem;
+  border-radius: 3px;
+}
+
+.showMe:hover {
+  transition: all 0.8s ease-in-out;
+  color: #0a1128;
+  background-color: #ff5c39;
+  font-weight: bold;
+}
+
+.resumé {
+  border: 1px solid #0a1128;
+  background-color: #ff5c39;
+  width: 250px;
+  padding: 10px 15px;
+  margin-top: 30px;
+  font-family: 'Mukta', sans-serif;
+  font-size: 1.3rem;
+  border-radius: 3px;
+  color: #0a1128;
+}
+
+.resumé:hover {
+  transition: all 0.8s ease-in-out;
+  color: #ff5c39;
+  background-color: #0a1128;
+  border: 1px solid #ff5c39;
+}

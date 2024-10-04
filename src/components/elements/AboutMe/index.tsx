@@ -1,7 +1,7 @@
-import Image from '../Images/RB-photo.png'
-import './AboutPage.css'
+import Image from '../../../Assets/Images/RB-photo.png'
+import './index.css'
 
-const About = () => {
+const AboutMeComponent = () => {
   return (
     <div id="about">
       <div className="title">
@@ -16,11 +16,7 @@ const About = () => {
               href="https://adatechschool.fr/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                textDecoration: 'none',
-                color: '#FF5C39',
-                cursor: 'pointer',
-              }}
+              className="link"
             >
               Ada Tech School
             </a>
@@ -56,12 +52,7 @@ const About = () => {
                 href="https://www.simplists.net/"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  textDecoration: 'none',
-                  color: '#FF5C39',
-                  cursor: 'pointer',
-                  margin: '0px 3px',
-                }}
+                className="link"
               >
                 Simplists
               </a>
@@ -70,12 +61,7 @@ const About = () => {
                 href="https://web.dev/explore/progressive-web-apps"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  textDecoration: 'none',
-                  color: '#FF5C39',
-                  cursor: 'pointer',
-                  margin: '0px 3px',
-                }}
+                className="link"
               >
                 PWA
               </a>{' '}
@@ -93,11 +79,7 @@ const About = () => {
                 href="https://www.simplists.net/"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  textDecoration: 'none',
-                  color: '#FF5C39',
-                  cursor: 'pointer',
-                }}
+                className="link"
               >
                 Simplists
               </a>
@@ -109,12 +91,7 @@ const About = () => {
                 href="https://jotchua-maker.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  textDecoration: 'none',
-                  color: '#FF5C39',
-                  cursor: 'pointer',
-                  margin: '0px 3px',
-                }}
+                className="link"
               >
                 Jotchua
               </a>{' '}
@@ -132,11 +109,11 @@ const About = () => {
         </div>
         <div className="images-container">
           <div className="cadre"></div>
-          <img src={Image.src} className="photo"></img>
+          <img src={Image.src} className="photo" alt="picture of a gentleman" />
         </div>
       </div>
     </div>
   )
 }
 
-export default About
+export default AboutMeComponent

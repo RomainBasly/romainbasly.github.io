@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "id": 5,
+      "title": "Simplists",
+      "StacksFront": "FRONT: NextJS - Typescript - SASS",
+      "StacksBack": "BACK : Express - Typescript - Tsyringe - Mailtrap",
+      "OtherStacks": "OTHER Socket.io, Docker, Nginx, GCP, DigitalOcean",
+      "Description": "PWA to Digitalize. Share. Simplify your lists management",
+      "urlGif": "/src/Assets/Images/simplists.gif",
+      "urlGithub": "https://github.com/RomainBasly/simplists",
+      "AdditionalLink": "https://www.simplists.net/",
+      "alt": "Image of Simplists application"
+    },
+    {
+      "id": 6,
+      "title": "Jotchua meme maker",
+      "StacksFront": "STACK: NextJS - Typescript - FabricJS - SASS",
+      "StacksBack": "",
+      "OtherStacks": "",
+      "Description": "Allow people to play and create memes with a cute little dog",
+      "urlGif": "/src/Assets/Images/jotchua-maker.gif",
+      "urlGithub": "https://github.com/RomainBasly/jotchua-maker",
+      "AdditionalLink": "https://jotchua-maker.vercel.app/",
+      "alt": "Jotchua Maker preview"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+.card-project {
+  height: 500px;
+  border: 1px solid #ff5c39;
+  text-align: center;
+  border-radius: 10px;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 200;
+  margin: 10px;
+  background-color: #0a1128;
+  max-width: 450px;
+  transition: all 0.5s ease-in-out;
+
+  @media screen and (max-width: 550px) {
+    max-width: 400px;
+  }
+  @media screen and (max-width: 400px) {
+    max-width: 350px;
+  }
+  @media screen and (max-width: 360px) {
+    max-width: 330px;
+  }
+  @media screen and (max-width: 320px) {
+    max-width: 280px;
+  }
+}
+
+.card-project:hover {
+  background-color: #ff5c39;
+  opacity: 0.8;
+}
+
+.project-title {
+  color: white;
+}
+
+.img {
+  z-index: 19;
+  max-width: 320px;
+
+  @media screen and (min-width: 1800px) {
+    max-width: 400px;
+  }
+  @media screen and (max-width: 360px) {
+    max-width: 320px;
+  }
+  @media screen and (max-width: 320px) {
+    max-width: 260px;
+  }
+}
+
+.project-description {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  align-items: center;
+}
+
+.githubLink,
+.playLink {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.githubLink:hover,
+.playLink:hover {
+  color: #0a1128;
+}
+
+.list {
+  display: block;
+  gap: 0px 10px;
+  padding: 0px;
+  margin-left: 5%;
+  overflow: hidden;
+  list-style: none;
+}
+
+.project-details {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.project-details:before {
+  content: '◌';
+  position: absolute;
+  left: 0px;
+  color: #ff5c39;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 550px) {
+  .projectDetails {
+    font-size: 0.8rem;
+  }
+
+  .project-details:before {
+    font-size: 0.8rem;
+  }
+}

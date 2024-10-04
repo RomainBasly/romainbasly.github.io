@@ -1,0 +1,143 @@
+/* Navbar Styles */
+.nav {
+  background: #0a1128;
+  height: 15vh;
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  z-index: 21;
+  font-size: 1rem;
+  align-items: center;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.nav-menu {
+  height: 100%;
+}
+
+.nav img {
+  width: 50px;
+  align-items: center;
+}
+
+.nav-logo {
+  justify-self: flex-start;
+  cursor: pointer;
+  font-size: 0.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Nav Items and Links */
+.nav-items {
+  height: 100%;
+  display: flex;
+  padding: 0;
+}
+
+.nav-links {
+  color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 0.4rem;
+  cursor: pointer;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+.nav-links:hover {
+  transition: all 0.5s ease-in-out;
+  color: #ff5c39;
+}
+
+.number {
+  color: #ff5c39;
+}
+
+/* Resume Button */
+.download-resume {
+  border-radius: 2px;
+  padding: 10px 15px;
+  background-color: #0a1128;
+  color: #ff5c39;
+  border: 1px solid #ff5c39;
+  font-family: 'Cairo', sans-serif;
+}
+
+.download-resume:hover {
+  transition: all 0.5s ease-in-out;
+  background-color: #ff5c39;
+  color: #0a1128;
+}
+
+/* Mobile Icon */
+.mobile-icon {
+  display: none;
+}
+
+.burger {
+  align-items: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 16000px) {
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+  }
+
+  .nav-logo {
+    margin-left: 5%;
+  }
+
+  .nav img {
+    width: 50px;
+    align-items: center;
+  }
+
+  .resume-container {
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 825px) {
+  .nav-menu,
+  .resume-container {
+    display: none;
+  }
+
+  .mobile-icon {
+    display: flex;
+    position: absolute;
+    right: 10%;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ff5c39;
+    z-index: 11;
+    align-items: center;
+  }
+
+  .burger {
+    align-items: center;
+  }
+
+  .nav-logo {
+    margin-left: 10%;
+  }
+}
