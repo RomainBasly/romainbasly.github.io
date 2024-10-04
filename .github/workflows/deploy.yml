@@ -36,7 +36,7 @@ jobs:
         run: pnpm run build
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: github-pages  # This must match the artifact name in the deploy step
           path: ./dist
