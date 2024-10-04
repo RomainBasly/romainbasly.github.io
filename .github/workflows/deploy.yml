@@ -20,6 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
+          setup_node: true
           node-version: '20'  # Specify Node.js version
 
       - name: Clean previous build artifacts
@@ -35,7 +36,7 @@ jobs:
         run: pnpm run build
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v1
         with:
           name: github-pages  # This must match the artifact name in the deploy step
           path: ./dist
@@ -49,4 +50,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
