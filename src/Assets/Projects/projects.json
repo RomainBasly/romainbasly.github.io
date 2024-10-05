@@ -7,7 +7,7 @@
       "StacksBack": "BACK : Express - Typescript - Tsyringe - Mailtrap",
       "OtherStacks": "OTHER Socket.io, Docker, Nginx, GCP, DigitalOcean",
       "Description": "PWA to Digitalize. Share. Simplify your lists management",
-      "urlGif": "public/Images/simplists.gif",
+      "urlGif": "/Images/simplists.gif",
       "urlGithub": "https://github.com/RomainBasly/simplists",
       "AdditionalLink": "https://www.simplists.net/",
       "alt": "Image of Simplists application"
@@ -19,7 +19,7 @@
       "StacksBack": "",
       "OtherStacks": "",
       "Description": "Allow people to play and create memes with a cute little dog",
-      "urlGif": "/public/Images/jotchua-maker.gif",
+      "urlGif": "/Images/jotchua-maker.gif",
       "urlGithub": "https://github.com/RomainBasly/jotchua-maker",
       "AdditionalLink": "https://jotchua-maker.vercel.app/",
       "alt": "Jotchua Maker preview"
