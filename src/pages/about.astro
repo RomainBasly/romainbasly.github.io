@@ -9,8 +9,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About Me" />
-<NavBarContainer />
-<TopSection />
+<NavBarContainer client:load/>
+<TopSection client:load/>
 <AboutMeComponent />
 <CardsList/>
 <ContactMe />

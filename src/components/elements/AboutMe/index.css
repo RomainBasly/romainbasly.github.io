@@ -1,22 +1,35 @@
 #about {
   background-color: #0a1128;
-  padding: 14% 20%;
+  padding: 100px 350px;
   margin: 30px;
 
+  @media screen and (max-width: 1200px) {
+    padding: 100px 250px;
+  }
+  @media screen and (max-width: 900px) {
+    padding: 100px 100px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 100px 50px;
+  }
   @media screen and (max-width: 500px) {
-    padding: 20px 10px;
+    padding: 10px 25px;
   }
 }
 
-.section {
+.section-about {
   background-color: #0a1128;
   color: white;
   display: flex;
   position: relative;
   align-items: flex-start;
+  flex-direction: row;
 
   @media screen and (max-width: 880px) {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -31,8 +44,7 @@
 }
 
 .images-container {
-  display: inline-block;
-  margin-right: auto;
+  display: flex;
   z-index: 20;
   position: relative;
 

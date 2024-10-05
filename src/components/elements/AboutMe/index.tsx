@@ -8,7 +8,7 @@ const AboutMeComponent = () => {
         <span style={{ color: '#FF5C39', fontWeight: '400' }}>1. </span> About
         Me
       </div>
-      <div className="section">
+      <div className="section-about">
         <div className="presentation-text">
           <div className="paragraph">
             After completing a 9-month program at{' '}

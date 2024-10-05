@@ -5,14 +5,15 @@
   display: flex;
   flex-direction: column;
   z-index: 9;
-  padding: 50px 150px;
+  padding: 250px 150px;
 
   @media screen and (max-width: 460px) {
-    padding: 50px 20px;
+    padding: 120px 20px;
   }
 }
 
-.greetings {
+.greetings-top {
+  display: flex;
   margin: 0;
   font-size: 1.3rem;
   font-weight: 500;
@@ -30,7 +31,7 @@
 
   @media screen and (max-width: 460px) {
     font-size: 3rem;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 

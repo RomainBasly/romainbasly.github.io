@@ -14,14 +14,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
           </a>
         </div>
         <div className="mobile-icon">
-          <FaBars
-            className="burger"
-            onClick={() => {
-              toggle()
-              scroll.scrollToTop()
-              toggle()
-            }}
-          />
+          <FaBars className="burger" onClick={toggle} />
         </div>
         <div className="nav-menu">
           <div className="nav-items">
