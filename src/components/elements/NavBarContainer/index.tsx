@@ -1,17 +1,19 @@
 import { useState } from 'react'
+import { useStore } from '@nanostores/react'
 import Navbar from './NavBar/index.tsx'
 import Sidebar from './SideBar/index.tsx'
+import { isNavBarOpen } from '../../utils/index.tsx'
 
 const NavBarContainer = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const $isNavBarOpen = useStore(isNavBarOpen)
 
   const toggle = () => {
-    setIsOpen(!isOpen)
+    isNavBarOpen.set(!$isNavBarOpen)
   }
 
   return (
     <div>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Sidebar toggle={toggle} />
       <Navbar toggle={toggle} />
     </div>
   )

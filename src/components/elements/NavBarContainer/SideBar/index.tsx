@@ -1,15 +1,14 @@
 import { FaTimes } from 'react-icons/fa'
-import { Link as LinkScroll } from 'react-scroll'
 import { ExternalLink } from 'react-external-link'
-import './index.css' // Import the external CSS file
+import './index.css'
+import { useStore } from '@nanostores/react'
+import { isNavBarOpen } from '../../../utils'
 
-function Sidebar({
-  isOpen,
-  toggle,
-}: Readonly<{ isOpen: boolean; toggle: () => void }>) {
+function Sidebar({ toggle }: Readonly<{ toggle: () => void }>) {
+  const $isNavBarOpen = useStore(isNavBarOpen)
   return (
     <aside
-      className={`sidebar-container ${isOpen ? 'open' : 'closed'}`}
+      className={`sidebar-container ${$isNavBarOpen ? 'open' : 'closed'}`}
       onClick={toggle}
     >
       <div className="icon">
@@ -23,28 +22,14 @@ function Sidebar({
             </a>
           </li>
           <li>
-            <LinkScroll
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={1500}
-              className="sidebar-link"
-            >
+            <a href="/about#projects" onClick={toggle} className="sidebar-link">
               Projects
-            </LinkScroll>
+            </a>
           </li>
           <li>
-            <LinkScroll
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={1500}
-              className="sidebar-link"
-            >
+            <a href="/about#contact" onClick={toggle} className="sidebar-link">
               Contact
-            </LinkScroll>
+            </a>
           </li>
           <li>
             <ExternalLink

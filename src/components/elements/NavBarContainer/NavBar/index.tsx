@@ -21,26 +21,12 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
             <a href="/about" className="nav-links">
               <span className="number">1. </span> About
             </a>
-            <LinkScroll
-              to="projects"
-              className="nav-links"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={1500}
-            >
+            <a href="/about#projects" onClick={toggle} className="nav-links">
               <span className="number">2. </span> Projects
-            </LinkScroll>
-            <LinkScroll
-              to="contact"
-              className="nav-links"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={1500}
-            >
+            </a>
+            <a href="/about#contact" onClick={toggle} className="nav-links">
               <span className="number">3. </span> Contact
-            </LinkScroll>
+            </a>
             <ExternalLink
               href="https://adatechschool.fr/entreprise/"
               className="nav-links"
