@@ -18,16 +18,9 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
         </div>
         <div className="nav-menu">
           <div className="nav-items">
-            <LinkScroll
-              to="about"
-              className="nav-links"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={1500}
-            >
+            <a href="/about" className="nav-links">
               <span className="number">1. </span> About
-            </LinkScroll>
+            </a>
             <LinkScroll
               to="projects"
               className="nav-links"

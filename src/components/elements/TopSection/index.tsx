@@ -12,7 +12,7 @@ export function TopSection() {
         to="projects"
         spy={true}
         smooth={true}
-        offset={50}
+        offset={30}
         duration={1500}
       >
         <button className="showMe">Show me some projects</button>

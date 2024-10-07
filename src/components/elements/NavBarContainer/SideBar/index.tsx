@@ -18,16 +18,9 @@ function Sidebar({
       <div className="sidebar-wrapper">
         <ul className="sidebar-menu">
           <li>
-            <LinkScroll
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={1500}
-              className="sidebar-link"
-            >
+            <a href="/about" className="sidebar-link">
               About
-            </LinkScroll>
+            </a>
           </li>
           <li>
             <LinkScroll

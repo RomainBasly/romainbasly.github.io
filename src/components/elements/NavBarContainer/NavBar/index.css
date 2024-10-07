@@ -20,6 +20,7 @@
   height: 100%;
   width: 100%;
   align-items: center;
+  padding: 60px;
 }
 
 .nav-menu {
@@ -93,7 +94,6 @@
   align-items: center;
 }
 
-/* Media Queries */
 @media screen and (max-width: 16000px) {
   .nav-menu {
     display: flex;
@@ -102,17 +102,9 @@
     text-align: center;
   }
 
-  .nav-logo {
-    margin-left: 5%;
-  }
-
   .nav img {
     width: 50px;
     align-items: center;
-  }
-
-  .resume-container {
-    margin-right: 5%;
   }
 }
 
@@ -124,8 +116,6 @@
 
   .mobile-icon {
     display: flex;
-    position: absolute;
-    right: 10%;
     font-size: 2rem;
     cursor: pointer;
     color: #ff5c39;
@@ -135,9 +125,5 @@
 
   .burger {
     align-items: center;
-  }
-
-  .nav-logo {
-    margin-left: 10%;
   }
 }

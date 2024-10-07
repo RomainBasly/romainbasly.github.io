@@ -27,17 +27,11 @@
   }
 }
 
-@media screen and (max-width: 580px) {
-  .sidebar-container {
-    padding-top: 15%;
-  }
-}
-
 .close-icon {
   color: #ff5c39;
   position: absolute;
-  right: 10%;
-  top: 10%;
+  right: 52px;
+  top: -5px;
   font-size: 2rem;
   cursor: pointer;
 }

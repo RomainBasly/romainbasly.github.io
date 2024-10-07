@@ -10,6 +10,9 @@ import "@fontsource/cairo/800.css";
 import "@fontsource/mukta/200.css";
 import "@fontsource-variable/eb-garamond"
 import '@fontsource-variable/dosis';
+import NavBarContainer from "../components/elements/NavBarContainer";
+import SocialNetworks from "../components/materials/socialNetworks";
+import EmailComponent from "../components/materials/emailComponent";
 ---
 
 <!doctype html>
@@ -55,3 +58,9 @@ import '@fontsource-variable/dosis';
       monospace;
   }
 </style>
+<body>
+
+<NavBarContainer client:load/>
+<SocialNetworks />
+<EmailComponent />
+</body>
