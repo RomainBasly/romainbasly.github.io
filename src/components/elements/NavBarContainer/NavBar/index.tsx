@@ -1,6 +1,5 @@
 import logo from '../../../../Assets/Images/Logo-blanc.png'
 import './index.css' // Import the CSS file
-import { Link as LinkScroll, animateScroll as scroll } from 'react-scroll'
 import { FaBars } from 'react-icons/fa'
 import { ExternalLink } from 'react-external-link'
 
@@ -8,7 +7,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
   return (
     <div className="nav">
       <div className="navbar-container">
-        <div className="nav-logo" onClick={() => scroll.scrollToTop()}>
+        <div className="nav-logo">
           <a href="/">
             <img src={logo.src} alt="logo" />
           </a>

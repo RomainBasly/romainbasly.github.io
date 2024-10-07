@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useStore } from '@nanostores/react'
 import Navbar from './NavBar/index.tsx'
 import Sidebar from './SideBar/index.tsx'
