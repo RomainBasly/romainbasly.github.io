@@ -3,7 +3,7 @@ import './index.css'
 
 export function TopSection() {
   return (
-    <div className="container">
+    <div className="container-top-section">
       <p className="greetings-top">Hi there! My name is</p>
       <h4 className="name">Romain BASLY.</h4>
       <p className="description">Fullstack Developer based in Paris.</p>

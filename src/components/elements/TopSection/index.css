@@ -1,4 +1,4 @@
-.container {
+.container-top-section {
   top: 0;
   left: 0;
   background-color: #0a1128;
@@ -6,6 +6,10 @@
   flex-direction: column;
   z-index: 9;
   padding: 250px 150px;
+
+  @media screen and (max-width: 640px) {
+    padding: 150px 60px;
+  }
 
   @media screen and (max-width: 460px) {
     padding: 120px 20px;
