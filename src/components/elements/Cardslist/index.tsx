@@ -4,7 +4,7 @@ import './index.css'
 
 export const CardsList = () => {
   return (
-    <div id="projects" className="container">
+    <div id="projects" className="container-card-list">
       <h2 className="title">
         <span className="highlighted">2. </span>Projects
       </h2>

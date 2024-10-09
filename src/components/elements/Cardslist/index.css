@@ -1,43 +1,30 @@
-.container {
+.container-card-list {
   display: block;
   color: white;
   background-color: #0a1128;
-  padding: 20px 15px;
-}
+  padding: 200px 150px;
 
-@media screen and (max-width: 820px) {
-  .container {
-    padding: 30% 15%;
+  @media screen and (max-width: 820px) {
+    padding: 200px 150px;
   }
-}
 
-@media screen and (max-width: 540px) {
-  .container {
-    padding: 40% 10%;
+  @media screen and (max-width: 540px) {
+    padding: 100px 75px;
   }
-}
 
-@media screen and (max-width: 360px) {
-  .container {
-    padding: 40% 10%;
+  @media screen and (max-width: 360px) {
+    padding: 20px 15px;
   }
-}
 
-@media screen and (max-width: 290px) {
-  .container {
-    padding: 40% 10%;
-  }
-}
-
-@media only screen and (device-width: 820px) and (device-height: 1180px) {
-  .container {
-    padding: 7% 20% 20% 10%;
-  }
+  /* @media screen and (max-width: 290px) {
+    padding: 200px 15px;
+  } */
 }
 
 .section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 @media screen and (max-width: 870px) {

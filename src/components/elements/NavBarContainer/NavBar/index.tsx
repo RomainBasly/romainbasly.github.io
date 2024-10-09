@@ -1,5 +1,5 @@
 import logo from '../../../../Assets/Images/Logo-blanc.png'
-import './index.css' // Import the CSS file
+import './index.css'
 import { FaBars } from 'react-icons/fa'
 import { ExternalLink } from 'react-external-link'
 
@@ -20,10 +20,10 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
             <a href="/about" className="nav-links">
               <span className="number">1. </span> About
             </a>
-            <a href="/about#projects" onClick={toggle} className="nav-links">
+            <a href="/about#projects" className="nav-links">
               <span className="number">2. </span> Projects
             </a>
-            <a href="/about#contact" onClick={toggle} className="nav-links">
+            <a href="/about#contact" className="nav-links">
               <span className="number">3. </span> Contact
             </a>
             <ExternalLink

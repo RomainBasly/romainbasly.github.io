@@ -15,10 +15,10 @@ export function TopSection() {
         offset={30}
         duration={1500}
       >
-        <button className="showMe">Show me some projects</button>
+        <button className="show-me">Show me some projects</button>
       </LinkScroll>
       <a
-        className="resumeContainer"
+        className="resume-container"
         href="/CV/CV_Romain_Basly_septembre2024.pdf"
         download
       >
