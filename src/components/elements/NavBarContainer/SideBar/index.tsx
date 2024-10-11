@@ -22,12 +22,12 @@ function Sidebar({ toggle }: Readonly<{ toggle: () => void }>) {
             </a>
           </li>
           <li>
-            <a href="/about#projects" onClick={toggle} className="sidebar-link">
+            <a href="/projects" onClick={toggle} className="sidebar-link">
               Projects
             </a>
           </li>
           <li>
-            <a href="/about#contact" onClick={toggle} className="sidebar-link">
+            <a href="/contact" onClick={toggle} className="sidebar-link">
               Contact
             </a>
           </li>

@@ -20,10 +20,10 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
             <a href="/about" className="nav-links">
               <span className="number">1. </span> About
             </a>
-            <a href="/about#projects" className="nav-links">
+            <a href="/projects" className="nav-links">
               <span className="number">2. </span> Projects
             </a>
-            <a href="/about#contact" className="nav-links">
+            <a href="/contact" className="nav-links">
               <span className="number">3. </span> Contact
             </a>
             <ExternalLink

@@ -23,7 +23,7 @@
 
 .sidebar-container.closed {
   opacity: 0;
-  top: -100%;
+  top: -200%;
   z-index: 0;
 }
 

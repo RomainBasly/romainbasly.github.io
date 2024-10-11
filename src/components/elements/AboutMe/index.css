@@ -1,15 +1,14 @@
 #about {
-  background-color: #0a1128;
   padding: 100px 350px;
   margin: 30px;
 
   @media screen and (max-width: 1200px) {
-    padding: 100px 250px;
+    padding: 100px 150px;
   }
   @media screen and (max-width: 900px) {
     padding: 100px 100px;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 650px) {
     padding: 100px 50px;
   }
   @media screen and (max-width: 500px) {
@@ -27,8 +26,9 @@
   position: relative;
   align-items: flex-start;
   flex-direction: row;
+  gap: 30px;
 
-  @media screen and (max-width: 880px) {
+  @media screen and (max-width: 950px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
