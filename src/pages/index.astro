@@ -1,5 +1,131 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import {getCollection} from "astro:content"
+
+const posts = await getCollection("posts")
 ---
 
-<Layout title="Root" />
+<Layout title="Home" />
+<section class="body">
+    <section class="header">
+        <h4 class="name">Romain BASLY</h4>
+        <p class="blog-description">Experiments and Thoughts on web development</p>
+        <hr>
+    </section>
+    <section class="articles-container">
+        <ul class="list-container">
+            {posts.map((post) => (
+                <li class="list-element">
+                    <a href={`/posts/${post.slug}`} class="article-container">
+                        <h2 class="article-title">
+                            {post.data.title}
+                         </h2>
+                    <p class="author-date">By {post.data.author} on {post.data.date}</p>
+                    <div class="article-description">
+                      {post.data.description}
+                     </div>
+                     </a>
+                </li>
+            ))}
+        </ul>
+    </section>
+</section>
+
+<style>
+    .body {
+        padding: 200px 150px;
+
+        @media screen and (max-width: 1200px) {
+        padding: 200px 150px;
+        }
+        @media screen and (max-width: 900px) {
+        padding: 200px 120px;
+        }
+        @media screen and (max-width: 650px) {
+        padding: 200px 50px;
+        }
+        @media screen and (max-width: 500px) {
+        padding: 120px 10px;
+        }
+        @media screen and (max-width: 360px) {
+        padding: 120px 10px 200px;
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        gap: 10px;
+    }
+
+    .article-container {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    .list-element {
+        list-style-type: none;
+    }
+
+    .name {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    color: #ced4da;
+    font-weight: 700;
+    font-size: 4rem;
+    font-family: 'Cairo', sans-serif;
+    line-height:1;
+
+    @media screen and (max-width: 610px) {
+        font-size: 3rem;
+        margin-top: 20px;
+    }
+    @media screen and (max-width: 460px) {
+        font-size: 2.5rem;
+        margin-top: 20px;
+    }
+    @media screen and (max-width: 360px) {
+        font-size: 2rem;
+    }
+
+    }
+
+    .blog-description {
+        color: #6c757d;
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    hr {
+        border: none;
+        width: 100%;
+        background-color: #495057;
+        height: 1px;
+    }
+
+    .article-description {
+        color: #ced4da;
+        font-family: 'Times New Roman', Times, serif;
+        line-height: 1.8;
+    }
+
+    .author-date {
+        color: #6c757d;
+    }
+
+    .article-title {
+        margin: 0;
+    }
+
+    .list-container {
+        padding-inline-start: 0px;
+    }
+
+</style>
+
+

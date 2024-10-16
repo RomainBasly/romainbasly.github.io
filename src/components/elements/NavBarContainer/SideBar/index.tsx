@@ -17,6 +17,11 @@ function Sidebar({ toggle }: Readonly<{ toggle: () => void }>) {
       <div className="sidebar-wrapper">
         <ul className="sidebar-menu">
           <li>
+            <a href="/" className="sidebar-link">
+              Blog
+            </a>
+          </li>
+          <li>
             <a href="/about" className="sidebar-link">
               About
             </a>

@@ -17,14 +17,17 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
         </div>
         <div className="nav-menu">
           <div className="nav-items">
+            <a href="/" className="nav-links">
+              <span className="number">1. </span> Blog
+            </a>
             <a href="/about" className="nav-links">
-              <span className="number">1. </span> About
+              <span className="number">2. </span> About
             </a>
             <a href="/projects" className="nav-links">
-              <span className="number">2. </span> Projects
+              <span className="number">3. </span> Projects
             </a>
             <a href="/contact" className="nav-links">
-              <span className="number">3. </span> Contact
+              <span className="number">4. </span> Contact
             </a>
             <ExternalLink
               href="https://adatechschool.fr/entreprise/"
@@ -32,7 +35,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="number">4. </span> Ada Tech School
+              <span className="number">5. </span> Ada Tech School
             </ExternalLink>
           </div>
         </div>

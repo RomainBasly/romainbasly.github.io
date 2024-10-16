@@ -1,5 +1,5 @@
 #about {
-  padding: 100px 350px;
+  padding: 100px 150px;
   margin: 30px;
 
   @media screen and (max-width: 1200px) {
@@ -96,6 +96,7 @@
   display: block;
   position: relative;
   padding-left: 20px;
+  font-size: 16px;
 
   &:before {
     content: '▹';
@@ -126,6 +127,7 @@
   margin-bottom: 10px;
   margin-top: 10px;
   padding-left: 20px;
+  font-size: 16px;
 
   &:before {
     content: '◌';

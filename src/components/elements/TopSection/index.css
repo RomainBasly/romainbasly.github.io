@@ -6,7 +6,7 @@
   flex-direction: column;
   z-index: 9;
 
-  padding: 200px 350px;
+  padding: 200px 200px;
   margin: 30px;
 
   @media screen and (max-width: 1200px) {

@@ -1,4 +1,4 @@
-import Image from '../../../Assets/Images/RB-photo.png'
+import Image from '../../../Assets/Images/RB-photo.jpg'
 import './index.css'
 
 const AboutMeComponent = () => {

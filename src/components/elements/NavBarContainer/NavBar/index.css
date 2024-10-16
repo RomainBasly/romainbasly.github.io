@@ -1,6 +1,6 @@
 .nav {
   background: #0a1128;
-  height: 20vh;
+  height: 15vh;
   width: 100vw;
   margin: 0 auto;
   display: flex;
@@ -11,6 +11,10 @@
   z-index: 21;
   font-size: 1rem;
   align-items: center;
+
+  @media screen and (max-width: 360px) {
+    height: 20vh;
+  }
 }
 
 .navbar-container {
@@ -62,6 +66,7 @@
   font-family: 'Cairo', sans-serif;
   font-weight: 200;
   font-size: 1rem;
+  gap: 3px;
 }
 
 .nav-links:hover {

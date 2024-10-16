@@ -1,0 +1,125 @@
+---
+const {Content, data} = Astro.props
+import Image from "../Assets/Images/RB-photo.jpg"
+---
+
+<article class="post-content">
+    <section class="head-article">
+      <h1 class="post-title">{data.title}</h1>
+      <div class="avatar">
+        <div class="picture-blog"><img src={Image.src} alt="Picture of the author" class="picture-avatar"></div>
+        <div class="author-date">By {data.author} on {data.date}</div>
+      </div>
+      <div class="tags-container">
+        Tags:
+        {data.tags.map((tag: string, index: number) => (
+          <div class="tag">{tag} {index < data.tags.length -1 && <span class="tag-separator">,</span>}</div>
+        )
+      )}
+    </section>
+    </div>
+    <Content class="content"/>
+</article>
+
+<style>
+    .post-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      padding: 200px 150px;
+
+      @media screen and (max-width: 1200px) {
+        padding: 200px 150px;
+      }
+      @media screen and (max-width: 900px) {
+        padding: 200px 120px;
+      }
+      @media screen and (max-width: 650px) {
+        padding: 200px 50px;
+      }
+      @media screen and (max-width: 500px) {
+        padding: 120px 10px;
+      }
+      @media screen and (max-width: 360px) {
+        padding: 120px 10px 200px;
+      }
+    }
+  
+    .post-title {
+      color: #ff5c39;
+      font-weight: 700;
+      font-size: 4rem;
+      font-family: 'Cairo', sans-serif;
+      margin-bottom: 8px;
+      margin-block-start: 0px;
+      line-height: 1.2;
+
+      @media screen and (max-width: 1200px) {
+        font-size: 4rem;
+      }
+      @media screen and (max-width: 900px) {
+        font-size: 3rem;
+      }
+      @media screen and (max-width: 650px) {
+        font-size: 2.8rem;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 2.5rem;
+      }
+      @media screen and (max-width: 360px) {
+        font-size: 2rem;
+      }
+    }
+    .content {
+      z-index: 1;
+      font-family: 'Mukta', sans-serif;
+    }
+
+    .author-date {
+      margin: 0;
+      color: #6c757d;
+    }
+
+    .tags-container {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tag {
+      font-style: italic;
+    }
+
+    tag-separator:last-of-type {
+      display: none;
+    }
+
+    .picture-blog {
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+    }
+
+    .picture-avatar {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .avatar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .head-article {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+  </style>
