@@ -17,13 +17,15 @@ const posts = await getCollection("posts")
             {posts.map((post) => (
                 <li class="list-element">
                     <a href={`/posts/${post.slug}`} class="article-container">
-                        <h2 class="article-title">
-                            {post.data.title}
-                         </h2>
-                    <p class="author-date">By {post.data.author} on {post.data.date}</p>
-                    <div class="article-description">
-                      {post.data.description}
-                     </div>
+                        <div class="top-article-container">
+                            <h2 class="article-title">
+                                {post.data.title}
+                            </h2>
+                            <p class="author-date">By {post.data.author} on {post.data.date}</p>
+                        </div>
+                        <div class="article-description">
+                            {post.data.description}
+                        </div>
                      </a>
                 </li>
             ))}
@@ -55,11 +57,14 @@ const posts = await getCollection("posts")
     .header {
         display: flex;
         flex-direction: column;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         gap: 10px;
     }
 
     .article-container {
+        display:flex;
+        gap: 10px;
+        flex-direction: column;
         text-decoration: none;
         color: white;
         cursor: pointer;
@@ -124,6 +129,12 @@ const posts = await getCollection("posts")
 
     .list-container {
         padding-inline-start: 0px;
+    }
+
+    .top-article-container {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
     }
 
 </style>
