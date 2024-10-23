@@ -14,7 +14,7 @@ const posts = await getCollection("posts")
     </section>
     <section class="articles-container">
         <ul class="list-container">
-            {posts.map((post: { slug: any; data: { title: unknown; author: unknown; date: unknown; description: unknown; }; }) => (
+            {posts.map((post:any) => (
                 <li class="list-element">
                     <a href={`/posts/${post.slug}`} class="article-container">
                         <div class="top-article-container">
