@@ -4,7 +4,7 @@ import AboutMeComponent from "../components/elements/AboutMe/index.tsx"
 import Layout from "../layouts/Layout.astro";
 import ImageRB from "../Assets/Images/RB-photo.jpg"
 
-const optimizedImage = await getImage({src: ImageRB, width: 800, height: 600, format: ['jpg']})
+const optimizedImage = await getImage({src: ImageRB, width: 800, height: 600})
 ---
 
 <Layout title="About Me" />
