@@ -1,7 +1,6 @@
-import Image from '../../../Assets/Images/RB-photo.jpg'
 import './index.css'
 
-const AboutMeComponent = () => {
+const AboutMeComponent = ({ imageUrl }: any) => {
   return (
     <div id="about">
       <div className="title">
@@ -109,7 +108,7 @@ const AboutMeComponent = () => {
         </div>
         <div className="images-container">
           <div className="cadre"></div>
-          <img src={Image.src} className="photo" alt="picture of a gentleman" />
+          <img src={imageUrl} className="photo" alt="picture of a gentleman" />
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import Navbar from './NavBar/index.tsx'
 import Sidebar from './SideBar/index.tsx'
 import { isNavBarOpen } from '../../utils/index.tsx'
 
-const NavBarContainer = () => {
+const NavBarContainer = ({ imageUrl }: { imageUrl: string }) => {
   const $isNavBarOpen = useStore(isNavBarOpen)
 
   const toggle = () => {
@@ -13,7 +13,7 @@ const NavBarContainer = () => {
   return (
     <div>
       <Sidebar toggle={toggle} />
-      <Navbar toggle={toggle} />
+      <Navbar toggle={toggle} imageUrl={imageUrl} />
     </div>
   )
 }

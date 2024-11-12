@@ -1,15 +1,20 @@
-import logo from '../../../../Assets/Images/Logo-blanc.png'
 import './index.css'
 import { FaBars } from 'react-icons/fa'
 import { ExternalLink } from 'react-external-link'
 
-const Navbar = ({ toggle }: { toggle: () => void }) => {
+const Navbar = ({
+  toggle,
+  imageUrl,
+}: {
+  toggle: () => void
+  imageUrl: string
+}) => {
   return (
     <div className="nav">
       <div className="navbar-container">
         <div className="nav-logo">
           <a href="/">
-            <img src={logo.src} alt="logo" />
+            <img src={imageUrl} alt="logo" />
           </a>
         </div>
         <div className="mobile-icon">

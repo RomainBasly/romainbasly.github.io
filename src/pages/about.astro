@@ -1,7 +1,10 @@
 ---
+import { getImage } from "astro:assets";
 import AboutMeComponent from "../components/elements/AboutMe/index.tsx"
 import Layout from "../layouts/Layout.astro";
+import ImageRB from "../Assets/Images/RB-photo.jpg"
 
+const optimizedImage = await getImage({src: ImageRB, width: 800, height: 600, format: ['jpg']})
 ---
 
 <Layout title="About Me" />
@@ -28,7 +31,7 @@ import Layout from "../layouts/Layout.astro";
       </a>
     </section>
   </div>
-<AboutMeComponent />
+<AboutMeComponent imageUrl={optimizedImage.src}/>
 
 <style>
 
