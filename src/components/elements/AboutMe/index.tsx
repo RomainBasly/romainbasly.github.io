@@ -1,6 +1,6 @@
 import './index.css'
 
-const AboutMeComponent = ({ imageUrl }: any) => {
+const AboutMeComponent = ({ imageUrl }: { imageUrl: string }) => {
   return (
     <div id="about">
       <div className="title">
