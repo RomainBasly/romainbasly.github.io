@@ -9,6 +9,8 @@ image:
 tags: ["Javascript", "React", "Next", "Astro", "performance"]
 ---
 
+import {Image} from "astro:assets"
+
 In our previous article, we highlighted Astro's potential advantages over other frameworks. This time, we set out to verify those claims by conducting a performance comparison between Astro, React, and Next.js. We built identical simple portfolio projects using each framework to see how they perform in terms of build times, deployment durations, and web page performance. By the end of this article, you'll understand how Astro performs compared to React and Next.js in various aspects and why it might be the right choice for your next project.
 
 ## Experiment Setup
@@ -47,7 +49,7 @@ For the performance metrics, we used WebPageTest and configured it to simulate a
 | **Page Weight**              | 1,791kb  | 347kb   | 1,832kb| 
 
 From these metrics, our first attempt shows that Astro is better in local build time, deployment, number of requests to get the assets (CSS, JS, images, etc.), and page speed. However, looking at the details, we see that Astro's Time to First Byte and page weight are significantly higher than what Next.js achieves.
-Upon examining the largest downloaded assets, we discovered that Next.js performed better because of its image optimization techniques, especially the use of its <Image /> component, which is strongly recommended by the framework. On the other hand, Astro does not automatically optimize images, causing your pages to have larger sizes than expected. In other words, you need to handle image optimization manually to use the Astro framework efficiently and improve your page size.
+Upon examining the largest downloaded assets, we discovered that Next.js performed better because of its image optimization techniques, especially the use of its Image component, which is strongly recommended by the framework. On the other hand, Astro does not automatically optimize images, causing your pages to have larger sizes than expected. In other words, you need to handle image optimization manually to use the Astro framework efficiently and improve your page size.
 After addressing this issue by implementing image optimization in Astro, we obtained better results than Next.js, even in terms of page size:
 
 ### Performance Metrics After Image Optimization
@@ -75,7 +77,10 @@ In some cases, CSR can lead to sending large bundles of JavaScript, including co
 In contrast, Server-Side Rendering (SSR), used by modern frameworks like Next.js and Astro, shifts much of this work back to the server, similar to how PHP operates. The server pre-renders the HTML, sending a fully-formed page to the browser. This allows the content to load quickly, with JavaScript stepping in afterward to hydrate the page and make it interactive.
 This balance between speed and interactivity makes SSR frameworks great for performance, which is precisely why both Next.js and Astro perform better than React. 
 
-![Schema to describe visually the difference between CSR and SSR](/Images/blog-posts/2/schema-csr-ssr.png)
+<img 
+  src="/Images/blog-posts/2/schema-csr-ssr.png" 
+  alt="Schema to describe visually the difference between CSR and SSR" 
+/>
 
 Now the question is: What differs between Next.js and Astro that would explain why Astro performs slightly better than Next.js?
 
@@ -92,3 +97,14 @@ As you've experienced, Astro performs better than React and Next.js in our tests
 * Optimized for Static Content: Astro excels in delivering static sites efficiently.
 
 Our conclusion is that Astro is an excellent choice for developing simple projects or deploying websites where the internet connection of your users may be unreliable or slow. Its performance benefits and developer-friendly features make it a compelling option for modern web development.
+
+## Resources
+[Check out Github for repositories](https://github.com/RomainBasly/setting-up-experiment)
+
+<div>
+Webpage Performance Metrics: 
+* [React](https://www.webpagetest.org/result/241114_BiDcAB_48A/)
+* [Next.js](https://www.webpagetest.org/result/241112_AiDcYQ_8WJ/)
+* [Astro Initial Test](https://www.webpagetest.org/result/241112_AiDc7Z_8XS/)
+* [Astro Optimized Image Test](https://www.webpagetest.org/result/241114_AiDcG3_44J/)
+</div>
