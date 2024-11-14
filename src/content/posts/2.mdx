@@ -15,15 +15,19 @@ In our previous article, we highlighted Astro's potential advantages over other 
 
 ## Experiment Setup
 
+<div>
 To ensure a fair comparison, we created identical portfolio websites using:
 * React: Created with Create React App version 5.0.1
 * Next.js: Version 13.4.0
 * Astro: Version 2.10.15
+</div>
 
+<div>
 Each portfolio contains a few pages with the same structure:
 * A landing page with a logo
 * An image
 * Some text content
+</div>
 
 We used a MacBook Pro M1 (2021) for local builds and deployed the projects on Vercel to measure deployment durations.
 
@@ -84,17 +88,24 @@ This balance between speed and interactivity makes SSR frameworks great for perf
 
 Now the question is: What differs between Next.js and Astro that would explain why Astro performs slightly better than Next.js?
 
+<div>
 ### Astro’s Selective Hydration and Island Architecture
+
+> “I love water, in 20 or 30 years there won’t be any more.” 
+> (Jean Claude Van Damme)
+
 
 Astro differs from Next.js in one key aspect: Zero JavaScript by default. This means that Astro sends no JavaScript to the browser unless it's necessary. Only the parts of your page that require interactivity are enhanced with JavaScript, and the rest remains static, making the page lighter and faster than Next.js. This concept is known as island architecture or selective hydration.
 In contrast, Next.js hydrates the entire page, even for static sites generated at build time. This results in a larger JavaScript payload being sent to the client, which can impact performance.
-
+</div>
 ## Should We All Favor Astro?
 
+<div>
 As you've experienced, Astro performs better than React and Next.js in our tests. The framework has much more to offer:
 * Simple Developer Experience: Astro provides an intuitive development environment.
 * Multi-Framework Support: It allows you to use components from other frameworks directly within Astro (React, Vue, Svelte, Preact, etc.).
 * Optimized for Static Content: Astro excels in delivering static sites efficiently.
+</div>
 
 Our conclusion is that Astro is an excellent choice for developing simple projects or deploying websites where the internet connection of your users may be unreliable or slow. Its performance benefits and developer-friendly features make it a compelling option for modern web development.
 
