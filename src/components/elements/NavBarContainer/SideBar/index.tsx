@@ -36,16 +36,6 @@ function Sidebar({ toggle }: Readonly<{ toggle: () => void }>) {
               Contact
             </a>
           </li>
-          <li>
-            <ExternalLink
-              href="https://adatechschool.fr/entreprise/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sidebar-external"
-            >
-              Ada Tech School
-            </ExternalLink>
-          </li>
         </ul>
         <div className="side-btn-wrap"></div>
       </div>

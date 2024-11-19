@@ -34,18 +34,10 @@ const Navbar = ({
             <a href="/contact" className="nav-links">
               <span className="number">4. </span> Contact
             </a>
-            <ExternalLink
-              href="https://adatechschool.fr/entreprise/"
-              className="nav-links"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="number">5. </span> Ada Tech School
-            </ExternalLink>
           </div>
         </div>
         <div className="resume-container">
-          <a href="/CV/CV_Romain_Basly_septembre2024.pdf" download>
+          <a href="/CV/CV_Romain_Basly_nov2024.pdf" download>
             <button className="download-resume">Resume</button>
           </a>
         </div>
