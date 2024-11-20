@@ -70,16 +70,16 @@ From these metrics, we can draw **three conclusions**:
 Upon examining the largest downloaded assets, we discovered that **Next.js performed better due to its built-in image optimization techniques**, especially its **Image component**. **Astro requires manual image optimization**, leading to larger page sizes and slower speeds initially.
 </div>
 
-After implementing **image optimization in Astro**, the results improved significantly:
+After implementing **image optimization (opt)** in Astro and in React (using Lazy Loading), the results improved significantly:
 
-| Metric                        | **Astro (Initial)** | **Next.js** | **React**   | **Astro (Optimized)**  |
-|:------------------------------|:-------------------:|:-----------:|:-----------:|:----------------------:|
-| **Number of Requests**        | 12                  | 20          | 14          | **12**                 |
-| **Time to First Byte (TTFB)** | 0.82s               | 0.75s       | 0.73s       | **0.72s**              |
-| **Speed Index - First Visit** | 2.0s                | 1.7s        | 2.3s        | **1.8s**               |
-| **Speed Index - Second Visit**| 1.7s                | 1.5s        | 2.0s        | **0.8s**               |
-| **Page Weight - First Visit** | 1,791kB             | 347kB       | 1,832kB     | **306kB**              |
-| **Page Weight - Second Visit**| **6kB**             | 10kB        | **1,832kB** | **0kB**                |
+| Metric                        | **Astro (init)**    | **Next.js** | **React (Opt)**   | **Astro (Opt)**        |
+|:------------------------------|:-------------------:|:-----------:|:-----------------:|:----------------------:|
+| **Number of Requests**        | 12                  | 20          | 13                | **12**                 |
+| **Time to First Byte (TTFB)** | 0.82s               | 0.75s       | 0.73s             | **0.72s**              |
+| **Speed Index - First Visit** | 2.0s                | 1.7s        | 2.4s              | **1.8s**               |
+| **Speed Index - Second Visit**| 1.7s                | 1.5s        | 2.4s              | **0.8s**               |
+| **Page Weight - First Visit** | 1,791kB             | 347kB       | 280kB             | **306kB**              |
+| **Page Weight - Second Visit**| **6kB**             | 10kB        | 280kB             | **0kB**                |
 
 With optimized images, **Astro performs better than React and Next.js across all dimensions** (except for Speed Index - First Visit), including deployment, page performance, and project size. The question we can raise is : why do we witness such significant differences between the frameworks? For that, we need to dig deeper into their rendering strategies.
 
@@ -182,9 +182,10 @@ All three technologies offer powerful tools for building performant web applicat
 <div>
 Webpage Performance Metrics: 
 <ul>
-  <li><a href="https://www.webpagetest.org/result/241115_AiDcYZ_ANT/" target="_blank" rel="noopener noreferrer">React</a></li>
+  <li><a href="https://www.webpagetest.org/result/241115_AiDcYZ_ANT/" target="_blank" rel="noopener noreferrer">React Initial Test</a></li>
+  <li><a href="https://www.webpagetest.org/result/241120_BiDcJ9_A0W/" target="_blank" rel="noopener noreferrer">React Optimized Images Test</a></li>
   <li><a href="https://www.webpagetest.org/result/241115_BiDcPC_AJA/" target="_blank" rel="noopener noreferrer">Next.js</a></li>
   <li><a href="https://www.webpagetest.org/result/241115_AiDcJN_APR/" target="_blank" rel="noopener noreferrer">Astro Initial Test</a></li>
-  <li><a href="https://www.webpagetest.org/result/241115_AiDc8C_AQ9/" target="_blank" rel="noopener noreferrer">Astro Optimized Image Test</a></li>
+  <li><a href="https://www.webpagetest.org/result/241115_AiDc8C_AQ9/" target="_blank" rel="noopener noreferrer">Astro Optimized Images Test</a></li>
 </ul>
 </div>
