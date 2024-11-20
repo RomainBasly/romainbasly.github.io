@@ -22,7 +22,7 @@ import Layout from "../layouts/Layout.astro";
       Product Owner, Product Manager.
     </p>
   </section>
-  <!-- <section class="buttons-container-about">
+  <section class="buttons-container-about">
     <a href="/projects">
       <button class="show-me">Show me some projects</button>
     </a>
@@ -31,134 +31,131 @@ import Layout from "../layouts/Layout.astro";
     </a>
   </section>
 </div>
-<AboutMeComponent imageUrl={optimizedImage.src} /> -->
+<!-- <AboutMeComponent imageUrl={optimizedImage.src} /> -->
 
-  <style>
-    .container-top-section {
-      top: 0;
-      left: 0;
-      background-color: #0a1128;
-      display: flex;
-      flex-direction: column;
-      z-index: 9;
-      gap: 20px;
+<style>
+  .container-top-section {
+    top: 0;
+    left: 0;
+    background-color: #0a1128;
+    display: flex;
+    flex-direction: column;
+    z-index: 9;
+    gap: 20px;
 
-      padding: 200px 200px;
-      margin: 30px;
+    padding: 200px 200px;
+    margin: 30px;
 
-      @media screen and (max-width: 1200px) {
-        padding: 200px 150px;
-      }
-      @media screen and (max-width: 900px) {
-        padding: 200px 80px;
-      }
-      @media screen and (max-width: 650px) {
-        padding: 200px 50px;
-      }
-      @media screen and (max-width: 500px) {
-        padding: 120px 10px;
-      }
-      @media screen and (max-width: 360px) {
-        padding: 120px 10px 200px;
-      }
+    @media screen and (max-width: 1200px) {
+      padding: 200px 150px;
     }
-
-    .greetings-top {
-      display: flex;
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 500;
-      font-family: "EB Garamond", sans-serif;
-      line-height: 1;
-      color: #ff5c39;
+    @media screen and (max-width: 900px) {
+      padding: 200px 80px;
     }
-
-    .name {
-      margin: 0;
-      color: #ced4da;
-      font-weight: 700;
-      font-size: 4rem;
-      font-family: "Cairo", sans-serif;
-
-      @media screen and (max-width: 610px) {
-        font-size: 3rem;
-        margin-top: 20px;
-      }
-      @media screen and (max-width: 460px) {
-        font-size: 2.5rem;
-        margin-top: 20px;
-      }
-      @media screen and (max-width: 360px) {
-        font-size: 2rem;
-      }
+    @media screen and (max-width: 650px) {
+      padding: 200px 50px;
     }
+    @media screen and (max-width: 500px) {
+      padding: 120px 10px;
+    }
+    @media screen and (max-width: 360px) {
+      padding: 120px 10px 200px;
+    }
+  }
 
-    .description {
-      margin: 0;
-      color: #d9d9d9;
+  .greetings-top {
+    display: flex;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #ff5c39;
+  }
+
+  .name {
+    margin: 0;
+    color: #ced4da;
+    font-weight: 700;
+    font-size: 4rem;
+    font-family: "Cairo", sans-serif;
+
+    @media screen and (max-width: 610px) {
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+    @media screen and (max-width: 460px) {
+      font-size: 2.5rem;
+      margin-top: 20px;
+    }
+    @media screen and (max-width: 360px) {
       font-size: 2rem;
-      font-weight: 800;
-      margin-right: 20%;
-      padding-top: 5px;
-      line-height: 1.3;
-      font-family: "Cairo", sans-serif;
-
-      @media screen and (max-width: 360px) {
-        font-size: 1.5rem;
-      }
     }
+  }
 
-    .goal {
-      color: #d9d9d9;
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-right: 15%;
-      font-family: "Mukta", sans-serif;
-      line-height: 1.3;
-      padding-top: 9px;
-    }
+  .description {
+    margin: 0;
+    color: #d9d9d9;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-right: 20%;
+    padding-top: 5px;
+    line-height: 1.3;
+    font-family: "Cairo", sans-serif;
 
-    .show-me {
-      color: #ff5c39;
-      border: 1px solid #ff5c39;
-      background-color: #0a1128;
-      width: 250px;
-      padding: 10px 15px;
-      margin-top: 10px;
-      font-family: "Mukta", sans-serif;
-      font-size: 1.1rem;
-      border-radius: 3px;
+    @media screen and (max-width: 360px) {
+      font-size: 1.5rem;
     }
+  }
 
-    .show-me:hover {
-      transition: all 0.8s ease-in-out;
-      color: #0a1128;
-      background-color: #ff5c39;
-      font-weight: bold;
-    }
+  .goal {
+    color: #d9d9d9;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: "Mukta", sans-serif;
+    line-height: 1.3;
+    padding-top: 9px;
+  }
 
-    .resumé {
-      border: 1px solid #0a1128;
-      background-color: #ff5c39;
-      width: 250px;
-      padding: 10px 15px;
-      margin-top: 30px;
-      font-family: "Mukta", sans-serif;
-      font-size: 1.3rem;
-      border-radius: 3px;
-      color: #0a1128;
-    }
+  .show-me {
+    color: #ff5c39;
+    border: 1px solid #ff5c39;
+    background-color: #0a1128;
+    width: 250px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-family: "Mukta", sans-serif;
+    font-size: 1.1rem;
+    border-radius: 3px;
+  }
 
-    .resumé:hover {
-      transition: all 0.8s ease-in-out;
-      color: #ff5c39;
-      background-color: #0a1128;
-      border: 1px solid #ff5c39;
-    }
+  .show-me:hover {
+    transition: all 0.8s ease-in-out;
+    color: #0a1128;
+    background-color: #ff5c39;
+    font-weight: bold;
+  }
 
-    .buttons-container-about {
-      display: flex;
-      flex-direction: column;
-    }
-  </style>
-</div>
+  .resumé {
+    border: 1px solid #0a1128;
+    background-color: #ff5c39;
+    width: 250px;
+    padding: 10px 15px;
+    margin-top: 30px;
+    font-family: "Mukta", sans-serif;
+    font-size: 1.3rem;
+    border-radius: 3px;
+    color: #0a1128;
+  }
+
+  .resumé:hover {
+    transition: all 0.8s ease-in-out;
+    color: #ff5c39;
+    background-color: #0a1128;
+    border: 1px solid #ff5c39;
+  }
+
+  .buttons-container-about {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
