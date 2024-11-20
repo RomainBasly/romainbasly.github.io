@@ -11,18 +11,6 @@
       "urlGithub": "https://github.com/RomainBasly/simplists",
       "AdditionalLink": "https://www.simplists.net/",
       "alt": "Image of Simplists application"
-    },
-    {
-      "id": 6,
-      "title": "Jotchua meme maker",
-      "StacksFront": "STACK: NextJS - Typescript - FabricJS - SASS",
-      "StacksBack": "",
-      "OtherStacks": "",
-      "Description": "Allow people to play and create memes with a cute little dog",
-      "urlGif": "/Images/jotchua-maker.gif",
-      "urlGithub": "https://github.com/RomainBasly/jotchua-maker",
-      "AdditionalLink": "https://jotchua-maker.vercel.app/",
-      "alt": "Jotchua Maker preview"
     }
   ]
 }
