@@ -6,7 +6,7 @@ const EmailComponent = () => {
       <a href="mailto:romain.basly@protonmail.com" className="email">
         romain.basly@protonmail.com
       </a>
-      <div className="line"></div>
+      <div className="line-email"></div>
     </div>
   )
 }

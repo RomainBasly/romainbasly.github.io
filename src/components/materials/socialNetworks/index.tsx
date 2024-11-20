@@ -19,7 +19,7 @@ const SocialNetworks = () => {
       >
         <FaLinkedinIn className="logo-linkedin" />
       </ExternalLink>
-      <div className="line" />
+      <div className="line-socials" />
     </div>
   )
 }
