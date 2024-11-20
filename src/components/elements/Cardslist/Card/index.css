@@ -1,5 +1,8 @@
 .card-project {
   height: 500px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
   border: 1px solid #ff5c39;
   text-align: center;
   border-radius: 10px;
@@ -13,15 +16,19 @@
 
   @media screen and (max-width: 550px) {
     max-width: 400px;
+    padding: 20px;
   }
   @media screen and (max-width: 400px) {
     max-width: 350px;
+    padding: 15px;
   }
   @media screen and (max-width: 360px) {
     max-width: 330px;
+    padding: 15px;
   }
   @media screen and (max-width: 320px) {
     max-width: 280px;
+    padding: 15px;
   }
 }
 
