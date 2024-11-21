@@ -1,11 +1,12 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import mdx from '@astrojs/mdx';
+import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
+import astroIcon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astronaut.github.io',
-  integrations: [react(), mdx()],
-  output: 'static',
+  site: "https://astronaut.github.io",
+  integrations: [react(), mdx(), astroIcon()],
+  output: "static",
 });

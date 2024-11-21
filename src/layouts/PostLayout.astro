@@ -1,6 +1,7 @@
 ---
 const { Content, data } = Astro.props;
 import Image from "../Assets/Images/RB-photo.png";
+import { Icon } from "astro-icon/components";
 ---
 
 <article class="post-content">
@@ -15,13 +16,24 @@ import Image from "../Assets/Images/RB-photo.png";
         />
       </div>
       <div class="author-date">
-        By {data.author} on{" "}
         {
-          new Date(data.date).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
+          data.lang === "en"
+            ? `By ${data.author} on ${new Date(data.date).toLocaleDateString(
+                "en-US",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                }
+              )}`
+            : `Par ${data.author}, le ${new Date(data.date).toLocaleDateString(
+                "fr-FR",
+                {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                }
+              )}`
         }
       </div>
     </div>
@@ -37,6 +49,27 @@ import Image from "../Assets/Images/RB-photo.png";
         ))
       }
     </div>
+  </section>
+  <section class="translation-section">
+    <a href={data.translation} class="translation-link">
+      <Icon name="maki:arrow" />
+      {
+        data.lang === "en" ? (
+          <div class="translation-text">
+            <div class="content">
+              Cet article est aussi disponible en Français"
+            </div>
+            <Icon name="noto:baguette-bread" class="icon-svg" />
+          </div>
+        ) : (
+          <div class="translation-text">
+            <div class="content">This article is also available in English</div>
+
+            <Icon name="noto:hamburger" class="icon-svg" />
+          </div>
+        )
+      }
+    </a>
   </section>
   <Content class="content" />
 </article>
@@ -179,5 +212,33 @@ import Image from "../Assets/Images/RB-photo.png";
     padding-top: 0.5rem;
     color: #6c757d;
     font-style: italic;
+  }
+
+  .translation-link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-style: italic;
+    padding: 4px;
+  }
+
+  .translation-section {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .translation-text {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .icon {
+    display: flex;
+    width: 100%;
   }
 </style>

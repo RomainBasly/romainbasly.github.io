@@ -1,0 +1,31 @@
+---
+title: "Mise en place une expérience sur React, NextJS et Astro"
+lang: "fr"
+translation: "/posts/en/1"
+date: "2024-10-13"
+description: "Lors de la création de projets web, le choix du bon framework peut avoir un impact significatif sur les performances et l'expérience de développement. Des outils comme React, Next.js et Astro apportent chacun des atouts uniques, mais comment se comparent-ils pour un même cas d'utilisation ? (...suite)"
+author: "Romain Basly"
+image:
+    url: "https://docs.astro.build/assets/rose.webp"
+    alt: "Le logo Astro sur un fond sombre avec une lueur rose."
+tags: ["Bases", "Javascript", "React", "Next", "Astro"]
+---
+
+Lors de la création de projets web, le choix du bon framework peut avoir un impact significatif sur les performances et l'expérience de développement. Des outils comme React, Next.js et Astro apportent chacun des atouts uniques, mais comment se comparent-ils pour un même cas d'utilisation ? Pour répondre à cette question, j'ai décidé de mener une expérience simple : construire des projets de portfolio identiques en utilisant ces trois frameworks et comparer leurs performances, temps de construction et expérience développeur.
+
+## More is less - complexity out of simplicity
+
+En tant que développeurs web, nous connaissons tous la structure d’une page web : elle est composée d’un HTML de base, stylée avec du CSS pour être esthétique, et inclut des éléments interactifs. En réalité, **ces éléments sont basiques**. Cependant, au-dessus de ces éléments « simples », des frameworks ont été créés pour rendre les sites dynamiques, conviviaux, modernes, et même pour simplifier la vie des développeurs. Pourtant, certains affirment que ces frameworks, en contrepartie, introduisent une **complexité inutile et gaspillent des ressources**, surtout pour les projets de petite envergure. Comme notre philosophie fondamentale est « Ne pas croire, vérifier », c'est ce que nous avons l'intention de faire dans ces premiers articles. Pour cela, nous avons créé ce portfolio de trois façons différentes : avec React traditionnel, puis avec NextJS et enfin avec Astro.
+
+## D’accord, mais qu’est-ce qui distingue Astro de React et Next.js ?
+
+Astro se distingue de NextJS en adoptant une approche encore plus légère concernant le JavaScript côté client. L'équipe a conçu le framework pour des sites axés sur le contenu comme les blogs, les pages marketing et les boutiques en ligne. En un mot : des sites majoritairement statiques. La promesse clé d'Astro est de réduire le poids du JavaScript et la complexité par rapport aux frameworks comme React ou Next.js.
+
+## Que promet Astro ?
+
+* **Chargements de pages plus rapides** : L’objectif d’Astro est d’atteindre les utilisateurs aussi vite que possible en **réduisant** la quantité de JavaScript qui **s’exécute côté client**. Au lieu d’envoyer un lourd bundle de JavaScript (l’ensemble de l’application), Astro envoie un **JavaScript minimal** ou pas du tout pour le contenu statique.
+* **L’architecture en 'îles' d’Astro** permet une **hydratation partielle**, ce qui signifie que **seules les parties interactives** de la page utilisent JavaScript, tandis que le contenu statique reste inchangé. C’est une différence majeure par rapport à des frameworks comme React en SSR, qui hydratent toute la page, ajoutant de l’interactivité à toutes les parties du HTML, même celles qui restent statiques. En n’hydratant que les parties nécessaires, Astro réduit la surcharge de JavaScript côté client, offrant ainsi des **performances accrues** pour les sites axés sur le contenu.
+* **Avantages pour le SEO** : Comme Astro envoie du HTML entièrement rendu depuis le serveur, les moteurs de recherche peuvent explorer votre contenu plus facilement, ce qui **améliore le SEO**, tout comme NextJS. Vous pouvez toujours ajouter de l’interactivité si nécessaire, mais Astro se concentre d'abord sur la livraison du HTML.
+* **Simplicité pour le développeur** : Astro simplifie le développement en **vous permettant** d’écrire des composants en HTML, CSS et JavaScript basiques, tout en supportant des frameworks comme **React, Vue et Svelte**. Il agit comme un **méta-framework**, ce qui signifie que vous pouvez réutiliser vos connaissances et bibliothèques existantes dans Astro sans avoir à apprendre une nouvelle façon de penser.
+
+Ces promesses sont attrayantes, mais se vérifient-elle en pratique ? Dans le prochain article, nous évaluerons les trois frameworks sous plusieurs angles : le temps nécessaire pour build localement le projet, la durée du déploiement et les temps de chargement pour les utilisateurs.

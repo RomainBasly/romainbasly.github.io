@@ -1,0 +1,201 @@
+---
+title: "Tester les performances d’Astro face à React et Next.js"
+lang: "fr"
+translation: "/posts/en/2"
+date: "2024-11-13"
+description: "Dans notre précédent article, nous avons mis en avant les avantages potentiels d'Astro par rapport à d'autres frameworks. Cette fois, nous avons décidé de vérifier ces affirmations en comparant les performances entre Astro, React et Next.js. Nous avons construit des projets de portfolio simples identiques (...suite)"
+author: "Romain Basly"
+image:
+    url: "https://docs.astro.build/assets/rose.webp"
+    alt: "Le logo Astro sur un fond sombre avec une lueur rose."
+tags: ["Javascript", "React", "Next", "Astro", "Performance"]
+---
+
+import { Image } from "astro:assets"
+
+Dans notre précédent article, nous avons mis en avant **les avantages potentiels d'Astro par rapport à d'autres frameworks**. Cette fois, nous avons décidé de vérifier ces affirmations en comparant les performances entre **Astro**, **React** et **Next.js**. Nous avons construit des projets de portfolio simples identiques en utilisant chaque framework pour analyser leurs **temps de build**, **durées de déploiement** et **performances des pages web**. À la fin de cet article, vous comprendrez comment **Astro se compare à React et Next.js** dans différents aspects et pourquoi il pourrait être le choix idéal pour votre prochain projet.
+
+## Configuration de l’expérience
+
+<div>
+Pour garantir une comparaison juste, nous avons créé des sites portfolio identiques en utilisant :
+* **React** : Créé avec Create React App version 5.0.1
+* **Next.js** : Version 13.4.0
+* **Astro** : Version 2.10.15
+</div>
+
+<div>
+Chaque portfolio contient quelques pages avec la même structure :
+* **Une page d’accueil avec un logo**
+* **Une image**
+* **Du contenu textuel**
+</div>
+
+Nous avons utilisé un **MacBook Pro M1 (2021)** pour les builds locaux et déployé les projets sur **Vercel** pour mesurer les durées de déploiement.
+
+## Les résultats
+
+### Comparaison des temps de build
+
+| Framework    | Local Build Time   | Deployment Time   |
+|:------------:|:------------------:|:-----------------:|
+| **Astro**    | **8.9s**           | **29s**           |
+| **React**    | 11.5s              | 34s               |
+| **Next.js**  | 14s                | 37s               |
+
+Comme on peut le constater, **Astro surpasse React et Next.js en termes de durée de build local et de déploiement en ligne**. Qu’en est-il des **performances des pages web** ?
+
+Pour les métriques de performance, nous avons utilisé **WebPageTest**, configuré pour simuler un **Motorola G4** avec une connexion **4G** :
+
+### Premières métriques de performance
+
+| Metric                        | **Astro**   | **Next.js** | **React**   | 
+|:------------------------------|:-----------:|:-----------:|:-----------:|
+| **Number of Requests**        | **12**      | **20**      | **14**      | 
+| **Time to First Byte (TTFB)** | **0.82s**   | **0.75s**   | **0.73s**   | 
+| **Speed Index - First Visit** | **2.0s**    | **1.7s**    | **2.3s**    | 
+| **Speed Index - Second Visit**| **1.7s**    | **1.5s**    | **2.0s**    | 
+| **Page Weight - First Visit** | **1,791kB** | **347kB**   | **1,832kB** | 
+| **Page Weight - Second Visit**| **6kB**     | **10kB**    | **1,832kB** | 
+
+<div>
+À partir de ces métriques, on peut tirer **trois conclusions** :
+
+- **Le dossier de build d’Astro est significativement plus light** : 9 Mo contre 17 Mo pour React et 314 Mo pour Next.js.
+- **Astro fait mieux que React et Next.js** en termes de temps de build local, de déploiement et de nombre de requêtes pour récupérer les ressources (CSS, JS, images, etc.).
+- Cependant, **les performances initiales d’Astro montrent un TTFB, un poids de page et un Speed Index plus élevés par rapport à Next.js**.
+</div>
+
+<div>
+### Résolution du problème initial de poids de la page pour Astro
+
+En examinant les plus gros actifs téléchargés, nous avons découvert que **Next.js s’en sort mieux grâce à ses techniques intégrées d’optimisation d’images**, en particulier son **composant Image**. **Astro nécessite une optimisation manuelle des images**, ce qui entraîne des tailles de page plus grandes et des vitesses plus lentes initialement.
+</div>
+
+Après avoir mis en œuvre l’**optimisation des images (opt)** dans Astro et React (en utilisant Lazy Loading), les résultats se sont nettement meilleurs :
+
+| Metric                        | **Astro (init)**    | **Next.js** | **React (Opt)**   | **Astro (Opt)**        |
+|:------------------------------|:-------------------:|:-----------:|:-----------------:|:----------------------:|
+| **Number of Requests**        | 12                  | 20          | 13                | **12**                 |
+| **Time to First Byte (TTFB)** | 0.82s               | 0.75s       | 0.73s             | **0.72s**              |
+| **Speed Index - First Visit** | 2.0s                | 1.7s        | 2.4s              | **1.8s**               |
+| **Speed Index - Second Visit**| 1.7s                | 1.5s        | 2.4s              | **0.8s**               |
+| **Page Weight - First Visit** | 1,791kB             | 347kB       | 280kB             | **306kB**              |
+| **Page Weight - Second Visit**| **6kB**             | 10kB        | 280kB             | **0kB**                |
+
+Avec des images optimisées, **Astro surpasse React et Next.js sur tous les plans** (sauf pour le Speed Index - Première visite), y compris le déploiement, les performances des pages et la taille des projets. Une question se pose : pourquoi ces différences significatives entre les frameworks ? Pour cela, nous devons examiner leurs stratégies de rendu.
+
+## Comprendre les stratégies de rendu
+
+Dans le développement web moderne, il existe plusieurs stratégies de rendu pour afficher les pages web et gérer l’interactivité :
+
+<div>
+### Rendu côté client (CSR)
+
+Le CSR, souvent associé aux applications React traditionnelles, confie au navigateur la responsabilité de construire entièrement la page web. Le serveur envoie une structure HTML minimale, et le navigateur télécharge et exécute du JavaScript pour construire la structure et l’interactivité de la page en temps réel.
+
+Dans certains cas, le CSR peut entraîner l’envoi de bundles JavaScript volumineux, incluant du code qui pourrait ne jamais être utilisé par l’utilisateur. Cela peut rendre l’expérience de chargement initiale significativement lente, car le navigateur doit effectuer tout le travail de construction de la page, gaspillant potentiellement de l’énergie et des ressources. C’est précisément pourquoi React est plus lourd et plus lent que Next.js et Astro dans notre exemple de base.
+</div>
+
+<div>
+### Back to (U)SSR
+
+En revanche, le rendu côté serveur (SSR), utilisé par des frameworks modernes comme Next.js et Astro, déplace une grande partie de ce travail vers le serveur, similaire à ce que faisait PHP. Le serveur pré-rend le HTML, envoyant une page complètement formée au navigateur. Cela permet au contenu de se charger rapidement, tandis que JavaScript intervient ensuite pour hydrater la page et la rendre interactive.
+
+Cet équilibre entre vitesse et interactivité rend les frameworks SSR excellents pour les performances, ce qui explique pourquoi Next.js et Astro surpassent React.
+</div>
+
+<div>
+### Génération de sites statiques (SSG)
+
+Une autre stratégie de rendu est la génération de sites statiques (SSG) : les pages HTML sont générées au moment du build, pré-rendues sous forme de fichiers HTML statiques, puis servies au navigateur par le serveur. En retour, cela permet d’avoir des pages web aux performances rapides et une consommation de ressources réduite. Dans notre cas, Astro et Next.js utilisent le SSG par défaut.
+</div>
+
+<img 
+  src="/Images/blog-posts/2/schema-csr-ssr-ssg.png" 
+  alt="Schéma illustrant les différences entre CSR et SSR"
+/>
+
+<div>
+### Approches hybrides
+
+Les frameworks comme Next.js et Astro supportent des stratégies de rendu hybrides, permettant aux développeurs de choisir la méthode la plus appropriée pour chaque page ou composant. Avec les composants côté serveur de Next.js 13+ et l’architecture en îles d’Astro, les développeurs peuvent créer des sites web hautement optimisés en servant du contenu statique et en hydratant uniquement les composants interactifs nécessaires.
+</div>
+
+## Ce qui rend Astro unique : L'hydratation sélective et son architecture
+
+<div>
+> "J’adore l’eau, dans 20 ou 30 ans il n’y en aura plus."
+> (Jean-Claude Van Damme)
+
+Astro se distingue de Next.js par son approche par défaut consistant à **n’envoyer aucun JavaScript** au navigateur. Avec Astro, seuls les composants nécessitant une interactivité sont enrichis avec du JavaScript, un processus appelé **hydratation sélective**. Cela fait partie de l’**island architecture**, où chaque composant fonctionne comme une "île" séparée, et vous décidez quels composants nécessitent une hydratation pour les interactions utilisateur.
+
+Cette méthode garde les pages légères et améliore considérablement les performances en réduisant la charge de JavaScript.
+
+De manière similaire, les versions récentes de Next.js (13+) ont introduit le répertoire "app" et les composants côté serveur, permettant aux développeurs de rendre des composants côté serveur sans envoyer de JavaScript au client. Bien que cette approche s’aligne sur celle d’Astro, nos tests ont montré que construire un simple site statique avec Next.js entraîne **des temps de build plus longs et des bundles plus volumineux** comparés à Astro, malgré sa gestion efficace du contenu statique.
+</div>
+
+## Pourquoi choisir Astro ?
+
+<div>
+Astro **excelle** dans la livraison de **contenu statique avec simplicité** :
+* **Taille de build minimale** : Les outputs de build d’Astro sont plus légers comparés à ceux de Next.js.
+* **Temps de build plus rapides** : Optimisé pour les sites statiques.
+* **Idéal pour les projets simples** : Parfait pour les portfolios ou les sites axés sur le contenu.
+* Sa **flexibilité** et sa **facilité** à onboarder des développeurs issues d'autres frameworks JS comme Vue, React, Preact ou encore Svelte. De même, vous pourriez ainsi créer une app avec du React, Svelte et du Vue en même temps.
+</div>
+
+## Devons-nous tous privilégier Astro pour tous les sites web ?
+
+Dans nos tests, **Astro a offert d’excellentes performances**, en particulier après l’optimisation des images. Cependant, en fonction de vos besoins, React et Next.js 13+ offrent des fonctionnalités qui peuvent mieux convenir à des projets plus grands ou plus dynamiques.
+
+## Quand choisir React ?
+
+<div>
+Créé par un ingénieur de Facebook, React est un framework frontend conçu pour créer des applications monopages (SPA) dynamiques et performantes. Autour de la création d’un DOM virtuel et de la programmation modulaire, React est spécifiquement conçu pour :
+* des projets susceptibles de croître en complexité, bénéficiant de l’architecture modulaire ;
+* des applications modernes et complexes gérant beaucoup d’informations (textes, messages, images, vidéos, messageries instantanées...) ;
+* des projets pouvant s’étendre aux applications mobiles multiplateformes (iOS, Android), pouvant être transformés en applications React Native.
+</div>
+
+## Quand choisir Next.js ?
+
+<div>
+Next.js est un framework qui répond à certains des principaux défis de l’utilisation de React pour le rendu côté client (CSR), comme l’optimisation SEO, la création de pages statiques et l’absence de routage intégré :
+* **Rendu côté serveur (SSR) et génération de sites statiques (SSG)** : Next.js simplifie la mise en œuvre du SSR et du SSG, ce qui améliore les performances et la scalabilité.
+* **Optimisation SEO** : Comme les pages sont rendues au moment du build (SSG) ou sur requête client (SSR), le client reçoit une page optimisée pour le référencement.
+* **Routage basé sur le système de fichiers** : Pas besoin de bibliothèque externe, Next.js crée directement une route basée sur l’architecture des dossiers `pages/` ou `app/` (selon la version et l’architecture choisie).
+</div>
+Pour des applications avancées nécessitant des capacités dynamiques, **Next.js reste un candidat solide**.
+
+## Conclusion
+
+<div>
+Finalement, le choix entre Astro, React et Next.js dépend des besoins spécifiques de votre projet :
+* Choisissez Astro pour des sites axés sur le contenu où **performance et simplicité** sont les priorités absolues.
+* Optez pour Next.js pour des applications plus complexes, nécessitant du rendu côté serveur, une optimisation SEO et un framework robuste qui améliore les capacités de React pour des applications plus importantes.
+* Privilégiez React lorsque vous avez besoin de **flexibilité** et prévoyez de construire des interfaces hautement interactives ou d’**étendre le projet à des plateformes mobiles**.
+</div>
+
+<img 
+  src="/Images/blog-posts/2/conclusion.png" 
+  alt="Schéma illustrant les différences entre CSR et SSR"
+/>
+
+Les trois frameworks offrent des outils puissants pour créer des applications web performantes. Évaluez attentivement les besoins de votre projet pour sélectionner le framework qui correspond le mieux à vos objectifs.
+
+## Ressources
+
+[Consultez GitHub pour accéder aux repos](https://github.com/RomainBasly/setting-up-experiment)
+
+<div>
+Webpage Performance Metrics: 
+<ul>
+  <li><a href="https://www.webpagetest.org/result/241115_AiDcYZ_ANT/" target="_blank" rel="noopener noreferrer">React Initial Test</a></li>
+  <li><a href="https://www.webpagetest.org/result/241120_BiDcJ9_A0W/" target="_blank" rel="noopener noreferrer">React Optimized Images Test</a></li>
+  <li><a href="https://www.webpagetest.org/result/241115_BiDcPC_AJA/" target="_blank" rel="noopener noreferrer">Next.js</a></li>
+  <li><a href="https://www.webpagetest.org/result/241115_AiDcJN_APR/" target="_blank" rel="noopener noreferrer">Astro Initial Test</a></li>
+  <li><a href="https://www.webpagetest.org/result/241115_AiDc8C_AQ9/" target="_blank" rel="noopener noreferrer">Astro Optimized Images Test</a></li>
+</ul>
+</div>
+
