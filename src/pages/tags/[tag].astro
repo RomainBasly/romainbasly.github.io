@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const posts = await getCollection("posts");
 
 const filteredPost = posts.filter((post) => {
-  if (tag) return post.data.tags?.includes(tag);
+  if (tag) return post.data.lang === "en" && post.data.tags?.includes(tag);
 });
 ---
 
