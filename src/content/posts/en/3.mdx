@@ -1,0 +1,79 @@
+---
+title: "Scrum methodology - an introduction / Part 1"
+lang: "en"
+translation: "/posts/fr/3"
+date: "2024-11-29"
+description: "Scrum methodology seems to have conquered the world. This framework has now become the norm in the tech industry and is spreading to new parts of the economy every day. The question we would like to raise here in this series of articles : Is Scrum methodology the magic recipe for success? For that, we went back to its root: the Book *The Art of Doing Twice the Work in Half the Time* by Jeff Sutherland (more...)"
+author: "Romain Basly"
+image:
+    url: "https://docs.astro.build/assets/rose.webp"
+    alt: "The Astro logo on a dark background with a pink glow."
+tags: ["Scrum", "Methodologies", "Organization", "Better-Faster-Stronger"]
+---
+
+<div>
+Scrum methodology seems to have conquered the world. This framework has now become the norm in the tech industry and is spreading to new parts of the economy every day. The question we would like to raise here in this series of articles is : What is it concretely? How is it different? Can Scrum methodology be the magic recipe for success? 
+
+To try to answer this question, I went back to its root and the passionate Book *The Art of Doing Twice the Work in Half the Time* by Jeff Sutherland - the founder of the methodology. Our goal is here to understand the origins of the framework, what is so special about it, what does it do and try to understand its underlying assumptions. 
+Documenting what Scrum is, our take is that Scrum is widely known among professionals. However, the underlying assumptions that make the framework truly effective are less well known. These articles aim to explore these ideas and put them forward. But first: let's define to what kind of problems Scrum tries to get an answer.
+</div>
+
+## The origin - from one failure to another : the case of the FBI
+<div>
+To show the power of Scrum methodology, Jeff Sutherland start his book by emphasizing the story of the FBI and its modernization of its Information System: 
+> **"<span style="color: tomato">Before 9/11</span>** (...) “The FBI’s information systems were woefully inadequate,” (...) ”When senators started asking the Bureau some uncomfortable questions (Post 911), the FBI basically said, “Don’t worry, we have a modernization plan already in the works.” The plan was called the Virtual Case File (VCF) system, and it was supposed to change everything. (...) officials said they only needed another $70 million on top of the $100 million already budgeted for the plan (...) <span style="color: tomato">Three years later, the program was killed. </span> It didn’t work. Not even a little bit. The FBI had <span style="color: tomato">spent $170 million in taxpayer money to buy a computer system </span> that would <span style="color: tomato">never be used — not a single line of code, or application, or mouse click</span>. The whole thing was an unmitigated disaster"
+
+> "**<span style="color: tomato">In 2005</span>** the FBI announced a new program, Sentinel. <span style="color: tomato">This time it would work. This time they’d put in the right safeguards, the right budget procedures, the right controls</span>. They’d learned their lesson. <span style="color: tomato">The price tag? A mere $451 million. And it would be fully operational by 2009 </span>. What could possibly go wrong? In March of 2010 the answer landed on Jeff Johnson’s desk. Lockheed Martin, the contractor hired to make the Sentinel system, had already spent $405 million. They’d developed only half of the project, and <span style="color: tomato">it was already a year late</span>. An independent analysis estimated it would take another <span style="color: tomato">six to eight years to finish the project</span>, and the taxpayers would have to throw in at least another $350 million."
+
+> "**<span style="color: tomato">On March 3, 2010 </span>**, the Federal Bureau of Investigation <span style="color: tomato">killed its biggest and most ambitious modernization project</span> (...) For more than a decade the FBI had been trying to update its computer system, and it looked as if they would fail. Again."
+</div>
+<div>
+
+
+**So the question is : what went wrong?**
+> "What went wrong and how the situation got fixed are why I’m writing this book. <span style="color: tomato">It wasn’t that these weren’t smart people </span>. It wasn’t that the Bureau didn’t have the right personnel in place, or even the right technology. It wasn’t about a work ethic or the right supply of competitive juices. <span style="color: tomato">It was because of the way people were working</span>. The way <span style="color: tomato">most people work</span>. The way we <span style="color: tomato">all</span> think work has to be done, because that’s <span style="color: tomato">the way we were taught to do it. </span>"
+
+</div>
+
+<div class="blog-image-container">
+**So the question is : how do most people work?**
+
+The FBI and its contractors worked on the modernization of the Information System like it was a normal business project: using the <a href="https://en.wikipedia.org/wiki/Waterfall_model" target="_blank" rel="noopener noreferrer">Waterfall model</a>. In this workflow, <span style="color: tomato">each phase of the project is meticulously planned in isolation by separate disciplines</span> (e.g., business analysts, technical designers, developers, etc.):
+<img 
+  src="/Images/blog-posts/3/waterfall.png" 
+  alt="Schema to describe how projects are carried out in Waterfall design" 
+/>
+</div>
+
+<div>
+* **First, the client describes its business requirements**, leading to the product discovery phase by the marketing.
+* Then a **solution is brought to fit these requirements on the product design**, leading to the technical design of the solution by a separate technical team.
+* **<span style="color: tomato">Finally developers</span>** enter the dance, coding and testing the solution according to the product design and delivering it to the client.
+</div>
+
+<div>
+Each phase can be **<span style="color: tomato">significantly long</span>** because every step is meticulously planned, often resulting in **<span style="color: tomato">several months passing between the initial brief and the first lines of written code</span>**. 
+</div>
+
+<div>
+But the problem is that this waterfall workflow is particularly vulnerable when:
+
+- **<span style="color: tomato">The client changes their mind </span>** between one of these steps - all the steps need to be revisited. In return, it generates more costs in the end because of contractual clauses that enhance the price of the contract. In one word, this way of seeing **<span style="color: tomato">the workflow does not welcome change easily</span>**, everything comes at a price, and that can be really problematic in certain conditions.
+- **<span style="color: tomato">The team operates in an uncertain market</span>**, or the customer does not know what they really need. **<span style="color: tomato">The team then discovers the needs</span>** of the customer during **<span style="color: tomato">the development process</span>**: it needs to find a way to be more adaptable to the most up-to-date reality.
+- **<span style="color: tomato">Each stakeholder (client/business/developers) has a distinct understanding of the initial need </span>**: this misalignment in the initial ideas can trigger major differences in the final product months later, that can lead to customer dissatisfaction (or even endanger the company). **<span style="color: tomato">The sooner you understand the discrepancy, the sooner you can fix it.</span>**
+</div>
+
+<div>
+In 2010 a decision was made at the FBI: over budget, behind schedule, and unable to deliver the promised product, they finally turned to Scrum methodology to finish the project. With this new methodology...
+> "...the FBI plans to reduce the number of contract employees working on Sentinel from approximately 220 to 40. The FBI said that, at the same time, the number of FBI employees assigned to the project will also decrease from 30 to 12.... The FBI told us it believes it can complete Sentinel with the approximately $20 million remaining in the Sentinel budget and within 12 months
+of beginning this new approach (...) Finally in July of 2012, they turned Sentinel on. "
+</div>
+
+## Scrum inside Agile Methodologies
+<div>
+Scrum methodology is part of a broader movement known as Agile methodologies (see their manifesto **<a href="https://agilemanifesto.org/principles.html" target="_blank" rel="noopener noreferrer"><span style="color: tomato">here</span></a>**). This collection of methodologies was developed to address the challenges inherent in (and sometimes the failures of) software development, particularly in complex projects. 
+Simply put, Scrum is a framework or a method that works in **<span style="color: tomato">short cycles</span>**, in which the team **<span style="color: tomato">inspects</span>**, **<span style="color: tomato">reflects </span>** and **<span style="color: tomato">adapts regularly</span>** the workflow **<span style="color: tomato">to achieve higher efficiency</span>**.
+
+In our next article, we will enter with a little more depth into the subject.
+</div>
+

@@ -13,8 +13,14 @@ export async function getStaticPaths() {
   }));
 }
 const posts = await getCollection("posts");
+const sortedPost = posts.sort(
+  (
+    a: { data: { date: { getTime: () => number } } },
+    b: { data: { date: { getTime: () => number } } }
+  ) => b.data.date.getTime() - a.data.date.getTime()
+);
 
-const filteredPost = posts.filter((post) => {
+const filteredPost = sortedPost.filter((post) => {
   if (tag) return post.data.lang === "en" && post.data.tags?.includes(tag);
 });
 ---

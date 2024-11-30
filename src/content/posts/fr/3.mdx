@@ -1,0 +1,269 @@
+---
+title: "La méthodologie Scrum - une introduction"
+lang: "fr"
+translation: "/posts/en/3"
+date: "2024-11-29"
+description: "Avant de..."
+author: "Romain Basly"
+image:
+    url: "https://docs.astro.build/assets/rose.webp"
+    alt: "The Astro logo on a dark background with a pink glow."
+tags: ["Scrum", "Methodologies", "Organization", "Astro", "Performance"]
+---
+
+import { Image } from "astro:assets"
+
+Before diving into the realm of software development, I must admit I did not have a precise idea of what the Scrum framework really was. I had basic notions, but I had no real understanding of its importance and its origins. So I began to read The Art of Doing Twice The Work in Half The Time. This series of articles aims to depict what Scrum framework is, both for beginners and for advanced professionals. It is based on the reading of The Art of Doing Twice the Work in Half the Time by Jeff Sutherland. Simply put, Scrum is a framework to achieve higher efficiency in project management, out of inspection, reflection, and continuous adaptation of the workflow. However, as Scrum is known by most professionals, the philosophy that inspires the framework is less known.
+
+## The origin
+Scrum methodology is part of a broader movement of Agile methodologies. This set of methodologies was conceived to find solutions to the challenges inherent to (sometimes complex) software development or major failures. Jeff Sutherland points out the case of the FBI, which had difficulties improving its own Information System: out of budget, out of planning, the contractor was not able to manage delivering the promised product because of a waterfall conception.
+
+In fact, how many times in your career or in the news have you heard that companies spend millions to develop a software, and that this software barely rises to the expected standard? Has no use? Or develops a software that confuses users more than ever, such as the rebranding of the SNCF website (French railroad company) to SNCF Connect?
+
+<div>
+Our guess is that some of these projects are still working with an ancient model such as described by Sutherland as being the waterfall metaphor. In this way of doing things, each step of the project is carefully planned and separated:
+
+<img 
+  src="/Images/blog-posts/3/waterfall.png" 
+  alt="Schema to describe how projects are carried out in Waterfall design" 
+/>
+* The client describes its business requirements, leading to the product discovery phase.
+* Then a solution is brought to fit these requirements on the product design, leading to the technical design of the solution.
+* The developers enter the dance, coding and testing the solution according to the product design and delivering it to the client.
+Each phase can be significantly long, because each step is meticulously planned and, in the end, there can be several months between the initial brief and the final delivery.
+</div>
+
+<div>
+However, some problems can arise:
+* When the client changes their mind between one of these steps - all the steps need to be revisited. In return, it generates more costs in the end because of contractual clauses that enhance the price of the contract. In one word, this way of seeing the workflow does not welcome change easily, everything comes at a price, and that can be really problematic in certain conditions.
+* When the team operates in an uncertain market, or the customer does not know what they really need. The team then discovers the needs of the customer along the development process: it needs to find a way to be more adaptable to the most up-to-date reality.
+* When each stakeholder (client/business/developers) has a distinct understanding of the initial need: this misalignment in the initial ideas can trigger major differences in the final product months later, that can lead to customer dissatisfaction (or even endanger the company). The sooner you understand the discrepancy, the sooner you can fix it.
+</div>
+
+## Scrum at work
+To tackle more efficient development and these issues, Scrum operates a cultural shift. The idea behind Scrum is to deliver the maximum value in the shortest timeframe, meaning something of value to the client as fast as possible, to get first feedback.
+
+## Finding the User through Consumer Research and User Stories
+It all starts with an idea. And to build this idea, first, you need to build a solid understanding of what your user is based on the existing data:
+
+> “So before you prioritize what needs to be done for your business, you need to define the character, the user, the customer—the person who’s going to use what you’re going to do. You need to know their likes, dislikes, passions, enthusiasms, frustrations, and joys. And then you need to understand their motivations. How do those character types feed what they want? Why do they need a car?”
+
+> “So the first thing you want to think about when you’re considering a task is character or role—for example, a customer, a bride, a reader, an employee. Who is this task being done for? Whose lens on the world is the one we need to gaze through when we’re building this thing, making that decision, or delivering this piece?”
+
+> “Then you need to think of the what—what we want done in the first place. This is usually where we start and stop. But it’s only the middle of the process we should be following.
+
+> “Finally, you need to think of motivation. Why does this character want this thing? How is it going to serve and delight this particular customer? And, in a way, this is the key part. Motivation colors everything.”
+
+## The User Story
+Once you step into the shoes of your user, you create a product or a service that will meet their needs and decompose your project into small tasks representing one functionality of your application, based on the consumer analysis. In Scrum, each task is called a User Story, because:
+
+> “People think in narratives, in stories. That’s how we understand the world. We have an intimate grasp of characters, desires, and motivations. Where we get into trouble is when we try to abstract out of the main through-line discrete parts and deal with them out of context.”
+
+Besides, when developing the functionality, the story you create will be a powerful tool for the developer to grasp the reality the user will be in.
+
+> “Those stories are ones that a team can wrap its head around. A discussion can actually ensue about how to implement them. They’re specific enough to be actionable but don’t prescribe how they’re going to be done.”
+
+Each User Story (US) then represents the task from the user's point of view. Each US needs to follow the INVEST acronym, that is, it must be Independent from the other US, Negotiable (not fixed at any given time), Valuable (meaning it adds value to the application), Estimable (meaning it can be estimated by the team), Small, and Testable.
+
+A good example of a User Story might be: “The user needs to be able to add a product to a basket, and this basket has its own page summing up what the user wants to buy.”
+
+## The sprint
+Now that you have an idea of a product and functionalities described as User Stories, the most important thing in Scrum is to test these first ideas as soon as possible with a concrete application and get feedback from the users. For that, each working cycle is voluntarily short and is called a sprint. It lasts between 1 to 4 weeks maximum, and each sprint aims to produce something that brings the maximum value to the final product and gets feedback.
+
+> “At the end of each Sprint, have something that’s done—something that can be used (to fly, drive, whatever).”
+
+> How to prioritize: first accept uncertainty
+Ok, now we have some User Stories prepared. But what do we start to develop first? For that, the answer lies in the question: what brings the most value to the project?
+
+> “In software development there is a rule, borne out by decades of research, that 80 percent of the value in any piece of software is in 20 percent of the features. (…) The key is to figure out how to deliver the most value the most quickly. There may be many millions of ways to arrange that Backlog (all the User Stories planned to make the product live), but the one you want delivers those 20 percent of features that hold 80 percent of the value as quickly as possible. Your first guess for the first Sprint almost certainly won’t be the right one, but it will be your best guess at the time. But that’s just your first guess. After the first Sprint, once you’ve (…) delivered some product to customers, you’ll change that order, realizing that another arrangement is actually better. (…) The key is to acknowledge uncertainty, to fully accept that your current snapshot of order and value is only relevant at that one particular moment. It’ll change again. And again. And again.”
+
+Starting to think about how to manage producing the most valuable features of the application is finally to develop 20% that will entail 80% of the value of your project. Then the question is: who decides what is the 20% that is the most important? The team, in one of the many ceremonies that surround a sprint.
+
+## The important role played by the ceremonies
+To channel the actions of the team, it is organized around rituals and ceremonies that provide the tools for incremental development and continuous improvement in a work cycle (sprint). The first major ritual starting a sprint is the sprint planning.
+
+## The sprint planning
+In each sprint, the team gathers and decides collectively what they think they can accomplish within this cycle during a particular event called the sprint planning. That is, before starting to develop, this ceremony is organized to evaluate what would bring the most value to the project, what needs to be achieved by the end of the sprint, and how to test the result. And the particularity of Scrum is that only the team decides how to do things—not a manager or a single person inside or outside the team. Everyone is required to participate at this stage to be as close as possible to the reality (of the codebase, of the functionalities to develop, etc.).
+
+> “…It’s crucial, though, that you have the team who’s actually doing the work do the estimating, not some expert ‘ideal’ estimators. (…) Each (team) has its own pace and rhythm. Forcing them into cookie-cutter processes is a recipe for disaster.”
+
+During this part of the ceremony, more precisely, the team needs to discuss the difficulty of doing each User Story. It uses the poker planning method: everyone evaluates the task with difficulty points (such as 1, 3, 5, 8, 13…), and it is carried out anonymously to prevent group biases in decision making (such as bandwagon and halo effects). Everyone’s votes are then revealed, and a discussion follows to understand why such a value has been chosen, to get a more accurate vision of the task.
+
+The sprint then gets a certain number of points, which defines a central metric in Scrum: the velocity of the team during a cycle. Cycle after cycle, you get a better understanding of the velocity of the team.
+
+> “Also once you have your velocity, you can figure out the most important thing in Scrum: what is keeping you from going faster? What is keeping you from accelerating?”
+
+With the velocity of your team in mind, it gives you a better idea of the delivery date to the client.
+
+In this part and in general, the idea is to dare to “Set Audacious Goals. With Scrum it is not that hard to double production or cut delivery time in half.” Once the sprint planning is closed, another regular ritual is set: the daily Scrum.
+
+## The daily Scrum or stand-up
+This ritual takes place usually every morning of the sprint. Its objective is to evaluate the progress made the day before and identify potential issues that would need a collective effort to finish the sprint’s objectives.
+
+> “The Scrum Master, the person in charge of running the process, asks each team member three questions:
+
+> What did you do yesterday to help the team finish the Sprint?
+> What will you do today to help the team finish the Sprint?
+> What obstacles are getting in the team’s way?”
+
+<div>
+It has nevertheless a few more rules:
+* It is a short meeting, lasting a maximum of 15 minutes: we want it to be “crisp, direct, and to the point.”
+* It requires the active participation of everyone and energy: “The problem that I frequently see crop up is that people have a tendency to treat the Daily Stand-up as simply individual reporting. ‘I did this ... I’ll do that.’” And for the author, it is seen as a sign of low engagement and passivity: “Passivity is not only lazy, it actively hurts the rest of the team’s performance. Once spotted, it needs to be eliminated immediately (…) I want aggressive teams—ones that come out of the daily meeting knowing the most important thing they need to accomplish that day. One person will hear another say that a task will take a day, but another team member might know how to do it in an hour if they work together. I want teams emerging from that meeting saying things like, ‘Let’s nail this. Let’s do this.’ The team needs to want to be great.”
+</div>
+
+## The Sprint review and the Retrospective
+<div>
+Finally, at the end of a sprint, a sprint review and a retrospective take place:
+* The sprint review is to evaluate the progress made and see if the elements produced are aligned with the business expectations [The What].
+* The retrospective concentrates the effort on how the sprint went (good, bad), identifying eventual problems and seeing how they can perform better next sprint [The How].
+</div>
+
+> “Ideally, at the end of each iteration, each Sprint, the team would look closely at itself—at its interactions, practices, and processes—and ask two questions: ‘What can we change about how we work?’ and ‘What is our biggest sticking point?’ If those questions are answered forthrightly, a team can go faster than anyone ever imagined.”
+
+Later in the book, Jeff Sutherland details his thinking on well-being inside the company:
+
+> “After the team has shown what they’ve accomplished during the last Sprint—that thing that is ‘Done’ (…) they sit down and think about what went right, what could have gone better, and what can be made better in the next Sprint. What is the improvement in the process that they, as a team, can implement right away? (…) The key thing to remember is that you’re not seeking someone to blame; you’re looking at the process. Why did that happen that way? Why did we miss that? What could make us faster? It is crucial that people as a team take responsibility for their process and outcomes, and seek solutions as a team.”
+
+## A certain vision of the team and hunting “wastes”
+However, to achieve higher productivity, these rituals are not sufficient: some other prerequisites exist.
+
+### The team
+It needs to be:
+
+* Built around an idea or a project that transcends the group, a purpose that makes the team solid and greater than the individual (like winning a championship trophy or rallying behind an important figure as the author).
+* Cross-functional, that is, having all the required competences and resources to develop the project.
+* Autonomous, meaning the team has the power to take action quickly.
+* Constituted of 7 people max to work faster: more individuals might slow the process.
+* A team of individuals working closely, being able to meet frequently, and communicate to address issues collectively as soon as they arise:
+
+> “Getting everyone together in a room was key because it gave the team the opportunity to self-organize around challenges. If someone was stuck with a problem—if the accelerometer wasn’t talking to the altimeter—everyone saw that the impediment could block the whole Sprint, and they swarmed on it, making sure it got fixed pronto.”
+
+Built around individuals who feel 100% concerned by the success of the team and do not have a specialized domain or specialized role:
+> “The thing that cripples communication saturation is specialization—the number of roles and titles in a group. If people have a special title, they tend to do only things that seem a match for that title. And to protect the power of that role, they tend to hold on to specific knowledge. So we got rid of all titles.”
+
+Focused 100% on one project at the same time to minimize the cost of “context switching” that happens during multitasking:
+> “The idea is that when you juggle between many tasks or projects at the same time, you finally lose time and end up less productive because you lose context. What I want you to do, though, is be conscious of the cost of context switching. It’s very real, and you should try to minimize it.”
+
+Trying to do things right the first time, tackling problems as soon as they emerge, and not later; otherwise, it will take longer to resolve them.
+
+## Eliminating “wastes” that hinder productivity
+Deeply influenced by the founder of the Toyota Production System (Taiichi Ohno), Jeff Sutherland borrows the concepts of flow of production and waste to build his framework:
+
+> “That is, (according to Toyota management system) production should flow swiftly and calmly throughout the process, and, he said, one of management’s key tasks is to identify and remove impediments to that flow. Everything that stands in the way is waste.”
+
+<div>
+In this context, some identified wastes can be:
+
+* What Ohno calls overburden: All the things that consume the team’s energy while producing no concrete value for the project:
+> “It includes onerous company policies that get in the way, unnecessary reporting that has people filling out forms for the sake of filling out forms, and meaningless meetings that suck up time and don’t deliver any value.”
+
+Here, Sutherland borrows from Eastern philosophy the ideal of simplicity and the idea that, to be efficient, the team needs to get rid of everything that does not contribute to productivity. As a consequence, the documentation of a project needs to be as minimal as possible.
+* Setting absurd goals: While Scrum tends to set high standards, setting impossible objectives can be counterproductive (e.g., for the morale of the team).
+* Setting too high expectations: If the normal flow of working relies
+> “on regular heroic actions to make its deadlines, it can work momentarily in the short term. However, being constantly moving from one crisis to the next causes burnout, and it doesn’t allow for reasoned, continuous improvement as the team is not able to tackle fundamental problems of the project.”
+</div>
+
+The true difficulty lies in finding a balance between improving productivity (velocity) and setting reasonable targets that allow team members to enjoy working in the team.
+
+* Seeing third-party interventions to modify the sprint or interrupt the workflow: It makes the team lose focus on the goals and impedes productivity.
+* To eliminate these wastes and improve productivity, two roles have been created: The Scrum Master and the Product Owner.
+
+## The Scrum Master and the Product Owner as agents to boost the productivity of the Development Team
+In the Scrum framework, three pivotal roles collaborate to ensure the delivery of high-quality products: the Scrum Master, the Product Owner, and the Development Team. Each role has distinct responsibilities but works closely within the Scrum Team to achieve common goals. Here, we will focus on the Product Owner and Scrum Master, as the role of the Development Team has already been addressed transversally.
+
+### Scrum Master as agent to remove obstacles
+An important role inside a team is the Scrum Master. The Scrum Master serves as a facilitator and coach for the Scrum Team. Their primary focus is on promoting and supporting Scrum practices, ensuring the team operates smoothly and eliminating impediments bothering the team.
+
+>“So we set up this framework of Sprints and Daily Stand-up meetings and Reviews and Retrospectives, and I realized we needed someone whose job it was to make sure the process itself was effective. Not a manager—more of a servant-leader, something between a team captain and a coach. (…) He or she would facilitate all the meetings, make sure there was transparency, and, most important, help the team discover what was getting in their way. The key part of that was to realize that often the impediments aren’t simply that the machine doesn’t work or that Jim in accounting is a jerk—it’s the process itself. It was the Scrum Master’s job to guide the team toward continuous improvement—to ask with regularity, ‘How can we do what we do better?’”
+
+<div>
+To sum up, the key responsibilities of the Scrum Master include:
+* Facilitating Scrum Events: Organizing and overseeing ceremonies like Sprint Planning, Daily Scrums, Sprint Reviews, and Retrospectives.
+* Removing Impediments: Identifying and eliminating obstacles that hinder the team's progress.
+* Guardian of the Processes: Educating the team and organization about Scrum principles and practices, ensuring adherence to the Scrum framework.
+* Protecting the Team: Shielding the team from external distractions and interruptions, allowing them to focus on Sprint goals.
+</div>
+
+## Product Owner (PO) as Conductor and Business Head
+
+The Product Owner is responsible for the business side of the project: they represent the voice of the customer and stakeholders. POs are responsible for maximizing the value of the product resulting from the work of the Development Team.
+
+> “What Scrum does, by delivering a working increment, is give the Product Owner the ability to see how much value that increment creates, how people react to it. Then, based on that information, she can change what the team will do in the next Sprint. This sets up a constant feedback cycle that accelerates innovation and adaptation and enables the Product Owner to measure how much value is delivered. (…) The Product Owner thus has the ability to adjust on the fly to a constantly changing world.”
+
+<div>
+To sum up, the key responsibilities of the Product Owner include:
+
+* Managing the Product Backlog: Creating, maintaining, and prioritizing the backlog items based on customer needs, market trends, and business value.
+* Clear Communication: Ensuring that the Development Team understands the backlog items to the level needed, facilitating clarity on requirements and expectations through the Sprint Planning and clear User Stories.
+* Stakeholder Liaison: Acting as the primary link between stakeholders and the team, gathering feedback, and adjusting priorities accordingly.
+* Defining the Vision: Articulating the product vision alone or with a Product Manager and ensuring it aligns with customer needs and company objectives.
+* Being Available to the development team:
+> “The Product Owner has to be available to the team, to explain what needs to be done and why. (…) Often the team’s expertise will inform the decisions the Product Owner needs to make. The Product Owner has to be reliable, consistent, and available. (…) They (the team) rely on the Product Owner for ‘the vision’ and, also, market intelligence on what is important.”
+</div>
+
+
+## Collaborative Dynamics
+* Interaction Between Roles: The Product Owner defines what needs to be built, the Development Team determines how to build it, and the Scrum Master facilitates the process, ensuring effective collaboration.
+* Unified Goals: Despite different focuses, all three roles (PO, Scrum Master, and Development Team) aim to deliver maximum value to the customer and continuously improve team efficiency.
+* Communication Flow: Regular interactions among the roles ensure transparency, quick feedback loops, and the ability to adapt to changes rapidly.
+
+Now that you have the basics of Scrum—its terminology, its way of thinking—here is a fraction of the book that sums up Scrum well:
+
+> “Scrum embraces uncertainty and creativity. It places a structure around the learning process, enabling teams to assess both what (the team) has created and, just as important, how they created it. (…) At its root, Scrum is based on a simple idea: whenever you start a project, why not regularly check in, see if what you’re doing is heading in the right direction, and if it’s actually what people want? And question whether there are any ways to improve how you’re doing what you’re doing, any ways of doing it better and faster, and what might be keeping you from doing that. That’s what’s called an “Inspect and Adapt” cycle. Every little while, stop doing what you’re doing, review what you’ve done, and see if it’s still what you should be doing and how you might do it better. It’s a simple idea, but executing it requires thought, introspection, honesty, and discipline.”
+
+Now, I would like to finish this article by describing how I perceived this book and try to unveil some of its limits.
+
+## A compelling framework with a strong philosophy
+What truly captivated me about The Art of Doing Twice the Work in Half the Time is not just the mechanics of Scrum, but the profound positive philosophy depicted by the author. At its core, Scrum is about fostering a positive environment where teams are empowered to achieve greatness beyond individual capabilities. As he points out, applied correctly, Scrum teams can gather a lot of energy and passion at the same time:
+
+> “When a team starts to align and synchronize, it can seem magical. You feel it when you walk into a room with them. You see it as they take the field. They look as if they’re floating; they’ve become greater than themselves. (…) It’s not impossible. It’s not only the elites and athletes and special people who can do this (achieve greatness). It’s about setting up the right framework with the right incentives and giving people the freedom, respect, and authority to do things themselves. Greatness can’t be imposed; it has to come from within. But it does live within all of us.”
+
+### Trust
+A fundamental aspect of this philosophy is trust. Scrum advocates for trusting the team entirely—respecting each member as a master of their craft. Empowerment isn't just about assigning responsibilities; it's about giving teams the autonomy and authority to make decisions, encouraging innovation, and fostering a sense of ownership.
+
+### Shifting Away from Blame Culture
+Another cornerstone is the shift away from blame culture to a develop-test-learn-adapt short cycle. Instead of seeking individuals to fault when things go awry, Scrum encourages teams to view challenges as systemic issues. This approach is rooted in avoiding the "Fundamental Attribution Error," recognizing that problems often arise from processes rather than people. By focusing on solutions collectively, teams can address root causes and continuously improve.
+
+### Happiness
+Happiness also plays a surprisingly central role in Scrum. Jeff Sutherland underscores that happier people are more productive, creative, and engaged. Scrum incorporates simple practices to evaluate and enhance team happiness, such as asking team members how they feel about their work and what could make them happier in the next sprint. This focus not only boosts morale but also drives better outcomes.
+
+> “Here’s how it works. At the end of each Sprint each person on the team answers just a few questions:
+> On a scale from 1 to 5, how do you feel about your role in the company?
+> On the same scale, how do you feel about the company as a whole?
+> Why do you feel that way?
+> What one thing would make you happier in the next Sprint?
+> That’s it. It can be done in just a few minutes. Every person on the team takes a turn, and it sparks really insightful conversations. Together the team usually comes up with a kaizen quite quickly. The method exposes what is most important to each team member, and what they think is most important for the company.
+> And here’s the crucial piece. The team takes that one top improvement and makes it the most important thing to do in the next Sprint—with acceptance tests. How can you prove you’ve made that improvement? You need to define what success is in a concrete, actionable way, so that in the next Sprint Retrospective it’s really easy to see if you achieved the kaizen.”
+
+### Transparency
+In Scrum, Transparency is paramount. In an ideal Scrum environment, information flows openly. There are no hidden agendas or secret plans. This openness builds trust and ensures that everyone is aligned with the team's goals and the organization's mission. When people understand how their work contributes to the bigger picture, it fosters a deeper connection and commitment.
+
+> “One element of Scrum that’s often a prelude to achieving autonomy, mastery, and purpose is transparency. The idea is that there should be no secret cabal, no hidden agendas, nothing behind the curtain. (…) So in Scrum (his company), everything is visible. In my companies, every salary, every financial, every expenditure is available to everyone. I’ve never understood why anyone would want to keep this stuff secret except to further their own individual agenda, or to keep people infantilized. I want the administrative assistant to be able to read the profit-and-loss statement and to understand precisely how what he does contributes to that. I want everyone in the company to be aligned with a unified purpose. Atomizing people into informational silos simply slows everyone down. Plus, it breeds suspicion and distrust. It divides a company into the big boys who know stuff and the peons who merely execute segments of some mysterious agenda they aren’t capable of understanding.”
+
+### Work-Life Balance
+Scrum means finding a way to become more productive as a team, but it does not equate to necessarily working more hours. This idea can go against a lot of mentalities where presenteeism is perceived as a sign of dedication and is deeply rooted in some workers' minds:
+
+> “At that time OpenView was like a lot of high-powered offices. Ingrained in the corporate culture was the expectation that people would work late and on the weekends. These were aggressive, ambitious people. But they were getting burned out, depressed, and demoralized. It was such a tough environment that some people couldn’t take it and quit.
+> But as the firm’s teams started working with Scrum, Scott noticed a shift in productivity. Working more hours stopped producing more output. (…) He started telling people that working late wasn’t a sign of commitment; it was a sign of failure. ‘It’s not because I want you to have a balanced life,’ he told people. ‘It’s because you’ll get more stuff done. (…)’ So no more nights, no more weekends.”
+
+## Adhering to the Spirit of Scrum
+Finally, one of the most crucial elements is adhering to the original spirit of Scrum. It's not just about following practices mechanically, performing ceremonies as if they would trigger positivity and productivity like a magic wand, but embracing the underlying values of respect, courage, focus, openness, and commitment. Without this, Scrum can become a hollow framework, failing to deliver its transformative potential.
+
+## Recognizing the limitations
+While Scrum offers a powerful framework for enhancing team performance, it's not without its challenges. One limitation is the misconception that Scrum requires minimal or no documentation. While Scrum emphasizes working software over comprehensive documentation, certain projects—especially those with long-term maintenance considerations—may benefit from well-maintained documentation to onboard new team members and preserve institutional knowledge.
+
+Scrum also assumes a certain level of team maturity and cohesion. It requires team members who are not only skilled but also possess the emotional intelligence to collaborate effectively, handle feedback constructively, and commit to collective goals over individual agendas.
+
+> “At the same time, people have to have the fortitude to bring up the issues that are really bothering them in a way that is solution oriented rather than accusatory. And the rest of the team has to have the maturity to hear the feedback, take it in, and look for a solution rather than get defensive.”
+
+Moreover, the effectiveness of Scrum heavily relies on the abilities of the Scrum Master and Product Owner. As we read Jeff Sutherland, we soon understand how charismatic he is and his capacity to lead teams. However, not every organization has leaders who can embody the servant-leader role that Scrum advocates. Without strong guidance rooted in Scrum's philosophy, teams might struggle to fully realize the framework’s benefits.
+
+Another consideration is the intensity of continuous sprints. Not all projects demand or can sustain such a pace indefinitely. Teams may need to incorporate pauses or adjust sprint cadences to prevent unhappiness and burnout from emerging. While one of Jeff Sutherland’s greatest challenges is to push people to continue improving their productivity, what if, after a certain period, a threshold prevents the team from performing better? Because they simply cannot go higher?
+
+Lastly, while setting audacious goals can inspire and drive teams to new heights, it's essential to find the right balance between ambition and realism. Goals should stretch the team but remain attainable. Overcommitting can lead to repeated failures, diminishing morale, and undermining trust in the Scrum process.
+
+## Conclusion
+Scrum framework is a great tool, built by a brilliant leader, and it has inspired a lot of teams. Going straight to the point, removing all that is superfluous, tackling well-being at work, empowering people, pushing boundaries, and learning something new every day—reading this book, we now understand why this framework has gained so much traction in Western economies. And we are perfectly able to see why it can create a strong energy and passion around a project.
+
+Nevertheless, applying the Scrum framework cannot solve all the problematic situations that can happen in the normal course of a company’s lifetime (for example: making everything a priority, having a misalignment between high management and the Product Owner in their perception of what the market needs—because they were unavailable in the first place—or making conflicting requests between two services to the development team). However, if a company wants to invest in teams working within the Scrum framework, it goes without saying that it is not only the framework and rituals that need to be applied but rather an entire philosophy centered around the empowerment of both the individuals and the teams.
