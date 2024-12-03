@@ -1,9 +1,9 @@
 ---
-title: "Scrum methodology - an introduction / Part 2"
+title: "La méthodologie Scrum en action - Comprendre les User Stories, sprints, et les dynamiques d'équipe"
 lang: "fr"
 translation: "/posts/en/4"
 date: "2024-11-30"
-description: "In our first article, we explored its origins and the fundamentals of its process. Now, it’s time to dive deeper. In this piece, we’ll describe the key components that make Scrum so effective: the concept of User Stories, the rhythm of sprints shaped by ceremonies, and the pivotal role of the team. We’ll wrap up this series with a final article that reflects on the bigger picture and challenges of Scrum. (...)"
+description: "Dans notre premier article, nous avons exploré ses origines de cette méthodologie et ce qu'elle entend corriger. Maintenant, il est temps d'aller plus loin. Dans cet article, nous décrirons les éléments clés qui rendent Scrum si efficace : le concept des User Stories, le rythme des sprints façonné par les cérémonies, et le rôle central de l'équipe. Nous conclurons cette série avec un dernier article qui reflète une vue d'ensemble et les défis de Scrum. (En savoir plus...)"
 author: "Romain Basly"
 image:
     url: "https://docs.astro.build/assets/rose.webp"
@@ -11,225 +11,228 @@ image:
 tags: ["Scrum", "Methodologies", "Organization", "Better-Faster-Stronger"]
 ---
 
-Scrum has revolutionized how teams deliver value in dynamic and fast-paced environments. In our first article, we explored its origins and the fundamentals of its process. Now, it’s time to dive deeper. In this piece, we’ll describe the key components that make Scrum so effective: the concept of User Stories, the rhythm of sprints shaped by ceremonies, and the pivotal role of the team. We’ll wrap up this series with a final article that reflects on the bigger picture and challenges of Scrum.
+Scrum a révolutionné la façon dont les équipes délivrent de la valeur dans des environnements dynamiques et rapides. Dans notre premier article, nous avons exploré ses origines de cette méthodologie et ce qu'elle entend corriger. Maintenant, il est temps d'aller plus loin. Dans cet article, nous décrirons les éléments clés qui rendent Scrum si efficace : le concept des User Stories, le rythme des sprints façonné par les cérémonies, et le rôle central de l'équipe. Nous conclurons cette série avec un dernier article qui reflète une vue d'ensemble et les défis des équipes qui travaillent en Scrum.
 
-## Finding the Users through Consumer Research and building Stories around them
+## Trouver les utilisateurs grâce à la recherche et créer des histoires autour d’eux
+
 <div>
-In our previous article, we described Scrum as being a framework that works in **short cycles**, in which the team **inspects**, **reflects** and **adapts regularly** the workflow **to achieve higher efficiency**.
+Dans notre article précédent, nous avons décrit Scrum comme un framework qui fonctionne en **cycles courts**, dans lesquels l’équipe **inspecte**, **réfléchit** et **adapte régulièrement** le flux de travail **pour atteindre une efficacité accrue**.
 
-For that, Scrum requires a cultural shift. Instead of planning everything in advance, the idea behind Scrum is to **deliver something of value as fast as possible to the client**, to get first feedback and then build from it. And it all starts with understanding who your user is.
+Pour cela, Scrum nécessite un changement culturel. Au lieu de tout planifier à l’avance, l’idée derrière Scrum est de **fournir quelque chose de valeur au client aussi rapidement que possible**, pour obtenir un premier retour, puis construire à partir de là. Et tout commence par comprendre qui est l'utilisateur.
 </div>
 <div>
-> “So before you prioritize what needs to be done for your business, you need to define the character, the user, the customer — <span style="color: tomato">the person who’s going to use what you’re going to do</span>. You need to know their <span style="color: tomato">likes, dislikes, passions, enthusiasms, frustrations, and joys</span>. And then you need to understand <span style="color: tomato">their motivations</span>. (...) Why do they need a car? (...) So the first thing you want to think about when you’re considering a task is <span style="color: tomato">character or role</span> — for example, a customer, a bride, a reader, an employee. Who is this task being done for? <span style="color: tomato">Whose lens on the world is the one we need to gaze through when we’re building this thing</span>, making that decision, or delivering this piece? <span style="color: tomato">Then</span> you need to think of the what — <span style="color: tomato">what we want done in the first place. This is usually where we start and stop</span>. But it’s only the middle of the process we should be following. (...) Finally, you need to think of motivation. (...) <span style="color: tomato"> How is it going to serve and delight this particular customer</span>? And, in a way, this is the key part. Motivation colors everything.”
+> “Alors, avant de prioriser ce qui doit être fait pour votre entreprise, vous devez définir le personnage, l'utilisateur, le client — <span style="color: tomato">la personne qui va utiliser ce que vous allez produire</span>. Vous devez connaître ses <span style="color: tomato">préférences, ses aversions, ses passions, ses enthousiasmes, ses frustrations et ses joies</span>. Ensuite, vous devez comprendre <span style="color: tomato">ses motivations</span>. (...) Pourquoi ont-ils besoin d’une voiture ? (...) Donc, la première chose à laquelle vous devez penser lorsque vous considérez une tâche, c’est le <span style="color: tomato">personnage ou rôle</span> — par exemple, un client, une mariée, un lecteur, un employé. Pour qui cette tâche est-elle effectuée ? <span style="color: tomato">À travers quel prisme devons-nous regarder le monde en construisant ça</span> (un élément qu'on crée), en prenant cette décision ou en livrant cette partie ? <span style="color: tomato">Ensuite</span>, vous devez penser au quoi — <span style="color: tomato">ce que nous voulons accomplir en premier lieu</span>. Habituellement, c’est là que nous commençons et arrêtons. Mais ce n’est que le milieu du processus que nous devrions suivre. (...) Enfin, vous devez penser à la motivation. (...) <span style="color: tomato">Comment cela va-t-il servir et ravir ce client particulier</span> ? Et, en un sens, c’est la partie clé. La motivation colore tout.”
 </div>
 
-## The User Story
+## La User Story
 
 <div>
-Once you stepped into the shoes of your user, you create a product or a service that will meet their needs and decompose your project into small tasks representing each functionality of your application. In Scrum, each task is called a User Story, because:
+Une fois que vous vous êtes mis à la place de votre utilisateur, vous créez un produit ou un service qui répondra à ses besoins et vous décomposez votre projet en petites tâches représentant chaque fonctionnalité de votre application. En Scrum, chaque tâche est appelée User Story, car :
 
-> “People think in narratives, in stories. That’s how we understand the world. We have an intimate grasp of characters, desires, and motivations. Where we get into trouble is when we try to abstract out of the main through-line discrete parts and deal with them out of context.”
+> “Les gens pensent en récits, en histoires. C’est ainsi que nous comprenons le monde. Nous avons une compréhension intime des personnages, des désirs et des motivations. Là où nous rencontrons des problèmes, c’est lorsque nous essayons d’abstraire les parties du récit hors de leur contexte.”
 
-Besides, when developing the functionality, the story you create will be a powerful tool for the developers to grasp the reality the user will be in:
+De plus, en développant une fonctionnalité, l'histoire que vous créez sera un outil puissant pour que les développeurs comprennent la réalité dans laquelle l'utilisateur se trouvera :
 
-> “Those stories are ones that a team can wrap its head around. A discussion can actually ensue about how to implement them. They’re specific enough to be actionable but don’t prescribe how they’re going to be done.”
+> “Ces histoires sont des éléments que l'équipe peut appréhender. Une discussion peut effectivement avoir lieu sur la façon de les mettre en œuvre. Elles sont suffisamment spécifiques pour être actionnables mais ne prescrivent pas comment elles doivent être réalisées.”
 
-Each User Story (US) then represents the task from the user's point of view. Each US needs to follow the INVEST acronym, that is, it must be Independent from the other US, Negotiable (not fixed at any given time), Valuable (meaning it adds value to the application), Estimable (meaning it can be estimated by the team), Small, and Testable.
+Chaque User Story (US) représente donc la tâche du point de vue de l'utilisateur. Chaque US doit respecter l'acronyme INVEST, c'est-à-dire qu'elle doit être **Indépendante** des autres US, **Négociable** (non figée à un moment donné), **'Valuable'** (ajoutant de la valeur à l'application), **Estimable** (pouvant être estimée par l'équipe), **Petite**, et **Testable**.
 
-A good example of a User Story might be: “As a shopper, I want to add products to a basket, so that I can review and manage the items I plan to purchase on a dedicated page.”
+Un bon exemple de User Story pourrait être : « En tant qu'acheteur, je veux ajouter des produits à un panier, afin de pouvoir consulter et gérer les articles que je prévois d'acheter sur une page dédiée. »
 </div>
 
-## The sprint
+## Le sprint
 
 <div>
-Now that you have an idea of a product and functionalities described as User Stories, the most important thing in Scrum is to test these first ideas as soon as possible with a concrete application and get feedback from the users. For that, each working cycle is voluntarily short and is called a sprint. It lasts between 1 to 4 weeks maximum, and each sprint aims to produce something that brings the maximum value to the final product.
+Maintenant que vous avez une idée d'un produit et des fonctionnalités décrites sous forme de User Stories, la chose la plus importante en Scrum est de tester ces premières idées dès que possible avec une application concrète et d'obtenir des retours des utilisateurs. Pour cela, chaque cycle de travail est volontairement court et s'appelle un sprint. Il dure entre 1 et 4 semaines maximum, et chaque sprint vise à produire quelque chose qui apporte une valeur maximale au produit final.
 
-> “At the end of each Sprint, have something that’s done—something that can be used (to fly, drive, whatever).”
+> “À la fin de chaque Sprint, il faut avoir quelque chose de terminé — quelque chose qui peut être utilisé (pour voler, conduire, ou autre).”
 </div>
 
-## How to prioritize the backlog
+## Comment prioriser le backlog
 
 <div>
-Ok, now we have some User Stories prepared. But what do we start to develop first? For that, the answer lies in the question: what brings the most value to the project?
+D’accord, maintenant nous avons quelques User Stories prêtes. Mais par quoi commencer ? La réponse réside dans la question : qu’est-ce qui apporte le plus de valeur au projet ?
 
-> “In software development there is a rule, borne out by decades of research, that <span style="color: tomato">80 percent of the value in any piece of software is in 20 percent of the features.</span> (…) The key is to figure out how to <span style="color: tomato">deliver the most value the most quickly</span>. There may be many millions of ways to arrange that Backlog (all the User Stories planned to make the product functional) (...) Your first guess for the first Sprint almost certainly won’t be the right one, but it will be your best guess at the time. But that’s just your first guess. After the first Sprint, once you’ve (…) delivered some product to customers, you’ll change that order, realizing that another arrangement is actually better. (…) The key is to acknowledge uncertainty, to fully accept that your current snapshot of order and value is only relevant at that one particular moment. It’ll change again. And again. And again.”
+> “Dans le développement logiciel, il existe une règle, fondée sur des décennies de recherche, selon laquelle <span style="color: tomato">80 % de la valeur dans un logiciel provient de 20 % des fonctionnalités.</span> (…) La clé est de comprendre comment <span style="color: tomato">livrer la valeur la plus importante le plus rapidement possible</span>. Il peut y avoir des millions de façons d’organiser ce Backlog (toutes les User Stories prévues pour rendre le produit fonctionnel) (...) Votre première hypothèse pour le premier Sprint sera presque certainement pas le meilleur, mais ce sera votre meilleure estimation à ce moment-là. Mais ce n’est que votre première hypothèse. Après le premier Sprint, une fois que vous avez (…) livré un produit aux clients, vous changerez cet ordre, réalisant qu’un autre agencement est en fait meilleur. (…) La clé est de reconnaître l’incertitude, d’accepter pleinement que votre instantané actuel de l’ordre et de la valeur n’est pertinent qu’à un moment précis. Il changera encore. Et encore. Et encore.”
 
-Start thinking about how to focus on delivering the most valuable features of the application. That means aiming to develop the 20% that will generate 80% of your project's value. 
+Commencez à réfléchir à comment vous concentrer sur la livraison des fonctionnalités les plus précieuses de l'application. Cela signifie viser à développer les 20 % qui généreront 80 % de la valeur de votre projet. 
 </div>
-Then comes the question: Who decides which 20% is most important? The team does, during one of the key ceremonies in a sprint.
+Ensuite vient la question : qui décide quels 20 % sont les plus importants ? C’est l’équipe qui le fait, lors de l’une des cérémonies clés d’un sprint.
 
-## The important role played by the ceremonies
+## Le rôle clé des cérémonies
 
 <div>
-To channel the actions of the team, the sprint is organized around rituals and ceremonies that provide the tools for incremental development and continuous improvement. The first major ritual starting a cycle is the sprint planning.
+Pour canaliser les actions de l’équipe, le sprint est organisé autour de rituels et de cérémonies qui fournissent les outils nécessaires au développement incrémental et à l’amélioration continue. Le premier rituel majeur débutant un cycle est la planification du sprint.
 </div>
 
-### The sprint planning
+### La planification du sprint
 
 <div>
-In each sprint, the team gathers and decides collectively what they think they can accomplish within this cycle during a particular event called the sprint planning. That is, before starting to develop, this ritual is organized to **evaluate what would bring the most value** to the project, what **needs to be achieved** by the end of the sprint, and how to test the result. And the particularity of Scrum is that only the team decides how to do things — not a manager or a single person inside or outside the team. Everyone is required to participate at this stage to be as close as possible to the reality (of the codebase, of the functionalities to develop, etc.).
+À chaque sprint, l’équipe organise un rituel appelé le sprint planning, où elle décide collectivement ce qu’elle pense pouvoir accomplir au cours du cycle. Pendant cette réunion, le Product Owner priorise les tâches en fonction de la valeur business, et l’équipe évalue ce qui est réalisable d’ici la fin du sprint. Une particularité de Scrum est que l’équipe de développement est autonome pour décider comment réaliser les tâches, sans intervention directe d’un manager ou d’une personne extérieure. Bien que la participation du Product Owner et du Scrum Master soit essentielle pour aligner les attentes, c’est l’équipe de développement qui reste responsable de l’implémentation technique et du découpage des tâches.
 
-> “…It’s crucial, though, that you have the team who’s actually doing the work do the estimating, not some expert ‘ideal’ estimators. (…) Each (team) has its own pace and rhythm. Forcing them into cookie-cutter processes is a recipe for disaster.”
+> “…Cependant, il est crucial que ce soit l'équipe qui réalise réellement le travail qui fasse l'estimation, et non des ‘estimateurs idéaux’ experts. (…) Chaque équipe a son propre rythme et sa propre cadence. Les forcer à adopter des processus standardisés est une recette pour l’échec.”
 
-During this part of the ceremony, the team discusses the difficulty of completing each User Story, using the poker planning method. In this method, everyone evaluates the task with difficulty points (e.g. 1, 3, 5, 8, 13…), and the vote is done anonymously to prevent group biases (such as <a href="https://en.wikipedia.org/wiki/Bandwagon_effect" target="_blank" rel="noopener noreferrer">*bandwagon*</a> and <a href="https://en.wikipedia.org/wiki/Halo_effect" target="_blank" rel="noopener noreferrer">*halo*</a> effects). Everyone’s votes are then revealed, and a discussion follows to understand why such a value has been chosen, to get a more accurate vision of the task.
+Pendant cette partie de la cérémonie, l’équipe discute de la difficulté de chaque User Story, en utilisant la méthode du poker planning. Dans cette méthode, chacun évalue la tâche avec des points de difficulté (par exemple : 1, 3, 5, 8, 13…), et le vote est réalisé anonymement pour éviter les biais de groupe (comme les effets de <a href="https://fr.wikipedia.org/wiki/Effet_de_mode" target="_blank" rel="noopener noreferrer">*mode*</a> ou de <a href="https://fr.wikipedia.org/wiki/Effet_de_halo" target="_blank" rel="noopener noreferrer">*halo*</a>). Les votes sont ensuite dévoilés, et une discussion s’ensuit pour comprendre pourquoi une telle valeur a été choisie, afin d’obtenir une vision plus précise de la tâche.
 
-The sprint then gets a certain number of points, which defines a central metric in Scrum: the **velocity of the team during a cycle**. Cycle after cycle, you get a better understanding of the velocity of the team.
+Le sprint se voit alors attribuer un certain nombre de points, ce qui définit une métrique centrale dans Scrum : la **vélocité de l’équipe pendant un cycle**. Cycle après cycle, vous obtenez une meilleure compréhension de la vélocité de l’équipe.
 
+> “Une fois que vous connaissez votre vélocité, vous pouvez identifier la chose la plus importante dans Scrum : qu’est-ce qui vous empêche d’aller plus vite ? Qu’est-ce qui freine votre accélération ?”
 
+Dans cette partie et de manière générale en Scrum, l’idée est d’oser “*fixer des objectifs ambitieux. Avec Scrum, il n’est pas si difficile de doubler la production ou de réduire de moitié les délais de livraison*”.
 
-
-> “Also once you have your velocity, you can figure out the most important thing in Scrum: what is keeping you from going faster? What is keeping you from accelerating?”
-
-In this part and in general in Scrum, the idea is to dare to “*Set Audacious Goals. With Scrum, it is not that hard to double production or cut delivery time in half*". 
-
-After many sprints and continuous dialogue with the client, you have a better idea of the velocity the team. In return, it gives you a better idea of the delivery date to communicate for more important features.
-
+Après plusieurs sprints et un dialogue continu avec le client, vous obtenez une meilleure idée de la vélocité de l’équipe. En retour, cela vous donne une meilleure idée de la date de livraison à communiquer pour les fonctionnalités les plus importantes.
 </div>
-Once the sprint planning is closed, another regular ritual is set: the daily Scrum.
 
-### The daily Scrum or stand-up
+Une fois la planification du sprint terminée, un autre rituel régulier est mis en place : le daily Scrum.
+
+### Le daily Scrum ou stand-up
 
 <div>
-This ritual usually occurs every morning of the sprint. Its purpose is to review the previous day’s progress and identify any issues that need collective effort to ensure the sprint’s goals are met.
+Ce rituel a généralement lieu chaque matin du sprint. Son objectif est de faire le point sur les progrès réalisés la veille et d’identifier les problèmes éventuels nécessitant un effort collectif pour atteindre les objectifs du sprint.
 
-> “The Scrum Master, the person in charge of running the process, asks each team member three questions:
+> “Le Scrum Master, la personne chargée de superviser le processus, pose trois questions à chaque membre de l’équipe :
 >
-> 1. What did you do yesterday to help the team finish the Sprint?
-> 2. What will you do today to help the team finish the Sprint?
-> 3. What obstacles are getting in the team’s way?”
+> 1. Qu’avez-vous fait hier pour aider l’équipe à terminer le sprint ?
+> 2. Que ferez-vous aujourd’hui pour aider l’équipe à terminer le sprint ?
+> 3. Quels obstacles empêchent l’équipe d’avancer ?”
 
-It has nevertheless a few more rules:
+Cependant, il y a quelques règles supplémentaires :
 
-* It is a short meeting, lasting a maximum of 15 minutes: we want it to be “*crisp, direct, and to the point.*”
-* It requires the active participation of everyone and energy: 
-> “Passivity is not only lazy, it actively hurts the rest of the team’s performance. Once spotted, it needs to be eliminated immediately (…) I want aggressive teams — ones that come out of the daily meeting knowing the most important thing they need to accomplish that day. One person will hear another say that a task will take a day, but another team member might know how to do it in an hour if they work together. I want teams emerging from that meeting saying things like, **<span style="color: tomato">‘Let’s nail this. Let’s do this.</span>**’ The team needs to want to be **<span style="color: tomato">great.</span>**”
+* C’est une réunion courte, qui dure un maximum de 15 minutes : on souhaite qu’elle soit “*précise, directe et concise*.”
+* Elle nécessite la participation active de tous et de l’énergie :  
+> “La passivité n’est pas seulement paresseuse, elle nuit activement aux performances de l’équipe. Une fois repérée, elle doit être éliminée immédiatement (…) Je veux des équipes agressives — celles qui ressortent de la réunion quotidienne en sachant ce qu’elles doivent accomplir ce jour-là. Une personne entendra un autre dire qu’une tâche prendra une journée, mais un autre membre de l’équipe pourrait savoir comment la réaliser en une heure s’ils travaillent ensemble. Je veux que les équipes sortent de cette réunion en disant des choses comme : **‘On va gérer ça. On va le faire.’** L’équipe doit vouloir être **excellente.**”
 </div>
 
-### The Sprint review and the Retrospective
+### La revue et la rétrospective de sprint
 
 <div>
-Finally, at the end of a sprint, a sprint review and a retrospective take place:
+Enfin, à la fin d’un sprint, une revue de sprint et une rétrospective ont lieu :
 
-* The sprint review is to evaluate the progress made and see if the elements produced are aligned with the business expectations ([The What]).
-* The retrospective concentrates the effort on how the sprint went (good, bad), identifying eventual problems and seeing how they can perform better next sprint ([The How]).
+* La revue de sprint sert à évaluer les progrès réalisés et à vérifier si les éléments produits sont alignés sur les attentes métier ([Le Quoi]).
+* La rétrospective concentre les efforts sur la manière dont le sprint s’est déroulé (ce qui a bien fonctionné, ce qui n’a pas fonctionné), identifiant les problèmes éventuels et cherchant des moyens de mieux performer lors du prochain sprint ([Le Comment]).
 
-> “Ideally, at the end of each iteration, each Sprint, <span style="color: tomato">the team would look closely at itself</span> — at its interactions, practices, and processes—and ask two questions: ‘What can we change about how we work?’ and ‘<span style="color: tomato">What is our biggest sticking point</span>?’ If those questions are answered forthrightly, a team can go faster than anyone ever imagined. (...) The key thing to remember is that you’re <span style="color: tomato">not seeking someone to blame</span>; you’re <span style="color: tomato">looking at the process</span>. Why did that happen that way? Why did we miss that? What could make us faster? It is crucial that <span style="color: tomato">people as a team take responsibility for their process and outcomes</span>, and seek solutions as a team.”
-
+> “Idéalement, à la fin de chaque itération, chaque sprint, <span style="color: tomato">l’équipe se pencherait de près sur elle-même</span> — sur ses interactions, pratiques et processus — et poserait deux questions : ‘Qu’est-ce que nous pouvons changer dans notre façon de travailler ?’ et ‘<span style="color: tomato">Quel est notre plus gros point de blocage ?</span>’ Si ces questions sont répondues honnêtement, une équipe peut aller plus vite que quiconque ne l’aurait imaginé. (...) L’idée clé à retenir est que vous <span style="color: tomato">ne cherchez pas quelqu’un à blâmer</span>; vous <span style="color: tomato">analysez le processus</span>. Pourquoi cela s’est-il passé ainsi ? Pourquoi avons-nous manqué cela ? Qu’est-ce qui pourrait nous rendre plus rapides ? Il est crucial que <span style="color: tomato">les membres de l’équipe prennent collectivement la responsabilité de leur processus et de leurs résultats</span>, et recherchent ensemble des solutions.”
 </div>
 
-## A certain vision of the team and hunting “wastes”
+## Une certaine vision de l’équipe et la chasse aux “gaspillages”
 
 <div>
-However, to achieve higher productivity, these rituals are not sufficient: some other prerequisites around the constitution of the team exist.
-</div>
-
-<div>
-### The team
-It needs to be:
-
-* **Built around an idea or a project that transcends the group**, a purpose that makes the team solid and greater than the individual (like winning a championship trophy or rallying behind an important figure as the author).
-* **Cross-functional**, that is, having all the required competences and resources to develop the project.
-* **Autonomous**, meaning the team has the power to take action quickly.
-* Constituted of **7 people max** to work faster: more individuals might slow the process.
-* A team of **individuals working closely**, being able to **meet frequently**, and communicate to address issues collectively as soon as they arise:
-
-> “Getting everyone together in a room was key because it gave the team the opportunity to self-organize around challenges. If someone was stuck with a problem—if the accelerometer wasn’t talking to the altimeter—everyone saw that the impediment could block the whole Sprint, and they swarmed on it, making sure it got fixed pronto.”
-
-* Built around individuals who feel 100% concerned by the success of the team and do not have a specialized domain or specialized role:
-
-> “The thing that cripples communication saturation is specialization — the number of roles and titles in a group. <span style="color: tomato">If people have a special title, they tend to do only things that seem a match for that title</span>. And to protect the power of that role, they tend to hold on to specific knowledge. <span style="color: tomato">So we got rid of all titles.</span>”
-
-* Focused 100% on one project at the same time to minimize the cost of “context switching” that happens during multitasking:
-
-> “The idea is that when you juggle between many tasks or projects at the same time, you finally lose time and end up less productive because you lose context. What I want you to do, though, is be conscious of the cost of context switching. It’s very real, and you should try to minimize it.”
-
-* Trying to do things right the first time, tackling problems as soon as they emerge, and not later; otherwise, it will take longer to resolve them.
-</div>
-
-## Eliminating “wastes” that hinder productivity
-
-<div>
-Another core elements of Scrum is the deep influence of the founder of the Toyota Production System (Taiichi Ohno). In particular, Jeff Sutherland borrows the concepts of flow of production and waste to build his framework:
-> “That is, (according to Toyota management system) production should flow swiftly and calmly throughout the process, and, he said, one of management’s key tasks is to identify and remove impediments to that flow. Everything that stands in the way is waste.”
-
-In this context, some identified wastes can be:
-
-* What Ohno calls **overburden**: All the things that consume the team’s energy while producing no concrete value for the project:
-
-> “It includes onerous company policies that get in the way, unnecessary reporting that has people filling out forms for the sake of filling out forms, and meaningless meetings that suck up time and don’t deliver any value.”
-
-Here, Sutherland borrows from Eastern philosophy the ideal of simplicity and the idea that, to be efficient, the team needs to get rid of everything that does not contribute to productivity. As a consequence, **the documentation of a project needs to be as minimal as possible**.
-</div>
-<div>
-* **Setting absurd goals**: While Scrum tends to set high standards, setting impossible objectives can be counterproductive (e.g., for the morale of the team).
-
-* Setting **too high expectations**: If the normal flow of working relies:
-
-> “...on regular heroic actions to make its deadlines, it can work momentarily in the short term. However, being constantly moving from one crisis to the next causes burnout, and it doesn’t allow for reasoned, continuous improvement as the team is not able to tackle fundamental problems of the project.”
-
-The true difficulty lies in finding a balance between improving productivity (velocity) and setting reasonable targets that allow team members to enjoy working in the team and capitalize on the long run.
-</div>
-<div>
-* Seeing **third-party interventions to modify the sprint or interrupt the workflow**: This makes the team lose focus on the goals and impedes productivity.
-
-</div>
-To eliminate these wastes and improve productivity, two roles have been created: the Scrum Master and the Product Owner.
-
-## The Scrum Master and the Product Owner as agents to boost the productivity of the Development Team
-
-### Scrum Master as agent to remove obstacles
-
-<div>
-An important role inside a team is the Scrum Master. The Scrum Master serves as a facilitator and coach for the Scrum Team. Their primary focus is on promoting and supporting Scrum practices, ensuring the team operates smoothly and eliminating impediments bothering the team.
-
-> “So we set up this framework of Sprints and Daily Stand-up meetings and Reviews and Retrospectives, and I realized we needed someone whose job it was to make sure the process itself was effective. Not a manager — <span style="color: tomato">more of a servant-leader, something between a team captain and a coach</span>. (…) He or she would <span style="color: tomato">facilitate</span> all the meetings, make sure there was transparency, and, most important, <span style="color: tomato">help the team discover what was getting in their way</span>. The key part of that was to realize that often the impediments aren’t simply that the machine doesn’t work or that Jim in accounting is a jerk — it’s the process itself. It was the Scrum Master’s job to guide the team toward continuous improvement — to ask with regularity, ‘How can we do what we do better?’”
-
-</div>
-<div>
-To sum up, the key responsibilities of the Scrum Master include:
-
-* **Facilitating Scrum Events**: Organizing and overseeing ceremonies like Sprint Planning, Daily Scrums, Sprint Reviews, and Retrospectives.
-
-* **Removing Impediments**: Identifying and eliminating obstacles that hinder the team's progress.
-
-* **Guardian of the Processes**: Educating the team and organization about Scrum principles and practices, ensuring adherence to the Scrum framework.
-
-* **Protecting the Team**: Shielding the team from external distractions and interruptions, allowing them to focus on Sprint goals.
-</div>
-
-### Product Owner (PO) as Conductor and Business Head
-
-<div>
-The Product Owner is responsible for the business side of the project: they represent the voice of the customer and stakeholders. POs are responsible for maximizing the value of the product resulting from the work of the Development Team.
-
-> “What Scrum does, by delivering a working increment, is give the Product Owner the <span style="color: tomato">ability to see how much value that increment creates, how people react to it</span>. Then, based on that information, <span style="color: tomato">she can change what the team will do in the next Sprint</span>. This sets up a constant feedback cycle that accelerates innovation and adaptation and enables the Product Owner <span style="color: tomato">to measure how much value is delivered</span>. (…) The Product Owner thus has the ability to <span style="color: tomato">adjust</span> on the fly to a constantly changing world.”
+Cependant, pour atteindre une productivité accrue, ces rituels ne suffisent pas : d’autres prérequis autour de la constitution de l’équipe existent.
 </div>
 
 <div>
-To sum up, the key responsibilities of the Product Owner include:
+### L’équipe doit être :
 
-* **Managing the Product Backlog** (list of all the items to do): Creating, maintaining, and prioritizing the backlog items based on customer needs, market trends, and business value.
-* **Clear Communication**: Ensuring that the Development Team understands the backlog items to the level needed, facilitating clarity on requirements and expectations through the Sprint Planning and clear User Stories.
-* **Stakeholder Liaison**: Acting as the primary link between stakeholders and the team, gathering feedback, and adjusting priorities accordingly.
-* **Defining the Vision**: Articulating the product vision alone or with a Product Manager and ensuring it aligns with customer needs and company objectives.
-* Being **Available** to the development team:
+* **Construite autour d’une idée ou d’un projet qui transcende le groupe**, un objectif qui rend l’équipe solide et plus grande que l’individu (comme gagner un trophée ou se rallier derrière une figure importante comme l’auteur).
+* **Transversale**, c’est-à-dire possédant toutes les compétences et ressources nécessaires pour développer le projet.
+* **Autonome**, ce qui signifie que l’équipe a le pouvoir d’agir rapidement.
+* Constituée de **7 personnes maximum** pour travailler plus vite : davantage d’individus pourrait ralentir le processus.
+* Une équipe d’individus **travaillant en étroite collaboration**, capable de **se rencontrer fréquemment**, et de communiquer pour résoudre collectivement les problèmes dès qu’ils surviennent.
 
-> “The Product Owner has to be available to the team, to explain what needs to be done and why. (…) Often the team’s expertise will inform the decisions the Product Owner needs to make. The Product Owner has to be <span style="color: tomato">reliable, consistent, and available</span>. (…) They (the team) rely on the Product Owner for <span style="color: tomato">‘the vision’</span> and, also, <span style="color: tomato">market intelligence</span> on what is important.”
+> “Rassembler tout le monde dans une pièce était essentiel, car cela donnait à l’équipe l’opportunité de s’organiser autour des défis. Si quelqu’un était bloqué par un problème — si l’accéléromètre ne communiquait pas avec l’altimètre — tout le monde voyait que cet obstacle pouvait bloquer tout le sprint, et ils se regroupaient pour le résoudre immédiatement.”
+
+* Constituée d’individus qui se sentent **pleinement concernés par le succès de l’équipe** et qui n’ont pas de domaine ou rôle spécialisé :
+
+> “Le problème qui nuit à la saturation de la communication, c’est la spécialisation — le nombre de rôles et de titres dans un groupe. <span style="color: tomato">Quand les gens ont un titre particulier, ils ont tendance à ne faire que ce qui correspond à ce titre</span>. Et pour protéger le pouvoir de ce rôle, ils ont tendance à garder pour eux certaines connaissances spécifiques. <span style="color: tomato">Donc, nous avons supprimé tous les titres.</span>”
+
+* **Focalisée à 100 % sur un seul projet à la fois**, pour minimiser le coût du “changement de contexte” qui survient lors du multitâche :
+
+> “L’idée est que lorsque vous jonglez entre plusieurs tâches ou projets en même temps, vous perdez finalement du temps et devenez moins productif car vous perdez le contexte. Ce que je veux que vous fassiez, c’est être conscient du coût du changement de contexte. C’est très réel, et vous devriez essayer de le minimiser.”
+
+* Essayer de **bien faire les choses du premier coup**, en s’attaquant aux problèmes dès qu’ils émergent, et non plus tard ; sinon, cela prendra plus de temps pour les résoudre.
+</div>
+
+## Éliminer les “gaspillages” qui entravent la productivité
+
+<div>
+Un autre élément central de Scrum est son influence profonde du fondateur du Toyota Production System (Taiichi Ohno). En particulier, Jeff Sutherland s’inspire des concepts de flux de production et de gaspillage pour construire son framework :
+
+> “C’est-à-dire que, selon le système de gestion de Toyota, la production doit circuler rapidement et calmement tout au long du processus, et, disait-il, l’une des principales tâches du management est d’identifier et d’éliminer les obstacles à ce flux. Tout ce qui se met en travers est un gaspillage.”
+
+Dans ce contexte, certains gaspillages identifiés peuvent être :
+
+* Ce que Ohno appelle **la surcharge** : tout ce qui consomme l’énergie de l’équipe sans produire de valeur concrète pour le projet :
+
+> “Cela inclut des politiques d’entreprise lourdes qui entravent le travail, des rapports inutiles qui obligent les gens à remplir des formulaires pour le principe, et des réunions inutiles qui prennent du temps sans apporter de valeur.”
+
+Ici, Sutherland s’inspire de la philosophie orientale en valorisant l’idéal de simplicité et l’idée que, pour être efficace, l’équipe doit se débarrasser de tout ce qui ne contribue pas à la productivité. En conséquence, **la documentation d’un projet doit être aussi minimale que possible**.
 </div>
 <div>
-### Collaborative Dynamics
+* **Fixer des objectifs absurdes** : bien que Scrum tende à fixer des normes élevées, définir des objectifs impossibles peut être contre-productif (par exemple, pour le moral de l’équipe).
 
-* **Interaction Between Roles**: The Product Owner defines what needs to be built, the Development Team determines how to build it, and the Scrum Master facilitates the process, ensuring effective collaboration.
+* Fixer des **attentes trop élevées** : si le flux de travail repose :
 
-* **Unified Goals**: Despite different focuses, all three roles (PO, Scrum Master, and Development Team) aim to deliver maximum value to the customer and continuously improve team efficiency.
+> “...sur des actions héroïques régulières pour respecter ses délais, cela peut fonctionner momentanément à court terme. Cependant, être constamment en crise provoque l’épuisement, et cela ne permet pas d’améliorer raisonnablement et continuellement les processus, car l’équipe n’est pas en mesure de résoudre les problèmes fondamentaux du projet.”
 
-* **Communication Flow**: Regular interactions among the roles ensure transparency, quick feedback loops, and the ability to adapt to changes rapidly.
+La véritable difficulté réside dans le fait de trouver un équilibre entre l’amélioration de la productivité (vélocité) et la fixation d’objectifs raisonnables permettant aux membres de l’équipe de travailler avec plaisir et de capitaliser sur le long terme.
+</div>
+<div>
+* Permettre des **interventions externes modifiant le sprint ou interrompant le flux de travail** : cela fait perdre à l’équipe sa concentration sur les objectifs et nuit à la productivité.
+</div>
+
+Pour éliminer ces gaspillages et améliorer la productivité, deux rôles ont été créés : le Scrum Master et le Product Owner.
+
+## Le Scrum Master et le Product Owner en tant qu’agents pour renforcer la productivité de l’équipe de développement
+
+### Le Scrum Master comme agent pour lever les obstacles
+
+<div>
+Un rôle important au sein de l’équipe est celui du Scrum Master. Le Scrum Master agit comme un facilitateur et un coach pour l’équipe Scrum. Son objectif principal est de promouvoir et de soutenir les pratiques Scrum, d’assurer le bon fonctionnement de l’équipe et d’éliminer les obstacles qui la gênent.
+
+> “Donc, nous avons mis en place ce cadre de Sprints et de réunions quotidiennes, de revues et de rétrospectives, et j’ai réalisé que nous avions besoin de quelqu’un dont le travail serait de s’assurer que le processus lui-même était efficace. Pas un manager — <span style="color: tomato">plutôt un leader-serviteur, quelque chose entre un capitaine d’équipe et un coach</span>. (…) Il ou elle devait <span style="color: tomato">faciliter</span> toutes les réunions, garantir la transparence et, surtout, <span style="color: tomato">aider l’équipe à découvrir ce qui la freinait</span>. L’élément clé était de réaliser que les obstacles ne sont pas simplement liés à une machine qui ne fonctionne pas ou à Jim de la comptabilité qui est désagréable — c’est souvent le processus lui-même. Le Scrum Master devait guider l’équipe vers une amélioration continue — poser régulièrement la question : ‘Comment pouvons-nous mieux faire ce que nous faisons ?’”
 </div>
 
 <div>
-Now that you have the basics of Scrum — its terminology, its way of thinking — here is a paragraph of the book that sums up Scrum well:
+Pour résumer, les responsabilités clés du Scrum Master incluent :
 
-> “Scrum embraces <span style="color: tomato">uncertainty and creativity</span>. It places a <span style="color: tomato">structure around the learning process</span>, enabling teams to assess both what (the team) has created and, just as important, how they created it. (…) At its root, Scrum is based on a simple idea: <span style="color: tomato">whenever you start a project, why not regularly check in, see if what you’re doing is heading in the right direction, and if it’s actually what people want</span>? And question whether there are any ways to improve how you’re doing what you’re doing, any ways of doing it better and faster, and what might be keeping you from doing that. That’s what’s called an <span style="color: tomato">“Inspect and Adapt” cycle</span>. Every little while, stop doing what you’re doing, review what you’ve done, and see if it’s still what you should be doing and how you might do it better. <span style="color: tomato">It’s a simple idea, but executing it requires thought, introspection, honesty, and discipline.</span>”
+* **Faciliter les événements Scrum** : organiser et superviser les cérémonies comme la planification du sprint, les réunions quotidiennes, les revues de sprint et les rétrospectives.
 
-Now, I would like to finish this article by describing how I perceived this book and try to unveil some of the limits of Scrum. You can read it **<a href="https://romainbasly.github.io/posts/fr/5" rel="noopener noreferrer">here</a>**.
+* **Lever les obstacles** : identifier et éliminer les obstacles qui entravent les progrès de l’équipe.
+
+* **Gardien des processus** : éduquer l’équipe et l’organisation sur les principes et pratiques Scrum, en veillant au respect du cadre méthodologique.
+
+* **Protéger l’équipe** : mettre l’équipe à l’abri des distractions et interruptions externes, afin qu’elle puisse se concentrer sur les objectifs du sprint.
 </div>
+
+### Le Product Owner (PO) en tant que chef d’orchestre et responsable métier
+
+<div>
+Le Product Owner est responsable de l’aspect métier du projet : il représente la voix du client et des parties prenantes. Le PO est chargé de maximiser la valeur du produit résultant du travail de l’équipe de développement.
+
+> “Ce que Scrum fait, en livrant un incrément fonctionnel, c’est donner au Product Owner la <span style="color: tomato">possibilité de mesurer combien de valeur cet incrément apporte, et comment les utilisateurs y réagissent</span>. Ensuite, sur la base de ces informations, <span style="color: tomato">elle peut ajuster ce que l’équipe fera au prochain sprint</span>. Cela crée un cycle de retour d’information constant qui accélère l’innovation et l’adaptation, et permet au Product Owner <span style="color: tomato">d’évaluer la valeur livrée</span>. (…) Ainsi, le Product Owner peut s’ajuster en temps réel à un monde en constante évolution.”
+</div>
+
+<div>
+Pour résumer, les responsabilités clés du Product Owner incluent :
+
+* **Gérer le backlog produit** : créer, maintenir et prioriser les éléments du backlog en fonction des besoins des clients, des tendances du marché et de la valeur métier.
+
+* **Communication claire** : s’assurer que l’équipe de développement comprend les éléments du backlog au niveau nécessaire, en clarifiant les exigences et les attentes lors de la planification du sprint et à travers des User Stories détaillées.
+
+* **Liaison avec les parties prenantes** : agir en tant que principal lien entre les parties prenantes et l’équipe, collecter les retours et ajuster les priorités en conséquence.
+
+* **Définir la vision** : articuler la vision du produit seul ou avec un Product Manager et s’assurer qu’elle est alignée sur les besoins des clients et les objectifs de l’entreprise.
+
+* **Être disponible pour l’équipe de développement** :
+
+> “Le Product Owner doit être disponible pour l’équipe, pour expliquer ce qui doit être fait et pourquoi. (…) Souvent, l’expertise de l’équipe informera les décisions que le Product Owner doit prendre. Le Product Owner doit être <span style="color: tomato">fiable, cohérent et disponible</span>. (…) L’équipe dépend du Product Owner pour ‘la vision’ et, également, pour <span style="color: tomato">les informations du marché</span> sur ce qui est important.”
+</div>
+
+### Dynamiques collaboratives
+
+<div>
+* **Interaction entre les rôles** : le Product Owner définit ce qui doit être construit, l’équipe de développement détermine comment le construire, et le Scrum Master facilite le processus, en assurant une collaboration efficace.
+
+* **Objectifs unifiés** : malgré des priorités différentes, les trois rôles (PO, Scrum Master et équipe de développement) visent à livrer la valeur maximale au client et à améliorer continuellement l’efficacité de l’équipe.
+
+* **Flux de communication** : des interactions régulières entre les rôles garantissent la transparence, des boucles de rétroaction rapides et la capacité à s’adapter rapidement aux changements.
+</div>
+
+<div>
+Maintenant que vous avez les bases de Scrum — sa terminologie, sa façon de penser — voici un extrait du livre qui résume bien Scrum :
+
+> “Scrum embrasse <span style="color: tomato">l’incertitude et la créativité</span>. Il place une <span style="color: tomato">structure autour du processus d’apprentissage</span>, permettant aux équipes d’évaluer à la fois ce qu’elles ont créé et, tout aussi important, comment elles l’ont créé. (…) À la base, Scrum repose sur une idée simple : <span style="color: tomato">chaque fois que vous démarrez un projet, pourquoi ne pas vérifier régulièrement si ce que vous faites va dans la bonne direction et correspond réellement à ce que veulent les gens ?</span> Et se demander s’il existe des moyens d’améliorer votre façon de travailler, de le faire mieux et plus rapidement, et ce qui pourrait vous empêcher de le faire. C’est ce qu’on appelle un <span style="color: tomato">cycle “Inspecter et Adapter”</span>. À intervalles réguliers, arrêtez ce que vous faites, examinez ce que vous avez réalisé et voyez si c’est encore ce que vous devriez faire et comment vous pourriez le faire mieux. <span style="color: tomato">C’est une idée simple, mais l’exécuter demande réflexion, introspection, honnêteté et discipline.</span>”
+
+Pour conclure, je souhaiterais vous partager mes impressions sur ce livre et essayer de mettre en lumière certaines limites de Scrum. Vous pouvez les découvrir **<a href="https://romainbasly.github.io/posts/fr/5" rel="noopener noreferrer">ici</a>**.
+</div>
+

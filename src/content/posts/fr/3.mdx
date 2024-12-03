@@ -1,79 +1,80 @@
 ---
-title: "Scrum methodology - an introduction / Part 1"
+title: "La méthodologie Scrum - Les origines"
 lang: "fr"
 translation: "/posts/en/3"
 date: "2024-11-29"
-description: "Scrum methodology seems to have conquered the world. This framework has now become the norm in the tech industry and is spreading to new parts of the economy every day. The question we would like to raise here in this series of articles : Is Scrum methodology the magic recipe for success? For that, we went back to its root: the Book *The Art of Doing Twice the Work in Half the Time* by Jeff Sutherland (more...)"
+description: "La méthodologie Scrum semble avoir conquis le monde. Ce framework est désormais la norme dans la tech et s’étend chaque jour à de nouveaux secteurs de l’économie. La question que nous souhaitons poser dans cette série d’articles est : Qu’est-ce que c’est concrètement ? En quoi est-ce différent ? Pourquoi l'adopter au sein de vos propres projets? (En savoir plus...)"
 author: "Romain Basly"
 image:
     url: "https://docs.astro.build/assets/rose.webp"
     alt: "The Astro logo on a dark background with a pink glow."
-tags: ["Scrum", "Methodologies", "Organization", "Better-Faster-Stronger"]
+tags: ["Scrum", "Méthodologie", "Organisation", "Better-Faster-Stronger"]
 ---
 
 <div>
-Scrum methodology seems to have conquered the world. This framework has now become the norm in the tech industry and is spreading to new parts of the economy every day. The question we would like to raise here in this series of articles is : What is it concretely? How is it different? Can Scrum methodology be the magic recipe for success? 
+La méthodologie Scrum semble avoir conquis le monde. Ce framework est désormais la norme dans la tech et s’étend chaque jour à de nouveaux secteurs de l’économie. La question que nous souhaitons poser dans cette série d’articles est : Qu’est-ce que c’est concrètement ? En quoi est-ce différent ? Pourquoi l'adopter au sein de vos propres projets?
 
-To try to answer this question, I went back to its root and the passionate Book *The Art of Doing Twice the Work in Half the Time* by Jeff Sutherland - the founder of the methodology. Our goal is here to understand the origins of the framework, what is so special about it, what does it do and try to understand its underlying assumptions. 
-Documenting what Scrum is, our take is that Scrum is widely known among professionals. However, the underlying assumptions that make the framework truly effective are less well known. These articles aim to explore these ideas and put them forward. But first: let's define to what kind of problems Scrum tries to answer.
+Après mon passage au sein d'une équipe de développeurs qui travaillait avec la méthodologie Scrum, je suis retourné à ses racines et au livre passionnant *The Art of Doing Twice the Work in Half the Time* de Jeff Sutherland — le fondateur de la méthodologie. Mon objectif ici est de comprendre les origines de ce framework, ce qui le rend si spécial, ce qu’il accomplit et d’analyser les hypothèses qu'il sous-entend. Et de confronter l'expérience en entreprise que j'avais vécue avec les préceptes énoncés par son auteur.
+En documentant ce qu’est Scrum, je fais le constat qu’il est largement connu des professionnels dans ses grandes lignes. Cependant, les hypothèses sous-jacentes qui rendent ce framework réellement efficace sont moins bien connues. Ces articles visent à explorer ces idées et à les mettre en lumière. Mais d’abord, première question : à quel type de problèmes Scrum tente-t-il de répondre ?
 </div>
 
-## The origin - from one failure to another : the case of the FBI
+## L’origine - d’un échec à l’autre : le cas du FBI
 <div>
-To show the power of Scrum methodology, Jeff Sutherland start his book by emphasizing the story of the FBI and its modernization of its Information System: 
-> **"<span style="color: tomato">Before 9/11</span>** (...) “The FBI’s information systems were woefully inadequate,” (...) ”When senators started asking the Bureau some uncomfortable questions (Post 911), the FBI basically said, “Don’t worry, we have a modernization plan already in the works.” The plan was called the Virtual Case File (VCF) system, and it was supposed to change everything. (...) officials said they only needed another $70 million on top of the $100 million already budgeted for the plan (...) <span style="color: tomato">Three years later, the program was killed. </span> It didn’t work. Not even a little bit. The FBI had <span style="color: tomato">spent $170 million in taxpayer money to buy a computer system </span> that would <span style="color: tomato">never be used — not a single line of code, or application, or mouse click</span>. The whole thing was an unmitigated disaster"
+Pour montrer la puissance de la méthodologie Scrum, Jeff Sutherland commence son livre en mettant en avant l’histoire du FBI et la modernisation de son système d’information :
 
-> "**<span style="color: tomato">In 2005</span>** the FBI announced a new program, Sentinel. <span style="color: tomato">This time it would work. This time they’d put in the right safeguards, the right budget procedures, the right controls</span>. They’d learned their lesson. <span style="color: tomato">The price tag? A mere $451 million. And it would be fully operational by 2009 </span>. What could possibly go wrong? In March of 2010 the answer landed on Jeff Johnson’s desk. Lockheed Martin, the contractor hired to make the Sentinel system, had already spent $405 million. They’d developed only half of the project, and <span style="color: tomato">it was already a year late</span>. An independent analysis estimated it would take another <span style="color: tomato">six to eight years to finish the project</span>, and the taxpayers would have to throw in at least another $350 million."
+> **"<span style="color: tomato">Avant le 11 septembre</span>** (...) “Les systèmes d’information du FBI étaient terriblement inadéquats,” (...) “Lorsque les sénateurs ont commencé à poser des questions embarrassantes (après le 11 septembre), le FBI a essentiellement répondu : “Ne vous inquiétez pas, nous avons un plan de modernisation déjà en cours.” Le plan s’appelait le système Virtual Case File (VCF), et il était censé tout changer. (...) Les responsables ont déclaré qu’il leur fallait seulement 70 millions de dollars supplémentaires en plus des 100 millions déjà budgétés pour le plan (...) <span style="color: tomato">Trois ans plus tard, le programme a été abandonné. </span> Cela n’a pas fonctionné. Pas même un peu. Le FBI avait <span style="color: tomato">dépensé 170 millions de dollars d’argent public pour acheter un système informatique </span> qui <span style="color: tomato">ne serait jamais utilisé — pas une seule ligne de code, application ou clic de souris</span>. Le tout était un désastre absolu."
 
-> "**<span style="color: tomato">On March 3, 2010 </span>**, the Federal Bureau of Investigation <span style="color: tomato">killed its biggest and most ambitious modernization project</span> (...) For more than a decade the FBI had been trying to update its computer system, and it looked as if they would fail. Again."
+> "**<span style="color: tomato">En 2005</span>**, le FBI a annoncé un nouveau programme, Sentinel. <span style="color: tomato">Cette fois, cela fonctionnerait. Cette fois, ils mettraient en place les bonnes garanties, les bonnes procédures budgétaires, les bons contrôles</span>. Ils avaient appris leur leçon. <span style="color: tomato">Le prix ? Un modeste 451 millions de dollars. Et il serait pleinement opérationnel d’ici 2009</span>. Que pourrait-il mal se passer ? En mars 2010, la réponse a atterri sur le bureau de Jeff Johnson. Lockheed Martin, l’entrepreneur chargé de créer le système Sentinel, avait déjà dépensé 405 millions de dollars. Ils avaient développé seulement la moitié du projet, et <span style="color: tomato">il était déjà en retard d’un an</span>. Une analyse indépendante estimait qu’il faudrait encore <span style="color: tomato">six à huit ans pour terminer le projet</span>, et les contribuables devraient débourser au moins 350 millions de dollars supplémentaires."
+
+> "**<span style="color: tomato">Le 3 mars 2010</span>**, le Federal Bureau of Investigation <span style="color: tomato">a abandonné son projet de modernisation le plus grand et le plus ambitieux</span> (...) Pendant plus d’une décennie, le FBI avait tenté de mettre à jour son système informatique, et il semblait qu’ils allaient échouer. Encore une fois."
 </div>
+
 <div>
+**La question, dans cette histoire est : qu’est-ce qui a mal tourné ?**
 
-
-**So the question is : what went wrong?**
-> "What went wrong and how the situation got fixed are why I’m writing this book. <span style="color: tomato">It wasn’t that these weren’t smart people </span>. It wasn’t that the Bureau didn’t have the right personnel in place, or even the right technology. It wasn’t about a work ethic or the right supply of competitive juices. <span style="color: tomato">It was because of the way people were working</span>. The way <span style="color: tomato">most people work</span>. The way we <span style="color: tomato">all</span> think work has to be done, because that’s <span style="color: tomato">the way we were taught to do it. </span>"
-
+> "Ce qui a mal tourné et comment la situation a été corrigée, c’est la raison pour laquelle j’écris ce livre. <span style="color: tomato">Ce n’était pas que ces personnes n’étaient pas compétentes</span>. Ce n’était pas que le Bureau n’avait pas le personnel approprié ou même la bonne technologie. Ce n’était pas une question d’éthique de travail ou de la bonne dose d’esprit de compétition. <span style="color: tomato">C’était à cause de la manière dont les gens travaillaient</span>. La manière dont <span style="color: tomato">la plupart des gens travaillent</span>. La manière dont nous <span style="color: tomato">pensons tous que le travail doit être fait, parce que c’est <span style="color: tomato">ce qu’on nous a enseigné</span>.</span>"
 </div>
 
 <div class="blog-image-container">
-**So the question is : how do most people work?**
+**Alors, comment travaillent la plupart des gens ?**
 
-The FBI and its contractors worked on the modernization of the Information System like it was a normal business project: using the <a href="https://en.wikipedia.org/wiki/Waterfall_model" target="_blank" rel="noopener noreferrer">Waterfall model</a>. In this workflow, each phase of the project is meticulously planned in isolation by separate disciplines (e.g., business analysts, technical designers, developers, etc.):
+Le FBI et ses sous-traitants ont travaillé à la modernisation du système d’information comme s’il s’agissait d’un projet commercial classique : en utilisant le <a href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade" target="_blank" rel="noopener noreferrer">modèle en cascade</a>. Dans ce flux de travail, chaque phase du projet est méticuleusement planifiée de manière isolée par des disciplines distinctes (par exemple, analystes métier, concepteurs techniques, développeurs, etc.) :
+
 <img 
   src="/Images/blog-posts/3/waterfall.png" 
-  alt="Schema to describe how projects are carried out in Waterfall design" 
+  alt="Schéma décrivant comment les projets sont menés selon le modèle en cascade" 
 />
 </div>
 
 <div>
-* **First, the client describes its business requirements**, leading to the product discovery phase by the marketing.
-* Then a **solution is brought to fit these requirements on the product design**, leading to the technical design of the solution by a separate technical team.
-* **Finally developers** enter the dance, coding and testing the solution according to the product design and delivering it to the client.
+* **Premièrement, le client décrit ses exigences métier**, ce qui conduit à la phase de découverte produit par le marketing.
+* Ensuite, une **solution est proposée pour répondre à ces exigences**, ce qui mène à la conception technique de la solution par une équipe technique distincte.
+* **Enfin, les développeurs** entrent en scène, codant et testant la solution conformément à la conception produit et la livrant au client.
 </div>
 
 <div>
-Each phase can be **significantly long** because every step is meticulously planned, often resulting in **several months passing between the initial brief and the first lines of written code**. 
+Chaque phase peut être **significativement longue**, car chaque étape est minutieusement planifiée, ce qui peut entraîner souvent un délai de **plusieurs mois entre le brief initial et les premières lignes de code**.
 </div>
 
 <div>
-But the problem is that this waterfall workflow is particularly vulnerable when:
+Cependant, ce flux de travail en cascade est particulièrement vulnérable lorsque :
 
-- **The client changes their mind** between one of these steps - all the steps need to be revisited. In return, it generates more costs in the end because of contractual clauses that enhance the price of the contract at each change. In one word, this way of seeing **the workflow does not welcome change easily**, everything comes at a price, and that can be really problematic.
-- **The team operates in an uncertain market**, or the customer does not know what they really need. **The team then discovers the needs** of the customer during **the development process**: it needs to find a way to be more adaptable to the most up-to-date reality.
-- **Each stakeholder (client/business/developers) has a distinct understanding of the initial need**: this misalignment in the initial ideas can trigger major differences in the final product months later, that can lead to customer dissatisfaction (or even endanger the company). **The sooner you understand the discrepancy, the sooner you can fix it.**
+- **Le client change d’avis** entre l’une de ces étapes — toutes les étapes doivent être revisitées. En retour, cela génère plus de coûts en raison de clauses contractuelles qui augmentent le prix de la prestation à chaque changement. En un mot, **ce mode de fonctionnement ne favorise pas facilement le changement**, tout a un coût, ce qui peut être problématique.
+- **L’équipe opère dans un marché incertain**, ou le client ne sait pas vraiment ce dont il a besoin. **L’équipe découvre alors les besoins** du client au cours **du processus de développement** : elle doit trouver un moyen d’être plus adaptable à la réalité la plus à jour.
+- **Chaque partie prenante (client/métier/développeurs) a une compréhension distincte du besoin initial** : cet alignement défaillant peut provoquer des écarts majeurs dans le produit final des mois plus tard, entraînant potentiellement l’insatisfaction du client (voire mettant l’entreprise en danger). **Plus tôt vous comprenez l'incompréhension, plus tôt vous pouvez le corriger.**
 </div>
 
 <div>
-In 2010 a decision was made at the FBI: over budget, behind schedule, and unable to deliver the promised product, they finally turned to Scrum methodology to finish the project. With this new methodology...
-> "...the FBI plans to reduce the number of contract employees working on Sentinel from approximately 220 to 40. The FBI said that, at the same time, the number of FBI employees assigned to the project will also decrease from 30 to 12.... The FBI told us it believes it can complete Sentinel with the approximately $20 million remaining in the Sentinel budget and within 12 months
-of beginning this new approach (...) Finally in July of 2012, they turned Sentinel on. "
+En 2010, une décision a été prise au FBI : dépassant le budget, en retard sur le calendrier et incapable de livrer le produit promis, ils se sont finalement tournés vers la méthodologie Scrum pour terminer le projet. Avec cette nouvelle méthodologie...
+
+> "...le FBI prévoit de réduire le nombre d’employés sous contrat travaillant sur Sentinel d’environ 220 à 40. Le FBI a déclaré que, dans le même temps, le nombre d’employés du FBI affectés au projet passerait également de 30 à 12. (...) Le FBI pense pouvoir terminer Sentinel avec les 20 millions de dollars restants dans le budget et dans les 12 mois suivant cette nouvelle approche (...) Enfin, en juillet 2012, ils ont activé Sentinel."
 </div>
 
-## Scrum inside Agile Methodologies
+## Scrum dans les méthodologies Agile
 <div>
-Scrum methodology is part of a broader movement known as Agile methodologies (see their manifesto **<a href="https://agilemanifesto.org/principles.html" target="_blank" rel="noopener noreferrer">here</a>**). This collection of methodologies was developed to address the challenges inherent in (and sometimes the failures of) software development, particularly in complex projects. 
-Simply put, Scrum is a framework or a method that works in **short cycles**, in which the team **inspects**, **reflects** and adapts **regularly** the workflow **to achieve higher efficiency**.
+La méthodologie Scrum fait partie d’un mouvement plus large connu sous le nom de méthodologies Agile (voir leur manifeste **<a href="https://agilemanifesto.org/iso/fr/principles.html" target="_blank" rel="noopener noreferrer">ici</a>**). Cette collection de méthodologies a été développée pour répondre aux défis (et parfois aux échecs) du développement logiciel, en particulier dans les projets complexes. 
 
+En termes simples, Scrum est un framework ou une méthode qui fonctionne en **cycles courts**, dans lesquels l’équipe **inspecte**, **réfléchit** et **adapte régulièrement** le flux de travail **pour atteindre une efficacité maximale**.
 </div>
-Ok, now how does it work concretly? In our **<a href="https://romainbasly.github.io/posts/fr/4" rel="noopener noreferrer">next</a>** article, we will enter with a little more depth into the subject.
 
+D’accord, mais comment cela fonctionne concrètement ? Dans notre **<a href="https://romainbasly.github.io/posts/fr/4" rel="noopener noreferrer">prochain</a>** article, nous approfondirons le sujet.
