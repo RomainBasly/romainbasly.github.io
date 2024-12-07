@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /_astro/
 Disallow: /node_modules/
-Sitemap: https://romainbasly.github.io/sitemap.xml
+Sitemap: https://romainbasly.github.io/sitemap-index.xml
