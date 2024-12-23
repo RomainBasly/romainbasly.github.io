@@ -6,8 +6,11 @@
       "StacksFront": "FRONT: NextJS - Typescript - SASS",
       "StacksBack": "BACK : Express - Typescript - Tsyringe - Mailtrap",
       "OtherStacks": "OTHER Socket.io, Docker, Nginx, GCP, DigitalOcean",
-      "Description": "PWA to Digitalize. Share. Simplify your lists management",
+      "DescriptionTop": "It all started with a simple need: Being able to share ideas together and gather them in one place. In fact, how many times in our life did we have ideas we want to share with our relatives or our friends, like an idea a movie to watch with someone we love, or a museum to visit, but the time passes and we simply forget, because we lack a place where we store these ideas? For many months, we had the chance to have such tool. But the company which created it was purchased by another one and the app was simply shut down. We looked for this basic app for months. But we did not find it - I have developed it instead.",
+      "DescriptionBottom": "The mission - A simple tool that allow the user to create lists on the topic they like, as easy as possible.",
       "urlGif": "/Images/simplists.gif",
+      "urlNotion": "https://humane-mammal-f8c.notion.site/Feuille-de-route-1449567d35788076982ad57a7a99e1b0",
+      "urlExcalidraw": "https://excalidraw.com/#json=CsfJKZQab3TaJWsHhk67z,G05doRb2uF1XnE1HeIcl1w",
       "urlGithub": "https://github.com/RomainBasly/simplists",
       "AdditionalLink": "https://www.simplists.net/",
       "alt": "Image of Simplists application"

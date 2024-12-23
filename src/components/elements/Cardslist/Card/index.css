@@ -1,16 +1,55 @@
+.global-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.project-container {
+  display: flex;
+  border: 1px solid #ff5c39;
+  padding: 30px;
+  border-radius: 10px;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
+}
+
+.project-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-description {
+  font-size: 18px;
+}
+
+.project-title {
+  text-align: center;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .card-project {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 500px;
   padding: 30px;
-  gap: 10px;
-  border: 1px solid #ff5c39;
+  gap: 30px;
   text-align: center;
   border-radius: 10px;
   font-family: 'Dosis', sans-serif;
   font-weight: 200;
-  margin: 10px;
   background-color: #0a1128;
   max-width: 450px;
   transition: all 0.5s ease-in-out;
@@ -34,15 +73,6 @@
   }
 }
 
-.card-project:hover {
-  background-color: #ff5c39;
-  opacity: 0.8;
-}
-
-.project-title {
-  color: white;
-}
-
 .img {
   z-index: 19;
   max-width: 320px;
@@ -58,24 +88,22 @@
   }
 }
 
-.project-description {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+.project-stack {
   align-items: center;
 }
 
-.githubLink,
-.playLink {
-  text-decoration: none;
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   font-size: 1.5rem;
   width: 100%;
-  transition: all 0.5s ease-in-out;
 }
 
-.githubLink:hover,
-.playLink:hover {
-  color: #0a1128;
+.link :hover {
+  color: #ff5c39;
+  transition: all 0.5s ease-in-out;
 }
 
 .list {
@@ -111,4 +139,40 @@
   .project-details:before {
     font-size: 0.8rem;
   }
+}
+
+.svg-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+}
+
+.svg-container {
+  max-width: 25px;
+}
+
+.svg-container svg {
+  width: 100%;
+  height: auto;
+  color: white;
+}
+.svg-container svg:hover {
+  color: #ff5c39;
+  transition: all 0.5s ease-in-out;
+}
+
+.svg-container svg path {
+  fill: currentColor;
+}
+
+.svg-container svg:hover path {
+  color: #ff5c39;
+  transition: all 0.5s ease-in-out;
+}
+
+.h4-title {
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
