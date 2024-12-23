@@ -12,10 +12,10 @@
     padding: 200px 50px;
   }
   @media screen and (max-width: 500px) {
-    padding: 100px 25px;
+    padding: 120px 25px;
   }
   @media screen and (max-width: 360px) {
-    padding: 100px 10px;
+    padding: 120px 10px;
   }
 }
 
