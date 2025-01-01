@@ -13,7 +13,7 @@ export default function GithubIcon() {
         stroke="none"
         stroke-width="1"
         fill="currentColor"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g
           id="Dribbble-Light-Preview"

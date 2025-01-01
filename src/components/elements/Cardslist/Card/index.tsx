@@ -6,6 +6,7 @@ import './index.css'
 import DesignIcon from '../../../materials/SVG/Design'
 import WebsiteIcon from '../../../materials/SVG/Website'
 import GithubIcon from '../../../materials/SVG/Github'
+import TrelloIcon from '../../../materials/SVG/Trello'
 
 export const Card = ({ data }: any) => {
   return data.projects.map((item: any) => (
@@ -37,6 +38,13 @@ export const Card = ({ data }: any) => {
               {item.urlGithub !== '' && (
                 <div className="svg-container">
                   <GithubIcon />
+                </div>
+              )}
+            </ExternalLink>
+            <ExternalLink href={item.urlTrello} className="link">
+              {item.urlTrello !== '' && (
+                <div className="svg-container">
+                  <TrelloIcon />
                 </div>
               )}
             </ExternalLink>
