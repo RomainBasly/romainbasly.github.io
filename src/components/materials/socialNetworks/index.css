@@ -40,6 +40,20 @@
   }
 }
 
+.logo-calendly {
+  fill: white;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    transform: translateY(-10px);
+    fill: #ff5c39;
+  }
+}
+
 .line-socials {
   width: 50%;
   height: 125px;
