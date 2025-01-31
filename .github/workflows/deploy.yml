@@ -6,9 +6,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read       # Allows the workflow to read repository content
-  pages: write         # Required for publishing to GitHub Pages
-  id-token: write      # Required for OpenID Connect authentication
+  contents: write  # or contents: read if you provide a separate GH_TOKEN, 
+                   # but typically 'write' is fine for pushing to a branch
 
 jobs:
   build:
@@ -28,19 +27,26 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1  # Keep this at v1
+      - name: Upload build artifact (v4)
+        uses: actions/upload-artifact@v4
         with:
-          path: dist  # Upload the Astro build output
+          name: astro-dist
+          path: dist  # The output folder Astro produces
 
   deploy:
-    runs-on: ubuntu-latest
+    # This job depends on the build job
     needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
+    runs-on: ubuntu-latest
     steps:
+      - name: Download build artifact (v4)
+        uses: actions/download-artifact@v4
+        with:
+          pattern: astro-dist
+          path: dist
+
+      # Now we have the built files locally in ./dist;
+      # we can deploy them to GitHub Pages using a typical GH Pages action:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1  # No changes needed here
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: dist  # The folder to publish
