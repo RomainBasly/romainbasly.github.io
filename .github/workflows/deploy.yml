@@ -2,46 +2,61 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches:
+      - main
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 18
+          cache: npm
 
-      - name: Install
-        run: npm ci
+      - name: Install dependencies
+        run: npm install
 
-      - name: Build
+      - name: Build Astro project
         run: npm run build
 
-      - name: Debug:Check working directory before deploy
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Listing root folder:"
-          ls -la
-          echo "Listing dist folder:"
-          ls -la dist || echo "❌ dist folder is missing!"
-
-      - name: Fix working directory (just in case)
-        run: cd /home/runner/work/romainbasly.github.io/romainbasly.github.io
-
-      - name: Publish to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist   # Make sure dist actually has files
-          publish_branch: gh-pages
-          force_orphan: true
+          name: github-pages
+          path: dist
+
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: dist
+
+      - name: Deploy
+        uses: actions/deploy-pages@v2
