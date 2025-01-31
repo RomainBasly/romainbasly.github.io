@@ -2,18 +2,23 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
+# These permissions are needed so we can:
+# - read the repo contents
+# - write to GitHub Pages
+# - use OIDC tokens (id-token) for secure artifact transfer
 permissions:
   contents: read
   pages: write
   id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Check out the repo
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -24,10 +29,28 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build  # By default, Astro outputs to `dist`
+      - name: Build site
+        run: npm run build
+        # For Astro, output goes to "dist" by default
 
-      - name: Deploy
+      - name: Configure GitHub Pages
+        # This step registers "pages" deployment with the workflow,
+        # ensuring the artifact can be deployed to GitHub Pages after.
+        uses: actions/configure-pages@v4
+
+      - name: Upload site artifact
+        # Upload the built "dist" folder as an artifact named "my-artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: dist
+
+  deploy:
+    needs: build  # The deploy job waits for the "build" job to finish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
-          build_dir: dist
+          # Must match the name used in "upload-artifact"
+          artifact_name: my-artifact
