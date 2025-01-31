@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -14,13 +14,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout your repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Upgrade npm
         run: npm install -g npm@latest
@@ -31,10 +31,17 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Debug: list generated files
+        run: |
+          echo "Listing root folder content..."
+          ls -la
+          echo "Listing dist folder content..."
+          ls -la dist
+
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v1.0.2
         with:
-          path: ./dist
+          path: dist
 
   deploy:
     needs: build
@@ -46,5 +53,4 @@ jobs:
       name: github-pages
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v1
