@@ -42,6 +42,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1.0.2
         with:
           path: dist
+          artifact_name: my-blog-dist
 
   deploy:
     needs: build
@@ -54,3 +55,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
+        with:
+          artifact_name: my-blog-dist
