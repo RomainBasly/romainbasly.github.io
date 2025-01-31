@@ -40,12 +40,6 @@ jobs:
     needs: build
     # "pages" + "id-token" permissions are defined at the top
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: dist
-
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
