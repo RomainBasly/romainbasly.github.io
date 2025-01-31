@@ -2,55 +2,45 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
 
-# These permissions are needed so we can:
-# - read the repo contents
-# - write to GitHub Pages
-# - use OIDC tokens (id-token) for secure artifact transfer
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install
+        run: npm ci
 
-      - name: Build site
+      - name: Build
         run: npm run build
-        # For Astro, output goes to "dist" by default
 
-      - name: Configure GitHub Pages
-        # This step registers "pages" deployment with the workflow,
-        # ensuring the artifact can be deployed to GitHub Pages after.
-        uses: actions/configure-pages@v4
+      - name: Debug:Check working directory before deploy
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "Listing root folder:"
+          ls -la
+          echo "Listing dist folder:"
+          ls -la dist || echo "❌ dist folder is missing!"
+      - name: Fix working directory (just in case)
+        run: cd /home/runner/work/romainbasly.github.io/romainbasly.github.io
 
-      - name: Upload site artifact
-        # Upload the built "dist" folder as an artifact named "my-artifact"
-        uses: actions/upload-artifact@v4
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: my-artifact
-          path: dist
-
-  deploy:
-    needs: build  # The deploy job waits for the "build" job to finish
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
-        with:
-          # Must match the name used in "upload-artifact"
-          artifact_name: my-artifact
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist   # Make sure dist actually has files
+          publish_branch: gh-pages
+          force_orphan: true
