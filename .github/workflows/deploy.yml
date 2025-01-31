@@ -34,7 +34,11 @@ jobs:
       - name: Debug: list content
         run: |
           ls -la
-          [ -d dist ] && ls -la dist || echo "dist folder not found"
+          if [ -d dist ]; then
+            ls -la dist
+          else
+            echo "dist folder not found"
+          fi
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v1.0.2
