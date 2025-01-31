@@ -2,51 +2,40 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read       # Allows the workflow to read repository content
+  pages: write         # Required for publishing to GitHub Pages
+  id-token: write      # Required for OpenID Connect authentication
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "20"
-
-      - name: Upgrade npm
-        run: npm install -g npm@latest
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm install --include=optional
+        run: npm ci
 
       - name: Build site
         run: npm run build
 
-      - name: Debug:list generated files
-        run: |
-          echo "Listing root folder content..."
-          ls -la
-          echo "Listing dist folder content..."
-          ls -la dist
-
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v1  # Keep this at v1
         with:
-          path: dist
-          artifact_name: my-blog-dist
+          path: dist  # Upload the Astro build output
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
+    needs: build
     permissions:
       pages: write
       id-token: write
@@ -54,6 +43,4 @@ jobs:
       name: github-pages
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
-        with:
-          artifact_name: my-blog-dist
+        uses: actions/deploy-pages@v1  # No changes needed here
