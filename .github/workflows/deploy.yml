@@ -26,7 +26,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Debug: check dist
+      - name: Debug:check dist
         run: |
           echo "Listing dist folder:"
           ls -la dist
