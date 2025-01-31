@@ -26,10 +26,15 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Debug:check dist
+      - name: Debug:Check working directory before deploy
         run: |
+          echo "Current working directory:"
+          pwd
+          echo "Listing root folder:"
+          ls -la
           echo "Listing dist folder:"
-          ls -la dist
+          ls -la dist || echo "❌ dist folder is missing!"
+
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v3
