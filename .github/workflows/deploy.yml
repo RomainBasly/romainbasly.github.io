@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -14,13 +14,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository
+      - name: Checkout your repository using git
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Upgrade npm
         run: npm install -g npm@latest
@@ -31,20 +31,10 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Debug: list content
-        run: |
-          ls -la
-          if [ -d dist ]; then
-            ls -la dist
-          else
-            echo "dist folder not found"
-          fi
-
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v1.0.2
         with:
-          path: dist
-          artifact_name: my-blog-dist
+          path: ./dist
 
   deploy:
     needs: build
@@ -56,6 +46,5 @@ jobs:
       name: github-pages
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v1
-        with:
-          artifact_name: my-blog-dist
