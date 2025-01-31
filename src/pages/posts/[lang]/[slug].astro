@@ -20,7 +20,6 @@ if (!slug || !lang) {
   throw new Error("No slug or language provided");
 }
 
-const postId = `${lang}/${slug}`;
 const post = await getEntry("posts", `${lang}/${slug}`);
 
 if (!post) {

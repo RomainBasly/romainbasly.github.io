@@ -1,5 +1,4 @@
 import { FaTimes } from 'react-icons/fa'
-import { ExternalLink } from 'react-external-link'
 import './index.css'
 import { useStore } from '@nanostores/react'
 import { isNavBarOpen } from '../../../utils'

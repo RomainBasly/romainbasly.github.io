@@ -1,5 +1,3 @@
-import { FaGithub } from 'react-icons/fa'
-import { TbArrowUpRightCircle } from 'react-icons/tb'
 import { ExternalLink } from 'react-external-link'
 import Notion from '../../../materials/SVG/Notion'
 import './index.css'
