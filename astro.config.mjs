@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  outDir: "build",
   site: "https://romainbasly.github.io",
   integrations: [react(), mdx(), astroIcon(), sitemap()],
   output: "static",

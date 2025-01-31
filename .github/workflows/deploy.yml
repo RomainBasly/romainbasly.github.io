@@ -6,48 +6,34 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # or contents: read if you provide a separate GH_TOKEN, 
-                   # but typically 'write' is fine for pushing to a branch
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install
         run: npm ci
 
-      - name: Build site
+      - name: Build
         run: npm run build
 
-      - name: Upload build artifact (v4)
-        uses: actions/upload-artifact@v4
-        with:
-          name: astro-dist
-          path: dist  # The output folder Astro produces
+      - name: Debug: check dist
+        run: |
+          echo "Listing dist folder:"
+          ls -la dist
 
-  deploy:
-    # This job depends on the build job
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download build artifact (v4)
-        uses: actions/download-artifact@v4
-        with:
-          pattern: astro-dist
-          path: dist
-
-      # Now we have the built files locally in ./dist;
-      # we can deploy them to GitHub Pages using a typical GH Pages action:
-      - name: Deploy to GitHub Pages
+      - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist  # The folder to publish
+          publish_dir: dist   # Make sure dist actually has files
+          publish_branch: gh-pages
