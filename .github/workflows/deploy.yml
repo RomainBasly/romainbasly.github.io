@@ -35,6 +35,8 @@ jobs:
           echo "Listing dist folder:"
           ls -la dist || echo "❌ dist folder is missing!"
 
+      - name: Fix working directory (just in case)
+        run: cd /home/runner/work/romainbasly.github.io/romainbasly.github.io
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v3
