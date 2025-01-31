@@ -1,6 +1,5 @@
 import './index.css'
 import { FaBars } from 'react-icons/fa'
-import { ExternalLink } from 'react-external-link'
 
 const Navbar = ({
   toggle,
