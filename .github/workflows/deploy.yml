@@ -39,7 +39,7 @@ jobs:
           ls -la dist
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1.0.2
+        uses: actions/upload-pages-artifact@v1
         with:
           path: dist
           artifact_name: my-blog-dist
