@@ -1,0 +1,97 @@
+---
+title: "Automatiser des tâches redondantes du travail par un modèle local - introduction générale sur l'IA"
+lang: "fr"
+translation: "/posts/en/6"
+date: "2025-02-11"
+description: "Nous le savons tous maintenant : l’intelligence artificielle est bluffante. Mais cet essor a un coût important en ressources, au point même qu’OpenAI admet que son offre premium (ChatGPT Pro) n’est pas rentable, tant elle est utilisée. Il est fort probable qu’à l’avenir, la recherche d’une plus grande sobriété énergétique devienne un enjeu majeur pour le secteur. Alors je me suis posé la question : est-il possible, dès aujourd’hui, d’utiliser l’IA pour automatiser certaines tâches redondantes d’un métier que je connais, tout en optant pour un modèle plus sobre en ressources ? Cela m’a amené à expérimenter autour des modèles open source en local, Mistral7B (En savoir plus...)"
+author: "Romain Basly"
+image:
+    url: "https://docs.astro.build/assets/rose.webp"
+    alt: "The Astro logo on a dark background with a pink glow."
+tags: ["AI", "Mistral", "HuggingFace", "Automatization", "Better-Faster-Stronger"]
+---
+
+Nous le savons tous maintenant : l’intelligence artificielle est bluffante. Elle peut être d’une aide précieuse pour une multitude de tâches professionnelles, et son adoption en entreprise ne cesse de croître. Ainsi, il n’est pas rare de voir maintenant des sociétés contractualiser avec des offres Cloud comme ceux d’OpenAI, ou encore de voir les salariés utiliser GPT de leur propre gré, parfois sans l’accord de leur employeur ou de leurs clients. Mais cet l’essor de ces pratiques a un autre contrepartie : utilisation intensive d’eau et d’électricité par les data centers, course à la puissance… L’IA, telle qu’elle existe aujourd’hui, repose sur des infrastructures gourmandes en ressources.
+
+<div>
+Des modèles ultra-puissants comme ceux développés par OpenAI (ex. : GPT-4o ou O3) en sont l’illustration parfaite : ils offrent des performances impressionnantes, mais leur fonctionnement est extrêmement énergivore, au point même qu’OpenAI admet que son offre premium (ChatGPT Pro) n’est pas rentable. Pour l’instant, cette consommation démesurée ne soulève pas de problème immédiat, mais il est fort probable qu’à l’avenir, la recherche d’une plus grande sobriété énergétique et d'une recherche de l'équilibre coût/résultat deviennent des enjeux majeurs.
+</div>
+
+<div>
+Dans cette optique, je me suis posé une question : est-il possible, dès aujourd’hui, d’utiliser l’IA pour automatiser certaines tâches redondantes d’un métier que je connais, tout en optant pour un modèle plus sobre en ressources ? L’émergence de modèles open-source pourrait-elle permettre d’exécuter certaines tâches localement, directement sur mon ordinateur, sans passer par un service centralisé basé aux États-Unis comme OpenAI ? Quelles seraient les conditions nécessaires pour y parvenir ?
+</div>
+
+Avant d’y répondre, une première question s’impose : comment faire tourner un modèle d’IA en local sur son propre ordinateur ?
+
+# L’IA en quelques mots
+
+<div>
+Pour comprendre ces enjeux, j'ai dû revenir aux fondements de l’IA pour mieux appréhender ce projet. 
+
+Si le terme intelligence artificielle apparaît en 1956, ses premières décennies sont marquées par des limites techniques : manque de données, puissance de calcul insuffisante… Il faudra attendre les années 2000 pour voir émerger les conditions propices à son essor.
+</div>
+
+<div>
+Trois avancées majeures ont permis cette révolution :
+1. L’augmentation de la puissance de calcul, avec l’essor des data centers et des carte graphiques (GPU) dédiés à l’IA.
+2. L’explosion de la quantité de données disponibles, notamment grâce au web et aux réseaux sociaux.
+3. Les progrès en machine learning et deep learning, qui ont permis d’entraîner des modèles de plus en plus performants, avec la théorie des réseaux neuronaux.
+</div>
+
+<div>
+Grâce à ces évolutions, les Large Language Models (LLM) comme GPT ont fait un bond en avant spectaculaire. Non seulement ils sont capables de comprendre et de générer du texte cohérent, mais ils peuvent aussi généraliser leurs connaissances et créer du contenu inédit, allant au-delà de ce qu’ils ont appris.
+</div>
+
+# IA Forte / IA Faible et les Transformers
+
+<div>
+### IA Forte vs. IA Faible
+
+Lorsqu'on pense à l’intelligence artificielle, beaucoup de personnes imaginent des entités capables de raisonner, d’apprendre par elles-mêmes et même d’éprouver des sentiments, à l’image du personnage de Samantha dans le film Her ou des humanoïdes de la série Humans. Ce type d’IA, capable de réflexion autonome et potentiellement consciente, est ce que l'on appelle une IA forte.
+</div>
+
+<div>
+À l’inverse, les IA que nous utilisons aujourd’hui, y compris les modèles avancés comme GPT-4 ou GPT-4o, sont des IA faibles. Contrairement à l’IA forte, elles ne comprennent pas réellement ce qu'elles produisent et ne disposent pas d’une conscience propre. Elles excellent dans des tâches spécifiques, comme la génération de texte ou l’analyse de données, mais elles ne possèdent pas d’intelligence générale.
+</div>
+
+<div>
+### Sous le capot : les Transformers
+
+Les modèles comme GPT-4 sont basés sur une architecture appelée Transformers, considérée aujourd’hui comme la plus performante pour le traitement du langage naturel.
+</div>
+
+<div>
+Le principe peut sembler surprenant au premier abord : ces IA génèrent du texte mot après mot, sans savoir à l’avance comment leur phrase va se terminer. Et chaque mot est choisi en fonction d’une probabilité statistique, déterminée par le contexte global de la conversation (c’est-à-dire ce que l’utilisateur a écrit et ce que l’IA a déjà généré). Étonnant, n’est-ce pas ?
+</div>
+
+# L’entraînement des modèles : poids et implications
+
+<div>
+### L’entraînement des LLM
+
+Le secret des Large Language Models (LLM) comme GPT réside dans leur phase d’entraînement. À l’état brut, un modèle ne sait rien. Il doit être entraîné en ingérant une quantité colossale de données textuelles et en ajustant progressivement ses paramètres.
+</div>
+
+<div>
+Voici comment cela fonctionne :
+1. **Alimentation en données de qualité** : Le modèle est exposé à des millions de textes qu’il ne “comprend” pas directement.
+2. **Apprentissage supervisé** : Ensuite, on lui demande de compléter des phrases (ex. : "Le ciel est…?").
+3. **Renforcement humain** : Des annotateurs corrigent et affinent ses réponses pour améliorer leur qualité.
+4. **Généralisation** : Après des milliers d’heures d'entraînement, le modèle est capable d’extrapoler des connaissances à partir de ce qu'il a appris.
+
+</div>
+
+# Vers une IA plus légère et accessible
+
+<div>
+Si les modèles propriétaires comme GPT-4 sont trop lourds, existe-t-il des alternatives plus légères et exploitables sur un ordinateur personnel ?
+</div>
+
+<div>
+Avec l’essor des modèles open-source, plusieurs solutions se développent pour permettre d’utiliser des LLM localement, avec une empreinte énergétique réduite. L’objectif est de trouver un modèle capable d’exécuter des tâches spécifiques sur son propre ordinateur.
+</div>
+
+<div>
+Mais comment choisir un modèle adapté à une exécution locale ?
+C’est ce que nous allons explorer dans la suite de cette expérimentation. (Affaire à suivre...)
+</div>

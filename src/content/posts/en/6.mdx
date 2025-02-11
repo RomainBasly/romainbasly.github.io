@@ -1,0 +1,95 @@
+---
+title: "Automating Repetitive Work Tasks with a Local Model - Introduction"
+lang: "en"
+translation: "/posts/fr/6"
+date: "2025-02-11"
+description: "We all know it by now: artificial intelligence is astonishing. But this rise comes at a significant resource cost, to the point that OpenAI admits its premium offering (ChatGPT Pro) is not profitable due to its heavy usage. It is likely that in the future, the pursuit of greater energy efficiency will become a major industry challenge. So I asked myself: is it possible today to use AI to automate certain repetitive tasks in a profession I know while opting for a more resource-efficient model? This led me to experiment with local open-source models, such as Mistral7B (Learn more...)."
+author: "Romain Basly"
+image:
+    url: "https://docs.astro.build/assets/rose.webp"
+    alt: "The Astro logo on a dark background with a pink glow."
+tags: ["AI", "Mistral", "HuggingFace", "Automation", "Better-Faster-Stronger"]
+---
+
+We all know it by now: artificial intelligence is astonishing. It can be an invaluable aid for many professional tasks, and its adoption in businesses continues to grow. As a result, it is now common to see companies contracting with cloud providers like OpenAI or employees using GPT on their own initiative, sometimes without their employer’s or clients’ approval. But this rise in usage has another downside: intensive water and electricity consumption by data centers, a race for power... AI, as it exists today, relies on resource-intensive infrastructures.
+
+<div>
+Ultra-powerful models like those developed by OpenAI (e.g., GPT-4o or O3) illustrate this perfectly: they deliver impressive performance but are extremely energy-intensive, to the point that OpenAI admits its premium offering (ChatGPT Pro) is not profitable. For now, this excessive consumption does not pose an immediate problem, but it is highly likely that in the future, the pursuit of greater energy efficiency and a balance between cost and performance will become major challenges.
+</div>
+
+<div>
+With this in mind, I asked myself: is it possible today to use AI to automate certain repetitive tasks in a profession I know while opting for a more resource-efficient model? Could the rise of open-source models allow some tasks to be performed locally, directly on my computer, without relying on a centralized service based in the U.S. like OpenAI? What would be the necessary conditions to achieve this?
+</div>
+
+Before answering, one question must be addressed first: how can an AI model run locally on one's own computer? 
+If you are familiar with how AI work, I suggest you to read instead the next chapters of this investigation.
+
+# AI in a Nutshell
+
+<div>
+To understand these challenges, I had to go back to the basics of AI to better grasp this project.
+
+Although the term "artificial intelligence" emerged in 1956, its early decades were marked by technical limitations: lack of data, insufficient computing power… It wasn’t until the 2000s that the right conditions for its expansion emerged.
+</div>
+
+<div>
+Three major advancements made this revolution possible:
+1. The increase in computing power, with the rise of data centers and GPUs dedicated to AI.
+2. The explosion of available data, thanks to the web and social media.
+3. Advances in machine learning and deep learning, which enabled the training of increasingly powerful models using neural network theories.
+
+
+
+Thanks to these developments, Large Language Models (LLMs) like GPT have made spectacular progress. Not only can they understand and generate coherent text, but they can also generalize their knowledge and create original content beyond what they have learned.
+</div>
+
+# Strong AI / Weak AI and Transformers
+
+<div>
+### Strong AI vs. Weak AI
+
+When people think of artificial intelligence, many imagine entities capable of reasoning, learning independently, and even experiencing emotions, like the character Samantha in the movie *Her* or the humanoids in the series *Humans*. This type of AI, capable of autonomous reflection and potentially consciousness, is what we call strong AI.
+</div>
+
+<div>
+Conversely, the AI we use today, including advanced models like GPT-4 or GPT-4o, are weak AI. Unlike strong AI, they do not truly understand what they produce and do not possess consciousness. They excel in specific tasks, such as text generation or data analysis, but they lack general intelligence.
+</div>
+
+<div>
+### Under the Hood: Transformers
+
+Models like GPT-4 are based on an architecture called Transformers, now considered the most efficient for natural language processing.
+</div>
+
+<div>
+The principle might seem surprising at first: these AI models generate text word by word, without knowing in advance how their sentence will end. Each word is chosen based on a probability, determined by the overall context of the conversation (i.e., what the user has written and what the AI has already generated). Surprising, isn’t it?
+</div>
+
+# Model Training: Weights and Implications
+
+<div>
+### Training LLMs
+
+The secret of Large Language Models (LLMs) like GPT lies in their training phase. In its raw state, a model knows nothing. It must be trained by ingesting an enormous amount of textual data and gradually adjusting its parameters.
+</div>
+
+<div>
+Here’s how it works:
+1. **Feeding Quality Data**: The model is exposed to millions of texts it does not "understand" directly.
+2. **Supervised Learning**: Then, it is asked to complete sentences (e.g., "The sky is…?").
+3. **Human Reinforcement**: Annotators correct and refine its responses to improve quality.
+4. **Generalization**: After thousands of hours of training, the model can extrapolate knowledge from what it has learned.
+</div>
+
+# Towards a Lighter and More Accessible AI
+<div>
+
+If proprietary models like GPT-4 are too heavy, are there lighter and more accessible alternatives for personal computers?
+</div>
+<div>
+With the rise of open-source models, several solutions are being developed to enable the use of LLMs locally, with a reduced energy footprint. The goal is to find a model capable of performing specific tasks on a personal computer.
+</div>
+<div>
+But how do you choose a model suited for local execution?
+That’s what we will explore in the next phase of this experiment. (To be continued)
+</div>
