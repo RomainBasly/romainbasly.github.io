@@ -1,0 +1,177 @@
+---
+title: "Automatiser des tâches redondantes du travail par un modèle local - setup"
+lang: "fr"
+translation: "/posts/en/7"
+date: "2025-02-27"
+description: "Dans le précédent article, on a vu ce qui a permis à l’IA générative de se développer, on a vu aussi sommairement comment fonctionnaient les IA, les notions d’apprentissage, de poids/paramètres et la nécessité de se tourner vers l’Open source pour accéder à des modèles plus légers. Dans cette partie, on va poursuivre la réflexion sur les critères de choix d’un modèle pour effectuer notre tâche, et mettre en place notre environnement de travail. (En savoir plus...)"
+author: "Romain Basly"
+image:
+    url: "https://docs.astro.build/assets/rose.webp"
+    alt: "The Astro logo on a dark background with a pink glow."
+tags: ["AI", "Mistral", "HuggingFace", "Automatization", "Better-Faster-Stronger"]
+---
+
+Dans le précédent article, on a vu ce qui a permis à l’IA générative de se développer, on a vu aussi sommairement comment fonctionnaient les IA, les notions d’apprentissage, de poids/paramètres et la nécessité de se tourner vers l’Open source pour accéder à des modèles plus légers. Dans cette partie, on va poursuivre la réflexion sur les critères de choix d’un modèle pour effectuer notre tâche, et mettre en place notre environnement de travail.
+
+Si la partie expérimentation vous intéresse davantage ou que vous disposez de peu de temps, alors je vous invite à vous rendre directement à l’article suivant.
+
+# Première contrainte - la tâche à effectuer
+Cela peut paraitre évident, mais le choix du modèle et de sa puissance dépendent avant tout de la tâche à effectuer.
+
+<div>
+### Description sommaire
+Dans cette expérience, on va fournir un corpus de verbatim à notre modèle. Sa tâche : analyser chaque verbatim afin d’y identifier des idées clés. Son objectif est de comparer les idées qu’il perçoit avec un plan de codes préétabli (ex. : Code 1 : "L’agent était aimable", Code 2 : "Les horaires sont pratiques", etc.).
+Pour chaque verbatim, l’IA recevra des instructions détaillées sous forme de prompt, incluant le plan de codification et des exemples associés à chaque code.
+</div>
+
+En soi, ce que doit faire le modèle doit gérer est assez simple, il n’est donc pas forcément nécessaire de choisir un modèle très poussé. A priori, les modèles Llama ou Mistral semblent être de bons candidats.
+
+# Deuxième contrainte - les contraintes physiques de notre machine
+<div>
+### Déterminer la mémoire dont on dispose pour faire effectuer les calculs à un modèle
+Dans les faits, pour faire effectuer les calculs à un modèle d’IA, deux options sont possibles :
+- La mémoire vive (RAM) & Processeur (CPU), présents sur tous les ordinateurs : le modèle est chargé sur la mémoire RAM, les calculs sont effectués par le processeur (CPU).
+- Une carte graphique dédiée (GPU), présents sur des ordinateurs spécifiques (ex: ordinateurs de gamers) ou avec des cartes graphiques ajoutées volontairement  : le modèle est chargé sur la mémoire vive du GPU (VRAM), et les calculs sont effectués de manière parallèle à l'intérieur du GPU.
+</div>
+
+Pour ma part, je n’ai pas de GPU. Et cela pose déjà une première contrainte : la puissance de ma mémoire vive pour charger le modèle. Je vais donc reposer exclusivement sur mon processeur (CPU) et sur ma mémoire RAM pour faire tourner le modèle : cela signifie que ma mémoire RAM doit être supérieure à la taille du modèle - sous peine de le faire planter.
+
+<div>
+Pour déterminer la taille de votre RAM, plusieurs solutions :
+- **Sur Mac** : ouvrez votre terminal et inscrivez: `system_profiler SPHardwareDataType | grep "Memory"`
+- **Sur Linux** : ouvrez votre terminal et inscrivez: `free -g`
+- **Sur Windows** : ouvrez votre outil de ligne de commande et inscrivez: `wmic MEMORYCHIP get Capacity`
+</div>
+
+<div>
+Je dispose d’une mémoire vive de 16 Go, ce qui limite le choix des modèles pré-entraînés que je peux utiliser en local. Parmi les options envisageables, on retrouve :
+- **LLaMA** de Meta en versions 7B et 13B (7 et 13 milliards de paramètres).
+- **Mistral AI**, qui propose des modèles équivalents en 7B et 13B.
+- **Phi-2**, un modèle plus léger avec 3 milliards de paramètres.
+</div>
+
+Cependant, télécharger ces modèles tels quels ne suffit pas : un modèle Mistral 7B complet pèse environ 30 Go, dépassant largement ma capacité en mémoire vive (16 Go). Il me faut donc un modèle encore plus léger pour pouvoir l’exécuter en local. Heureusement pour nous, il existe déjà des manières de contourner ces difficultés.
+
+## Se tourner vers les modèles compressés au format GPTQ /GGUF
+<div>
+On se souvient qu'un Large Language Model (LLM) ne stocke pas les mots directement, mais il les représente sous la forme de tokens, convertis en listes de nombres (appelées aussi vecteurs). Tout le savoir-faire d'un modèle réside dans les connexions qui existent entre ces listes, appelées aussi poids ou paramètres.
+</div>
+<div>
+Pour rendre les modèles plus accessibles, des formats compressés ont été créés : on parle de modèles quantifiés, disponibles dans des formats comme GPTQ et GGUF. Ces modèles diminuent la précision des poids pour réduire la taille des fichiers.
+
+<div>
+### Exemple :
+- Un modèle **Mistral 7B en 32 bits** pèse **30 Go**
+- Un modèle **Mistral 7B en 4 bits** passe à **6-7 Go**
+</div>
+</div>
+
+Grâce à cette réduction de taille, il devient possible d'exécuter ces modèles en local sans dépasser la capacité de ma RAM. C'est pourquoi les modèles quantifiés sont privilégiés pour les ordinateurs avec des ressources limitées.
+
+Maintenant que nous connaissons les contraintes matérielles et les modèles adaptés, nous pouvons passer à l’étape suivante : le téléchargement et l’exécution d’un modèle localement.
+
+Ici, les choses deviennent techniques.
+
+# Le téléchargement de Text generation WebUI et du modèle grâce à HuggingFace
+<div>
+### Télécharger Text Generation WebUi et le lancer localement
+Pour cela, plusieurs méthodes existent. Une des plus pratiques consiste à utiliser Text Generation WebUI, une interface front-end locale qui facilite l’installation et l’utilisation de modèles d’IA. Cette application permet de gérer les modèles, les exécuter et tester leurs performances sans avoir besoin de manipuler directement du code complexe.
+</div>
+
+<div>
+Pour cela, on va cloner leur repository Github et installer les dépendances nécessaires au lancement du projet (cela nécessite probablement d’installer le langage python et pip):
+
+```bash
+git clone https://github.com/oobabooga/text-generation-webui.git
+cd text-generation-webui
+pip install -r requirements.txt
+```
+</div>
+
+<div>
+Au moment de l’installation, il peut y avoir des conflits lié à vos multiples projets en Python, donc il sera peut être nécessaire de créer un environnement dédié pour ce projet (via Conda ou UV):
+
+```bash
+conda create -n tgwebui python=3.10
+conda activate tgwebui
+```
+</div>
+
+<div>
+Puis, vous pouvez relancer l’installation (`pip install -r requirements.txt`).
+</div>
+
+<div>
+Ensuite, selon votre bécane, il vous faudra lancer le script de lancement. De mon côté (MacBook), il me faut inscrire: `./start_macos.sh` dans mon terminal pour lancer l’application. On peut tout aussi bien lancer l’application en exécutant le fichier server.py dans le terminal:
+
+```bash
+python server.py --api --extensions api,openai
+```
+</div>
+
+<div>
+Ça prend un certain temps, et le terminal indiquera ceci :
+
+```bash
+(tgwebui) ➜  text-generation-webui git:(main) ✗ python server.py --api --extensions api,openai 
+14:39:56-175066 INFO     Starting Text generation web UI                                                                                      
+14:39:56-177648 INFO     Loading the extension "openai"                                                                                       
+14:39:56-807749 INFO     OpenAI-compatible API URL:                                                                                            
+                                                                                                                                              
+                         http://127.0.0.1:5000                                                                                                 
+                                                                                                                                              
+
+Running on local URL:  http://127.0.0.1:7860
+```
+</div>
+
+<div>
+Ce qui nous intéresse, ce sont les adresses indiquées en bas (pour voir l'application sur son navigateur:  http://127.0.0.1:7860). En suivant ce lien, on découvre différents onglets (chat, default, notebook…). Mais pour l’instant, vous n’avez pas téléchargé de modèle IA, donc on ne peut pas interagir avec le chat pour le moment.
+</div>
+
+<div>
+Pour cela, il faut vous rendre sur l’onglet « Model », et scruter la partie à droite où il est inscrit Download. C’est dans le champ inscrit sous Download model or LoRA que vous allez devoir inscrire le nom d’un modèle. Et pour trouver votre modèle, nous allons pouvoir nous rendre sur HuggingFace.
+</div>
+
+## HuggingFace
+<div>
+### Origines
+HuggingFace est une licorne française (cocorico). Sa particularité ? Une approche ouverte et communautaire : selon ses fondateurs, les modèles d’IA sont trop importants pour être monopolisés par des entreprises privées. Ils ont donc créé un hub open-source, où chacun peut partager, télécharger, et expérimenter avec des modèles IA gratuitement.
+Ce principe est idéal pour notre projet, puisqu'il nous permet de récupérer un modèle adapté à notre machine et à nos besoins.
+</div>
+
+<div>
+### Télécharger un fichier via HuggingFace
+Comme nous l’avons vu précédemment, nous avons besoin d’un modèle quantifié en GGUF, et plus précisément de Mistral 7B / Llama 7B. Pour cela, nous allons :
+1. Utiliser le moteur de recherche de HuggingFace pour chercher les modèles Mistral 7B GGUF.
+2. Choisir le modèle le plus populaire. La recherche donne de nombreux résultats, mais pour simplifier notre choix, nous allons prendre le modèle le plus téléchargé. Notre choix : MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF (1,4 million de téléchargements le mois dernier)
+3. Lancer le téléchargement dans Text Generation WebUI
+    * Ouvrir Text Generation WebUI lancé localement (pour moi c’est:  http://127.0.0.1:7860, cf la partie au-dessus)
+    * Aller dans l’onglet Download
+    * Inscrire MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF dans le champ correspondant
+4. On a la possibilité de tout télécharger, mais nous allons nous limiter aux fichiers Q4 (quantification en 4 bits), qui offrent le meilleur compromis entre légèreté et performance. Dans le champ de téléchargement des fichiers, inscrire :
+    * Q4_K_M (télécharger ce fichier en premier)
+    * Les fichiers sont volumineux (3 à 6 Go, cela peut prendre du temps selon la rapidité de votre connexion)
+    * Une fois terminé, inscrire Q4_K_S et lancer le second téléchargement
+</div>
+
+<div>
+### Charger le fichier dans WebUi
+Une fois le(s) téléchargement(s) terminé(s) :
+1. Rafraîchir l’interface
+    * Cliquer sur l’icône de recyclage pour mettre à jour la liste des modèles disponibles, partie à gauche.
+    * Si tout s’est bien passé, les modèles téléchargés apparaîtront dans la liste.
+2. Modifier le Model Loader
+    * Par défaut, le Model Loader est réglé sur Transformers.
+    * Nous devons le changer en Llama.cpp (adapté aux modèles GGUF).
+3. Charger le modèle
+    * Cliquer sur Load
+</div>
+
+<div>
+Si tout fonctionne, alors vous pouvez vous rendre sur l’onglet chat et interagir avec le modèle directement dans l’interface et l’onglet chat.
+</div>
+
+<div>
+Si tout est ok, on va donc pouvoir passer à l’étape suivante, celle de commencer à travailler l’automatisation de notre processus de codage. (À suivre dans le prochain article...)
+</div>

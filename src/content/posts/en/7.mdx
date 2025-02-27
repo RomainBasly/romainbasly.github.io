@@ -1,0 +1,178 @@
+---
+title: "Automating Redundant Work Tasks with a Local Model - Setup"
+lang: "en"
+translation: "/posts/fr/7"
+date: "2025-02-27"
+description: "In the previous article, we explored what enabled the rise of generative AI, along with a brief overview of how AI works, including concepts like learning, weights/parameters, and the importance of turning to Open Source to access lighter models. In this section, we will continue reflecting on the criteria for choosing a model to perform our task and setting up our work environment. (Read more...)"
+author: "Romain Basly"
+image:
+    url: "https://docs.astro.build/assets/rose.webp"
+    alt: "The Astro logo on a dark background with a pink glow."
+tags: ["AI", "Mistral", "HuggingFace", "Automatization", "Better-Faster-Stronger"]
+---
+
+In the previous article, we explored what enabled the rise of generative AI, along with a brief overview of how AI works, including concepts like learning, weights/parameters, and the importance of turning to Open Source to access lighter models. In this section, we will continue reflecting on the criteria for choosing a model to perform our task and setting up our work environment.
+
+If you're more interested in the experimental aspect or have limited time, I invite you to go directly to the next article.
+
+# First Constraint - The Task to Perform
+It may seem obvious, but choosing a model and its computational power primarily depends on the task at hand.
+
+<div>
+### Brief Description
+In this experiment, we will provide a corpus of verbatim responses to our model. Its task: analyze each verbatim entry to identify key ideas. Its objective is to compare the detected ideas with a predefined coding scheme (e.g., Code 1: "The agent was friendly," Code 2: "The hours are convenient," etc.).
+For each verbatim, the AI will receive detailed instructions in the form of a prompt, including the coding plan and examples associated with each code.
+</div>
+
+Essentially, what the model has to handle is relatively simple, so it is not necessarily required to choose a highly sophisticated model. At first glance, Llama or Mistral models seem to be good candidates.
+
+# Second Constraint - Physical Limitations of Our Machine
+<div>
+### Determining the Available Memory for Model Computation
+In practice, there are two possible options to run AI model computations:
+- Random Access Memory (RAM) & Central Processing Unit (CPU), available on all computers: the model is loaded into RAM, and calculations are performed by the CPU.
+- A dedicated Graphics Processing Unit (GPU), found in specific computers (e.g., gaming PCs) or with manually added GPUs: the model is loaded into the GPU’s dedicated memory (VRAM), and computations are executed in parallel within the GPU.
+</div>
+
+Personally, I do not have a GPU. This imposes an initial constraint: the capacity of my RAM to load the model. I will therefore rely exclusively on my CPU and RAM to run the model, meaning my RAM must be larger than the model’s size—otherwise, it will crash.
+
+<div>
+To determine your available RAM, you can use the following commands:
+- **On Mac**: Open your terminal and type: `system_profiler SPHardwareDataType | grep "Memory"`
+- **On Linux**: Open your terminal and type: `free -g`
+- **On Windows**: Open your command prompt and type: `wmic MEMORYCHIP get Capacity`
+</div>
+
+<div>
+I have 16GB of RAM, which limits the selection of pre-trained models I can use locally. Some viable options include:
+- **LLaMA** from Meta in 7B and 13B versions (7 and 13 billion parameters).
+- **Mistral AI**, which offers equivalent models in 7B and 13B.
+- **Phi-2**, a lighter model with 3 billion parameters.
+</div>
+
+However, simply downloading these models is not enough: a full Mistral 7B model weighs around 30GB, far exceeding my RAM capacity (16GB). Therefore, I need an even lighter model to run it locally. Fortunately, there are already ways to work around these limitations.
+
+
+## Turning to Compressed Models in GPTQ/GGUF Format
+<div>
+We recall that a Large Language Model (LLM) does not store words directly but represents them as tokens, which are converted into lists of numbers (also called vectors). The entire expertise of a model lies in the connections between these lists, known as weights or parameters.
+</div>
+<div>
+To make models more accessible, compressed formats have been developed: these are known as quantized models, available in formats such as GPTQ and GGUF. These models reduce weight precision to decrease file size.
+
+<div>
+### Example:
+- A **Mistral 7B model in 32-bit** weighs **30GB**
+- A **Mistral 7B model in 4-bit** reduces to **6-7GB**
+</div>
+</div>
+
+Thanks to this size reduction, it becomes possible to run these models locally without exceeding my RAM capacity. This is why quantized models are favored for computers with limited resources.
+
+Now that we know the hardware constraints and suitable models, we can move on to the next step: downloading and running a model locally.
+
+Here, things get technical.
+
+# Downloading Text Generation WebUI and the Model via HuggingFace
+<div>
+### Downloading Text Generation WebUI and Running it Locally
+
+There are multiple ways to do this. One of the most convenient methods is using Text Generation WebUI, a local front-end interface that simplifies the installation and usage of AI models. This application allows users to manage models, run them, and test their performance without needing to manipulate complex code directly.
+</div>
+
+<div>
+To proceed, we will clone their GitHub repository and install the required dependencies for the project (this may require installing Python and pip):
+
+```bash
+git clone https://github.com/oobabooga/text-generation-webui.git
+cd text-generation-webui
+pip install -r requirements.txt
+```
+</div>
+
+<div>
+During installation, conflicts may arise due to multiple Python projects on your machine, so creating a dedicated environment for this project (via Conda or UV) might be necessary:
+
+```bash
+conda create -n tgwebui python=3.10
+conda activate tgwebui
+```
+</div>
+
+<div>
+Then, you can restart the installation (`pip install -r requirements.txt`).
+</div>
+
+<div>
+Next, depending on your machine, you will need to run the launch script. On my MacBook, I need to enter `./start_macos.sh` in my terminal to start the application. Alternatively, the application can be launched by executing the `server.py` file in the terminal:
+
+```bash
+python server.py --api --extensions api,openai
+```
+</div>
+
+<div>
+This process takes some time, and the terminal will display the following:
+
+```bash
+(tgwebui) ➜  text-generation-webui git:(main) ✗ python server.py --api --extensions api,openai 
+14:39:56-175066 INFO     Starting Text generation web UI                                                                                      
+14:39:56-177648 INFO     Loading the extension "openai"                                                                                       
+14:39:56-807749 INFO     OpenAI-compatible API URL:                                                                                            
+                                                                                                                                              
+                         http://127.0.0.1:5000                                                                                                 
+                                                                                                                                              
+Running on local URL:  http://127.0.0.1:7860
+```
+</div>
+
+<div>
+What interests us are the addresses displayed at the bottom (to view the application in a browser: http://127.0.0.1:7860). Following this link reveals various tabs (chat, default, notebook, etc.). However, at this stage, no AI model has been downloaded, so interaction with the chat is not yet possible.
+</div>
+
+<div>
+To proceed, go to the "Model" tab and locate the "Download" section on the right. In the field labeled "Download model or LoRA," enter the name of a model. To find your model, we will turn to HuggingFace.
+</div>
+
+## HuggingFace
+<div>
+### Origins
+HuggingFace is a French unicorn company (cocorico). Its uniqueness? An open and community-driven approach: according to its founders, AI models are too important to be monopolized by private companies. They have therefore created an open-source hub where anyone can share, download, and experiment with AI models for free.
+This principle is ideal for our project as it allows us to retrieve a model suited to our machine and needs.
+</div>
+
+<div>
+### Downloading a Model via HuggingFace
+As mentioned earlier, we need a quantized model in GGUF format, specifically Mistral 7B / Llama 7B. To do this, we will:
+1. Use HuggingFace’s search engine to look for Mistral 7B GGUF models.
+2. Choose the most popular model. The search yields numerous results, but to simplify, we will select the most downloaded model. Our choice: MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF (1.4 million downloads last month).
+3. Start the download in Text Generation WebUI:
+    * Open Text Generation WebUI locally (for me, it’s: http://127.0.0.1:7860, as seen above).
+    * Go to the "Download" tab.
+    * Enter MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF in the corresponding field.
+4. While we can download everything, we will limit ourselves to Q4 files (4-bit quantization), which offer the best balance between size and performance. In the file download field, enter:
+    * Q4_K_M (download this file first).
+    * These files are large (3 to 6GB, so download time depends on your connection speed).
+    * Once finished, enter Q4_K_S and start the second download.
+</div>
+
+<div>
+### Loading the Model in WebUI
+Once the download(s) are complete:
+1. Refresh the interface:
+    * Click on the refresh icon to update the list of available models on the left.
+    * If successful, the downloaded models will appear in the list.
+2. Change the Model Loader:
+    * By default, the Model Loader is set to Transformers.
+    * We need to change it to Llama.cpp (suitable for GGUF models).
+3. Load the model:
+    * Click "Load."
+</div>
+
+<div>
+If everything works, you can now go to the chat tab and interact with the model directly within the interface.
+</div>
+
+<div>
+If all is well, we can move on to the next step: starting to automate our coding process. (To be continued in the next article...)
+</div>
