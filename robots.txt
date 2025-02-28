@@ -1,0 +1,11 @@
+User-agent: *
+# Disallow access to sensitive directories, but allow essential files
+Disallow: /node_modules/
+
+# Allow access to all file types in the /_astro/ directory
+Allow: /_astro/*.js
+Allow: /_astro/*.css
+Allow: /_astro/*.webp
+
+# Sitemap location
+Sitemap: https://romainbasly.github.io/sitemap-index.xml
