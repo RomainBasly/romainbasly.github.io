@@ -54,10 +54,10 @@ Cependant, télécharger ces modèles tels quels ne suffit pas : un modèle Mist
 
 ## Se tourner vers les modèles compressés au format GPTQ /GGUF
 <div>
-On se souvient qu'un Large Language Model (LLM) ne stocke pas les mots directement, mais il les représente sous la forme de tokens, convertis en listes de nombres (appelées aussi vecteurs). Tout le savoir-faire d'un modèle réside dans les connexions qui existent entre ces listes, appelées aussi poids ou paramètres.
+On se souvient qu'un Large Language Model (LLM) ne stocke pas les mots directement, mais il les représente sous la forme de tokens, convertis en listes de nombres (appelées aussi vecteurs). Tout le savoir-faire d'un modèle réside dans les connexions qui existent entre ces listes, appelées aussi poids ou paramètres. Ces connexions sont apprises lors de l'entraînement du modèle et lui permettent de prédire quel mot ou quelle phrase a le plus de sens dans un contexte donné. Ainsi, quand vous voyez 13 milliards de paramètres (ou 13 milliards de poids), cela signifie qu'il existe 13 milliards de petites règles qui influencent la manière dont un modèle associe les mots entre eux. Plus il y a de paramètres, plus le modèle peut capturer des nuances complexes du langage, mais aussi plus il devient gourmand en ressources.
 </div>
 <div>
-Pour rendre les modèles plus accessibles, des formats compressés ont été créés : on parle de modèles quantifiés, disponibles dans des formats comme GPTQ et GGUF. Ces modèles diminuent la précision des poids pour réduire la taille des fichiers.
+Pour rendre les modèles plus accessibles, des formats compressés ont été créés : on parle de modèles quantifiés, disponibles dans des formats comme GPTQ et GGUF. Comment ça marche? Ces modèles dminuent la précision des poids pour réduire la taille des fichiers. Concrètement, un poids de modèle LLM est initialement stocké sous forme d’un nombre très précis (ex. 0.8463923792834, un format 32 bits), peut être arrondi et stocké sous un entier plus compact (ex. 0.8, un format 4 bits). Cette compression réduit considérablement la taille des fichiers.
 
 <div>
 ### Exemple :
@@ -167,6 +167,22 @@ Une fois le(s) téléchargement(s) terminé(s) :
 3. Charger le modèle
     * Cliquer sur Load
 </div>
+
+<div>
+Si tout va bien, on a le petit message qui indique que nous avons bien chargé le modèle:
+```Successfully loaded Mistral-7B-Instruct-v0.3.Q4_K_M.gguf.
+It seems to be an instruction-following model with template "Custom (obtained from model metadata)". In the chat tab, instruct or chat-instruct modes should be used.
+```
+</div>
+<div>
+Si le chargement échoue, alors on se retrouve avec une erreur à la place de ce message. 
+Exemple : 
+```
+Llama = llama_cpp_lib().Llama
+AttributeError: 'NoneType' object has no attribute 'Llama'
+```
+</div>
+Pour ma part, cela était dû au fait que llama-cpp-python n’était pas installé sur mon environnement d’exécution. J’ai donc dû l’installer par un `pip install llama-cpp-python` dans mon environnement conda.
 
 <div>
 Si tout fonctionne, alors vous pouvez vous rendre sur l’onglet chat et interagir avec le modèle directement dans l’interface et l’onglet chat.

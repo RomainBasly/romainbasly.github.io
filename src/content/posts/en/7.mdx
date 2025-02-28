@@ -55,10 +55,12 @@ However, simply downloading these models is not enough: a full Mistral 7B model 
 
 ## Turning to Compressed Models in GPTQ/GGUF Format
 <div>
-We recall that a Large Language Model (LLM) does not store words directly but represents them as tokens, which are converted into lists of numbers (also called vectors). The entire expertise of a model lies in the connections between these lists, known as weights or parameters.
+We recall that a Large Language Model (LLM) does not store words directly but represents them as tokens, which are converted into lists of numbers (also called vectors). The entire expertise of a model lies in the connections between these lists, known as weights or parameters. These connections are learned during the model’s training and allow it to predict which word or phrase makes the most sense in a given context. Thus, when you see 13 billion parameters (or 13 billion weights), it means there are 13 billion small rules influencing how the model associates words together. The more parameters there are, the better the model can capture complex language nuances, but it also becomes more resource-intensive.
 </div>
+
 <div>
-To make models more accessible, compressed formats have been developed: these are known as quantized models, available in formats such as GPTQ and GGUF. These models reduce weight precision to decrease file size.
+To make models more accessible, compressed formats have been developed: these are known as quantized models, available in formats such as GPTQ and GGUF. How does it work? These models reduce the precision of weights to decrease file size. Specifically, an LLM weight, which is initially stored as a highly precise number (e.g., 0.8463923792834, a 32-bit format), can be rounded and stored as a more compact integer (e.g., 0.8, a 4-bit format). This compression significantly reduces file sizes.
+</div>
 
 <div>
 ### Example:
@@ -168,6 +170,17 @@ Once the download(s) are complete:
 3. Load the model:
     * Click "Load."
 </div>
+
+<div>
+If the loading fails, an error message appears instead.
+Example:
+```
+Llama = llama_cpp_lib().Llama
+AttributeError: 'NoneType' object has no attribute 'Llama'
+```
+</div>
+
+For me, this issue was caused by `llama-cpp-python` not being installed in my execution environment. I had to install it using `pip install llama-cpp-python` within my Conda environment.
 
 <div>
 If everything works, you can now go to the chat tab and interact with the model directly within the interface.
