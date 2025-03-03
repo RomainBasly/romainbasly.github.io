@@ -36,7 +36,7 @@ const Navbar = ({
           </div>
         </div>
         <div className="resume-container">
-          <a href="/CV/CV_Romain_Basly_jan2025.pdf" download>
+          <a href="/CV/CV_Romain_Basly_feb2025_Chef_projet_PO.pdf" download>
             <button className="download-resume">Resume</button>
           </a>
         </div>
